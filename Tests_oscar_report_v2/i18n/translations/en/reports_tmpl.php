@@ -1,7 +1,7 @@
 <?php
 
-$lang['reports_tmpl_meta_label'] = 'Property Results';
-$lang['reports_tmpl_meta_group'] = 'Samples';
+$lang['reports_tmpl_meta_label'] = 'Custom Reports';
+$lang['reports_tmpl_meta_group'] = 'Custom report #1';
 $lang['reports_tmpl_meta_summary'] = 'Demonstrates how to develop custom report plugins.';
 $lang['reports_tmpl_meta_description'] = 'Demonstrates how to develop custom report plugins and serves as a reference for new report plugins.';
 
