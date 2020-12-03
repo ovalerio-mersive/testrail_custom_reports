@@ -1,4 +1,4 @@
-<h1>Hola</h1>
 <?php
-
+$min_width = 250;
 ?>
+Hola
