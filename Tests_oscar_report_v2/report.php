@@ -46,7 +46,7 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 	public function __construct()
 	{
 		parent::__construct();
-		$this->_model = new Tests_property_results_summary_model();
+		$this->_model = new Tests_oscar_report_v2_summary_model();
 		$this->_model->init();
 		$this->_controls = $this->create_controls(
 			self::$_control_schema
