@@ -1,5 +1,10 @@
 <?php
-$min_width = 960;
+$min_width = 250;
+print_r($statuses);
+foreach ($statuses as $status)
+{
+	$min_width += 100;
+}
  
 $header = array(
 	'project' => $project,
