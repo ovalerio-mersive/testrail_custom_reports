@@ -129,17 +129,9 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			'project' => $context['project']
 		);
 
-		// Note that we return separate HTML snippets for the form/
-		// options and the used dialogs (which must be included after
-		// the actual form as they include their own <form> tags).
 		return array(
 			'form' => $this->render_view(
 				'form',
-				$params,
-				true
-			),
-			'after_form' => $this->render_view(
-				'form_dialogs',
 				$params,
 				true
 			)
@@ -159,9 +151,7 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 				'index',
 				array(
 					'report' => $context['report'],
-					'project' => $project,
-					'options' => $options,
-					'context' => $context
+					'project' => $project
 				)
 			)
 		);
