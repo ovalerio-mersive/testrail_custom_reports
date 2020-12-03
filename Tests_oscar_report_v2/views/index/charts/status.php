@@ -1,3 +1,6 @@
+<?php
+print_r(statuses);
+?>
 <? $statuses = $GI->cache->get_objects('status') ?>
 
 <?php
