@@ -26,7 +26,7 @@ $header = array(
 $GI->load->view('report_plugins/layout/header', $header);
 ?>
  
-The report content goes here.
+The report content goes hereeee.
 <?php
 $stats = obj::create();
 $stats->passed_count = 0;
