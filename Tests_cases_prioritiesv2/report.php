@@ -91,8 +91,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
 		$params = array(
 			'controls' => $this->_controls,
-			'project' => $project
-			// 'case_groupby' => $this->_get_groupby($project)
+			'project' => $project,
+			'case_groupby' => $this->_get_groupby($project)
 		);
 
 		return array(

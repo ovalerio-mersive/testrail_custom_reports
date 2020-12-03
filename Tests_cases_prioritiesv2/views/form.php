@@ -17,6 +17,7 @@
     </div>
 
     <!-- Body -->
+    <?php print_r($case_groupby) ?>
     <div class="tab-body tab-frame">
         <p>Body here</p>
         <div class="tab tab1">
