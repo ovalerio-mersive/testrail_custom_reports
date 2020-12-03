@@ -51,27 +51,6 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
         $this->prepare_controls($this->_controls, $context,
             $validation);
 
-        // Assign the validation rules for the fields on the form
-        // that are not covered by the controls and are specific to
-        // this report.
-        $validation->add_rules(
-            array(
-                'custom_cases_include_summary' => array(
-                    'type' => 'bool',
-                    'default' => false
-                ),
-                'custom_cases_include_details' => array(
-                    'type' => 'bool',
-                    'default' => false
-                )
-            )
-        );
-
-        if (request::is_post())
-        {
-            return;
-        }
-
         // We assign the default values for the form depending on the
         // event. For 'add', we use the default values of this plugin.
         // For 'edit/rerun', we use the previously saved values of
