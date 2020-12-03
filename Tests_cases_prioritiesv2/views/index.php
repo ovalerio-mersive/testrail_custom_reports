@@ -22,12 +22,13 @@ $GI->load->view('report_plugins/layout/header', $header);
 <p>Content will be here!!</p>
 
 <?php
+echo "<br>REPORT-------------------------<br>";
 print_r($report);
-echo "<br>-------------------------<br>";
+echo "<br>PROJECT-------------------------<br>";
 print_r($project);
-echo "<br>-------------------------<br>";
+echo "<br>OPTIONS-------------------------<br>";
 print_r($options);
-echo "<br>-------------------------<br>";
+echo "<br>SUITES-------------------------<br>";
 print_r($suites);
 echo "<br>-------------------------<br>";
 ?>
