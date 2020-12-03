@@ -14,7 +14,7 @@
 				<?=h( $status->label ) ?>
 			</th>
 		<? endforeach ?>
-		<th style="text-align: right"><?= lang('reports_tpr_table_total') ?></th>
+		<th style="text-align: right"><?= lang('reports_tmpl_table_total') ?></th>
 	</tr>
 	<? arr::alternator() ?>
 	<? foreach ($items as $item): ?>
