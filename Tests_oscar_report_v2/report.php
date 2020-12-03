@@ -151,7 +151,7 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 				'index',
 				array(
 					'report' => $context['report'],
-					'project' => $project.
+					'project' => $project,
 					'options' => $options,
 					'context' => $context,
 				)
