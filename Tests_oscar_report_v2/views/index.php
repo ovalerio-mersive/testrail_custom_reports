@@ -71,25 +71,25 @@ $GI->load->view('report_plugins/charts/defaults')
 ?>
 
 <h1 class="top"><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tpr_runs_header_info') ?>" /><?= lang('reports_tpr_runs_header') ?></h1>
-<? if ($runs): ?>
+<?php if ($runs): ?>
 	<?php
 	$temp = array();
 	$temp['runs'] = $runs;
 	$temp['run_rels'] = $run_rels;
 	$temp['show_links'] = true;
 	$GI->load->view('report_plugins/runs/groups', $temp);
-	$run_count_partial = count($runs)
 	?>
-	<? if ($run_count > $run_count_partial): ?>
+	<?php $run_count_partial = count($runs) ?>
+	<?php if ($run_count > $run_count_partial): ?>
 		<p class="partial">
-			<?= langf('reports_tpr_runs_more',
+			<?= langf('reports_tmpl_runs_more',
 			$run_count -
 			$run_count_partial) ?>
 		</p>
-	<? endif ?>
-<? else: ?>
+	<?php endif ?>
+<?php else: ?>
 	<p><?= lang('reports_tpr_runs_empty') ?></p>
-<? endif ?>
+<?php endif ?>
 
 <?php
 $temp = array();
