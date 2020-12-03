@@ -20,6 +20,7 @@ $GI->load->view('report_plugins/layout/header', $header);
 ?>
  <?php
  print_r($options);
+ print_r($context);
  ?>
 
 

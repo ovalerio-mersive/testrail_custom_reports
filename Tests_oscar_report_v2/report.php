@@ -2,19 +2,11 @@
 <?php
 class Tests_oscar_report_v2_report_plugin extends Report_plugin
 {
-	private $_controls;
 	private $_model;
+	private $_controls;
 
-	private static $_resources = array(
-// 		'images/app/run10.png',
-// 		'images/icons/help.png',
-		'js/highcharts.js',
-		'js/jquery.js',
-		'styles/print.css',
-		'styles/reset.css',
-		'styles/view.css'
-	);
-
+	// The controls and options for those controls that are used on
+	// the form of this report.
 	private static $_control_schema = array(
 		'runs_select' => array(
 			'namespace' => 'custom_runs',
@@ -25,17 +17,25 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			'namespace' => 'custom_runs',
 			'min' => 0,
 			'max' => 100,
-			'default' => 25
+			'default' => 10
 		)
+	);
+
+	// The resources (files) to copy to the output directory when
+	// generating a report.
+	private static $_resources = array(
+		'js/highcharts.js',
+		'js/jquery.js',
+		'styles/print.css',
+		'styles/reset.css',
+		'styles/view.css'
 	);
 
 	public function __construct()
 	{
 		parent::__construct();
-
 		$this->_model = new Tests_oscar_report_v2_summary_model();
 		$this->_model->init();
-
 		$this->_controls = $this->create_controls(
 			self::$_control_schema
 		);
@@ -51,11 +51,11 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			array(
 				'custom_types_include' => array(
 					'type' => 'bool',
-					'default' => true
+					'default' => false
 				),
 				'custom_priorities_include' => array(
 					'type' => 'bool',
-					'default' => true
+					'default' => false
 				)
 			)
 		);
@@ -85,18 +85,6 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 
 	public function validate_form($context, $input, $validation)
 	{
-		// We begin with validating the controls used on the form.
-		$values = $this->validate_controls(
-			$this->_controls,
-			$context,
-			$input,
-			$validation);
- 
-		if (!$values)
-		{
-			return false;
-		}
-
 		// At least one detail entity option must be selected (types or
 		// priorities).
 		if (!$input['custom_types_include'] && !$input['custom_priorities_include'])
@@ -108,7 +96,17 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			return false;
 		}
 
-		$values = array();
+		// We begin with validating the controls used on the form.
+		$values = $this->validate_controls(
+			$this->_controls,
+			$context,
+			$input,
+			$validation);
+ 
+		if (!$values)
+		{
+			return false;
+		}
 
 		static $fields = array(
 			'types_include',
@@ -131,9 +129,17 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			'project' => $context['project']
 		);
 
+		// Note that we return separate HTML snippets for the form/
+		// options and the used dialogs (which must be included after
+		// the actual form as they include their own <form> tags).
 		return array(
 			'form' => $this->render_view(
 				'form',
+				$params,
+				true
+			),
+			'after_form' => $this->render_view(
+				'form_dialogs',
 				$params,
 				true
 			)
@@ -154,7 +160,8 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 				array(
 					'report' => $context['report'],
 					'project' => $project,
-					'options' => $options
+					'options' => $options,
+					'context' => $context
 				)
 			)
 		);
