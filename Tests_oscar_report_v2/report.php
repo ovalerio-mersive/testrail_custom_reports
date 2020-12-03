@@ -34,8 +34,8 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 	// The resources (files) to copy to the output directory when
 	// generating a report.
 	private static $_resources = array(
-		// 'images/app/run10.png',
-		// 'images/icons/help.png',
+		'images/app/run10.png',
+		'images/icons/help.png',
 		'js/highcharts.js',
 		'js/jquery.js',
 		'styles/print.css',
