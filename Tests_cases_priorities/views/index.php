@@ -91,30 +91,30 @@ $GI->load->view('report_plugins/layout/header', $header);
 <?php if ($show_details): ?>
 <h1><img class="right noPrint" src="%RESOURCE%:images/report-assets/help.svg" width="16" height="16" alt="" title="<?php echo  lang('reports_cpg_cases_header_info') ?>" /><?php echo  lang('reports_cpg_cases_header') ?></h1>
 
-<?php if ($case_groups): ?>
-	<?php $suite_lookup = obj::get_lookup($suites) ?>
-	<?php foreach ($case_groups as $group): ?>
-		<?php $cases_for_suite = arr::get($cases, $group->id) ?>
-		<?php if ($cases_for_suite): ?>
-			<?php
-			$temp = array();
-			$temp['project'] = $project;
-			$temp['group'] = $group;
-			$temp['suite_lookup'] = $suite_lookup;
-			$temp['cases'] = $cases_for_suite;
-			$temp['case_limit'] = $case_limit;
-			$temp['case_fields'] = $case_fields;
-			$temp['case_columns'] = $case_columns;
-			$temp['case_columns_for_user'] = $case_columns_for_user;
-			$temp['case_count'] = $group->case_count;
-			$temp['show_links'] = $show_links;
-			$report_obj->render_view('index/case_group', $temp);
-			?>
-		<?php endif ?>
-	<?php endforeach ?>
-<?php else: ?>
-	<p><?php echo  lang('reports_cpg_cases_empty') ?></p>
-<?php endif ?>
+// <?php if ($case_groups): ?>
+// 	<?php $suite_lookup = obj::get_lookup($suites) ?>
+// 	<?php foreach ($case_groups as $group): ?>
+// 		<?php $cases_for_suite = arr::get($cases, $group->id) ?>
+// 		<?php if ($cases_for_suite): ?>
+// 			<?php
+// 			$temp = array();
+// 			$temp['project'] = $project;
+// 			$temp['group'] = $group;
+// 			$temp['suite_lookup'] = $suite_lookup;
+// 			$temp['cases'] = $cases_for_suite;
+// 			$temp['case_limit'] = $case_limit;
+// 			$temp['case_fields'] = $case_fields;
+// 			$temp['case_columns'] = $case_columns;
+// 			$temp['case_columns_for_user'] = $case_columns_for_user;
+// 			$temp['case_count'] = $group->case_count;
+// 			$temp['show_links'] = $show_links;
+// 			$report_obj->render_view('index/case_group', $temp);
+// 			?>
+// 		<?php endif ?>
+// 	<?php endforeach ?>
+// <?php else: ?>
+// 	<p><?php echo  lang('reports_cpg_cases_empty') ?></p>
+// <?php endif ?>
 
 <?php endif ?>
 
