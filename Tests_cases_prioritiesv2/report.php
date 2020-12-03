@@ -40,6 +40,9 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 	public function __construct()
 	{
 		parent::__construct();
+		$this->_controls = $this->create_controls(
+			self::$_control_schema
+		);
 	}
 
 	public function prepare_form($context, $validation)
