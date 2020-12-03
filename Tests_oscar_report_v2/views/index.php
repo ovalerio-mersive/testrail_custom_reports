@@ -79,6 +79,7 @@ $GI->load->view('report_plugins/charts/defaults')
 	$temp['show_links'] = true;
 	$GI->load->view('report_plugins/runs/groups', $temp);
 	$run_count_partial = count($runs)
+	?>
 	<? if ($run_count > $run_count_partial): ?>
 		<p class="partial">
 			<?= langf('reports_tpr_runs_more',
