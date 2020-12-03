@@ -180,7 +180,6 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
         // We read the test suites first.
         $suites = $this->_helper->get_suites_by_include(
             $project->id,
-            $options['suites_ids'],
             $options['suites_include']
         );
 
