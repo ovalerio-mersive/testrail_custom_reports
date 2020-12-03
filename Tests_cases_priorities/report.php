@@ -48,8 +48,7 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
     {
         // Assign the validation rules for the controls used on the
         // form.
-        $this->prepare_controls($this->_controls, $context,
-            $validation);
+        $this->prepare_controls($this->_controls, $context, $validation);
 
         // We assign the default values for the form depending on the
         // event. For 'add', we use the default values of this plugin.
@@ -58,17 +57,7 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
         // that we prefix all fields in the form with 'custom_' and
         // that the storage format omits this prefix (validate_form).
 
-        if ($context['event'] == 'add')
-        {
-            $defaults = array(
-                'cases_include_summary' => true,
-                'cases_include_details' => true
-            );
-        }
-        else
-        {
-            $defaults = $context['custom_options'];
-        }
+        $defaults = $context['custom_options'];
 
         foreach ($defaults as $field => $value)
         {
@@ -78,18 +67,6 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
 
     public function validate_form($context, $input, $validation)
     {
-        // At least one case option must be selected (summary or
-        // details).
-        if (!$input['custom_cases_include_summary'] &&
-            !$input['custom_cases_include_details'])
-        {
-            $validation->add_error(
-                lang('reports_cpg_form_cases_required')
-            );
-
-            return false;
-        }
-
         // We begin with validating the controls used on the form.
         $values = $this->validate_controls(
             $this->_controls,
