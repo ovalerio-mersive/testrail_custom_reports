@@ -1,12 +1,22 @@
 
+
+
 <?php
 class Tests_oscar_report_v2_report_plugin extends Report_plugin
 {
-	private $_model;
 	private $_controls;
+	private $_model;
 
-	// The controls and options for those controls that are used on
-	// the form of this report.
+	private static $_resources = array(
+		'images/app/run10.png',
+		'images/icons/help.png',
+		'js/highcharts.js',
+		'js/jquery.js',
+		'styles/print.css',
+		'styles/reset.css',
+		'styles/view.css'
+	);
+
 	private static $_control_schema = array(
 		'runs_select' => array(
 			'namespace' => 'custom_runs',
@@ -17,25 +27,17 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			'namespace' => 'custom_runs',
 			'min' => 0,
 			'max' => 100,
-			'default' => 10
+			'default' => 25
 		)
-	);
-
-	// The resources (files) to copy to the output directory when
-	// generating a report.
-	private static $_resources = array(
-		'js/highcharts.js',
-		'js/jquery.js',
-		'styles/print.css',
-		'styles/reset.css',
-		'styles/view.css'
 	);
 
 	public function __construct()
 	{
 		parent::__construct();
+
 		$this->_model = new Tests_oscar_report_v2_summary_model();
 		$this->_model->init();
+
 		$this->_controls = $this->create_controls(
 			self::$_control_schema
 		);
@@ -51,11 +53,11 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			array(
 				'custom_types_include' => array(
 					'type' => 'bool',
-					'default' => false
+					'default' => true
 				),
 				'custom_priorities_include' => array(
 					'type' => 'bool',
-					'default' => false
+					'default' => true
 				)
 			)
 		);
@@ -142,6 +144,79 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 	{
 		$project = $context['project'];
 
+// 		// Read the test suites first.
+// 		$suites = $this->_helper->get_suites_by_include(
+// 			$project->id,
+// 			$options['runs_suites_ids'],
+// 			$options['runs_suites_include']
+// 		);
+//
+// 		$suite_ids = obj::get_ids($suites);
+//
+// 		// We then get the actual list of test runs used, depending on the report options.
+// 		if ($suite_ids)
+// 		{
+// 			$runs = $this->_helper->get_runs_by_include(
+// 				$project->id,
+// 				$suite_ids,
+// 				$options['runs_include'],
+// 				$options['runs_ids'],
+// 				$options['runs_filters'],
+// 				null, // Active and completed
+// 				$options['runs_limit'],
+// 				$run_rels,
+// 				$run_count
+// 			);
+// 		}
+// 		else
+// 		{
+// 			$runs = array();
+// 			$run_rels = array();
+// 			$run_count = 0;
+// 		}
+//
+// 		$run_ids = obj::get_ids($runs);
+//
+// 		// Get all active statuses from the database.
+// 		$statuses = $this->_model->get_statuses();
+// 		$status_ids = obj::get_ids($statuses);
+//
+// 		// Read the case types and priorities from the database.
+// 		$types_include = $options['types_include'];
+// 		$types = array();
+// 		$types_results = array();
+//
+// 		if ($types_include && $run_ids)
+// 		{
+// 			$types = $this->_model->get_types();
+// 			foreach ($types as $type)
+// 			{
+// 				$types_results[$type->id] =
+// 					$this->_model->get_type_results(
+// 						$run_ids,
+// 						$type->id
+// 					);
+// 			}
+// 		}
+//
+// 		$priorities_include = $options['priorities_include'];
+// 		$priorities = array();
+// 		$priorities_results = array();
+//
+// 		if ($priorities_include && $run_ids)
+// 		{
+// 			$priorities = $this->_model->get_priorities();
+// 			foreach ($priorities as $priority)
+// 			{
+// 				$priorities_results[$priority->id] =
+// 					$this->_model->get_priority_results(
+// 						$run_ids,
+// 						$priority->id
+// 					);
+// 			}
+// 		}
+
+
 		// Render the report to a temporary file and return the path
 		// to TestRail (including additional resources that need to be
 		// copied).
@@ -152,8 +227,16 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 				array(
 					'report' => $context['report'],
 					'project' => $project,
-					'options' => $options,
-					'context' => $context,
+// 					'runs' => $runs,
+// 					'run_rels' => $run_rels,
+// 					'run_count' => $run_count,
+// 					'statuses' => $statuses,
+// 					'types_include' => $types_include,
+// 					'types' => $types,
+// 					'types_results' => $types_results,
+// 					'priorities_include' => $priorities_include,
+// 					'priorities' => $priorities,
+// 					'priorities_results' => $priorities_results
 				)
 			)
 		);
