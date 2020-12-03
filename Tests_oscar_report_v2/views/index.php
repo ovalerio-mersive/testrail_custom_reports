@@ -20,7 +20,7 @@ $GI->load->view('report_plugins/layout/header', $header);
 ?>
  
 
- <?php
+<?php
 $stats = obj::create();
 $stats->passed_count = 0;
 $stats->retest_count = 0;
@@ -77,7 +77,7 @@ $report_obj->render_view('index/charts/status', $temp);
 	<? if ($run_count > $run_count_partial): ?>
 		<p class="partial">
 			<?= langf('reports_tpr_runs_more',
-			$run_count - 
+			$run_count -
 			$run_count_partial) ?>
 		</p>
 	<? endif ?>
