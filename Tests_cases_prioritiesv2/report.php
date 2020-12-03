@@ -21,13 +21,6 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 		'runs_select' => array(
 			'namespace' => 'custom_runs',
 			'multiple_suites' => true
-		),
-		'runs_limit' => array(
-			'type' => 'limits_select',
-			'namespace' => 'custom_runs',
-			'min' => 0,
-			'max' => 100,
-			'default' => 10
 		)
 	);
 		
