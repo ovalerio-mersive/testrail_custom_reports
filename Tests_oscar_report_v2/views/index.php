@@ -64,6 +64,12 @@ $GI->load->view('report_plugins/charts/defaults')
 ?>
 
 <?php
+    $temp = array();
+    $temp['stats'] = $stats;
+    $report_obj->render_view('index/charts/status', $temp);
+?>
+
+<?php
 $temp = array();
 $temp['report'] = $report;
 $temp['meta'] = $report_obj->get_meta();
