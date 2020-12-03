@@ -18,8 +18,9 @@ $header = array(
  
 $GI->load->view('report_plugins/layout/header', $header);
 ?>
- 
-
+ <?php
+ print_r($options);
+ ?>
 
 
  
