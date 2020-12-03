@@ -22,10 +22,10 @@ $GI->load->view('report_plugins/layout/header', $header);
 <p>Content will be here!!</p>
 
 <?php
-print_r(" Report" . $report);
-print_r("Project" . $project);
-print_r("Options" . $options);
-print_r(" Suites" . $suites);
+print_r(" Report: $report");
+// print_r("Project" . $project);
+// print_r("Options" . $options);
+// print_r(" Suites" . $suites);
 ?>
 
 <?php
