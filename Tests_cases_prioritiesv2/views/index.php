@@ -34,8 +34,8 @@ echo "<br>-------------------------<br>";
 ?>
 
 <?php foreach ($suites as $suite): ?>
-	echo "<br/>"
-	print_r($suite);
+<?php	echo "<br/>" ?>
+<?php	print_r($suite); ?>
 <?php endforeach ?>
 
 
