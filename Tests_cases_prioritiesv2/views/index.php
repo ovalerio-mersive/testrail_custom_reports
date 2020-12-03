@@ -23,13 +23,13 @@ $GI->load->view('report_plugins/layout/header', $header);
 
 <?php
 print_r($report);
-echo "-------------------------";
+echo "<br>-------------------------<br>";
 print_r($project);
-echo "-------------------------";
+echo "<br>-------------------------<br>";
 print_r($options);
-echo "-------------------------";
+echo "<br>-------------------------<br>";
 print_r($suites);
-echo "-------------------------";
+echo "<br>-------------------------<br>";
 ?>
 
 <?php
