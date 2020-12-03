@@ -17,8 +17,11 @@ $header = array(
 );
  
 $GI->load->view('report_plugins/layout/header', $header);
+
+print_r($options);
+// print_r($context);
+
 ?>
-hola
 
 
  
