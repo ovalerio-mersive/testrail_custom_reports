@@ -70,7 +70,7 @@ $GI->load->view('report_plugins/charts/defaults')
     $report_obj->render_view('index/charts/status', $temp);
 ?>
 
-<h1 class="top"><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tpr_runs_header_info') ?>" /><?= lang('reports_tpr_runs_header') ?></h1>
+<h1 class="top"><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_runs_header_info') ?>" /><?= lang('reports_tmpl_runs_header') ?></h1>
 <?php if ($runs): ?>
 	<?php
 	$temp = array();
