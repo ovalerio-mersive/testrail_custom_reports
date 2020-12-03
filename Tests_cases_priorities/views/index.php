@@ -1,17 +1,18 @@
+<?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php
-$min_width = 250;
-foreach ($statuses as $status)
+$min_width = 0;
+
+foreach ($case_columns_for_user as $key => $width)
 {
-	$min_width += 100;
+	$min_width += $width ? $width : 300;
 }
 
-$min_width = max(960, $min_width);
- 
 $header = array(
 	'project' => $project,
 	'report' => $report,
 	'meta' => $report_obj->get_meta(),
 	'min_width' => $min_width,
+	'show_links' => $show_links,
 	'css' => array(
 		'styles/reset.css' => 'all',
 		'styles/view.css' => 'all',
@@ -19,110 +20,104 @@ $header = array(
 	),
 	'js' => array(
 		'js/jquery.js',
-		'js/highcharts.js'
+		'js/highcharts.js',
 	)
 );
- 
+
 $GI->load->view('report_plugins/layout/header', $header);
 ?>
- 
-The report content goes here.
-<?php
-$stats = obj::create();
-$stats->passed_count = 0;
-$stats->retest_count = 0;
-$stats->failed_count = 0;
-$stats->untested_count = 0;
-$stats->blocked_count = 0;
-$stats->custom_status1_count = 0;
-$stats->custom_status2_count = 0;
-$stats->custom_status3_count = 0;
-$stats->custom_status4_count = 0;
-$stats->custom_status5_count = 0;
-$stats->custom_status6_count = 0;
-$stats->custom_status7_count = 0;
 
-foreach ($runs as $r)
-{
-	$stats->passed_count += $r->passed_count;
-	$stats->retest_count += $r->retest_count;
-	$stats->failed_count += $r->failed_count;
-	$stats->untested_count += $r->untested_count;
-	$stats->blocked_count += $r->blocked_count;
-	$stats->custom_status1_count += $r->custom_status1_count;
-	$stats->custom_status2_count += $r->custom_status2_count;
-	$stats->custom_status3_count += $r->custom_status3_count;
-	$stats->custom_status4_count += $r->custom_status4_count;
-	$stats->custom_status5_count += $r->custom_status5_count;
-	$stats->custom_status6_count += $r->custom_status6_count;
-	$stats->custom_status7_count += $r->custom_status7_count;
-	tests::set_status_percents($r);
-}
-tests::set_status_percents($stats);
+<?php $case_groupby_name = lang('reports_cpg_cases_groupby_unknown') ?>
 
-$GI->load->view('report_plugins/charts/defaults')
-?>
+<?php if ($case_groupby == 'cases:priority_id'): ?>
+	<?php $case_groupby_name = lang('reports_cpg_cases_groupby_priority') ?>
+<?php elseif ($case_groupby == 'cases:created_by'): ?>
+	<?php $case_groupby_name = lang('reports_cpg_cases_groupby_createdby') ?>
+<?php elseif ($case_groupby == 'cases:milestone_id'): ?>
+	<?php $case_groupby_name = lang('reports_cpg_cases_groupby_milestone') ?>
+<?php elseif ($case_groupby == 'cases:template_id'): ?>
+	<?php $case_groupby_name = lang('reports_cpg_cases_groupby_template') ?>
+<?php elseif ($case_groupby == 'cases:type_id'): ?>
+	<?php $case_groupby_name = lang('reports_cpg_cases_groupby_type') ?>
+<?php elseif (str::starts_with($case_groupby, 'cases:custom')): ?>
+	<?php $case_groupby_column = str::sub($case_groupby, 6) ?>
+	<?php $case_field = arr::get($case_fields, $case_groupby_column) ?>
+	<?php if ($case_field): ?>
+		<?php $case_groupby_name = $case_field->label ?>
+	<?php endif ?>
+<?php endif ?>
 
-<?php
-    $temp = array();
-    $temp['stats'] = $stats;
-    $temp['statuses'] = $statuses;
-    $report_obj->render_view('index/charts/status', $temp);
-?>
-
-<h1 class="top"><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_runs_header_info') ?>" /><?= lang('reports_tmpl_runs_header') ?></h1>
-<?php if ($runs): ?>
+<?php if ($show_summary): ?>
+	<?php if ($case_groups): ?>
 	<?php
 	$temp = array();
-	$temp['runs'] = $runs;
-	$temp['run_rels'] = $run_rels;
-	$temp['show_links'] = true;
-	$GI->load->view('report_plugins/runs/groups', $temp);
+	$temp['case_groups'] = $case_groups;
+	$temp['case_groupby_name'] = $case_groupby_name;
+	$report_obj->render_view('index/charts', $temp);
 	?>
-	<?php $run_count_partial = count($runs) ?>
-	<?php if ($run_count > $run_count_partial): ?>
-		<p class="partial">
-			<?= langf('reports_tmpl_runs_more',
-			$run_count -
-			$run_count_partial) ?>
-		</p>
+
+	<?php $case_count_total = 0 ?>
+	<?php foreach ($case_groups as $group): ?>
+		<?php $case_count_total += $group->case_count ?>
+	<?php endforeach ?>
+
+	<?php
+	$temp = array();
+	$temp['case_groups'] = $case_groups;
+	$temp['case_count_total'] = $case_count_total;
+	$temp['case_groupby_name'] = $case_groupby_name;
+	$report_obj->render_view('index/case_totals', $temp);
+	?>
 	<?php endif ?>
+<?php endif ?>
+
+<?php $show_suites = !isset($project->suite_mode) ||
+	$project->suite_mode != TP_PROJECTS_SUITES_SINGLE ?>
+
+<?php if ($show_suites): ?>
+	<h1 class="<?php !$show_summary ? 'top' : '' ?>"><img class="right noPrint" src="%RESOURCE%:images/report-assets/help.svg" width="16" height="16" alt="" title="<?php echo  lang('reports_cpg_suites_header_info') ?>" /><?php echo  lang('reports_cpg_suites_header') ?></h1>
+	<?php if ($suites): ?>
+		<?php
+		$temp = array();
+		$temp['suites'] = $suites;
+		$temp['show_links'] = $show_links;
+		$GI->load->view('report_plugins/suites/list', $temp);
+		?>
+	<?php else: ?>
+		<p><?php echo  lang('reports_cpg_suites_empty') ?></p>
+	<?php endif ?>
+<?php endif ?>
+
+<?php if ($show_details): ?>
+<h1><img class="right noPrint" src="%RESOURCE%:images/report-assets/help.svg" width="16" height="16" alt="" title="<?php echo  lang('reports_cpg_cases_header_info') ?>" /><?php echo  lang('reports_cpg_cases_header') ?></h1>
+
+<?php if ($case_groups): ?>
+	<?php $suite_lookup = obj::get_lookup($suites) ?>
+	<?php foreach ($case_groups as $group): ?>
+		<?php $cases_for_suite = arr::get($cases, $group->id) ?>
+		<?php if ($cases_for_suite): ?>
+			<?php
+			$temp = array();
+			$temp['project'] = $project;
+			$temp['group'] = $group;
+			$temp['suite_lookup'] = $suite_lookup;
+			$temp['cases'] = $cases_for_suite;
+			$temp['case_limit'] = $case_limit;
+			$temp['case_fields'] = $case_fields;
+			$temp['case_columns'] = $case_columns;
+			$temp['case_columns_for_user'] = $case_columns_for_user;
+			$temp['case_count'] = $group->case_count;
+			$temp['show_links'] = $show_links;
+			$report_obj->render_view('index/case_group', $temp);
+			?>
+		<?php endif ?>
+	<?php endforeach ?>
 <?php else: ?>
-	<p><?= lang('reports_tmpl_runs_empty') ?></p>
+	<p><?php echo  lang('reports_cpg_cases_empty') ?></p>
 <?php endif ?>
 
-<?php if ($types_include): ?>
-	<h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_types_header_info') ?>" /><?= lang('reports_tmpl_types_header') ?></h1>
-	<?php if ($types): ?>
-		<?php
-		$temp = array();
-		$temp['header'] = lang('reports_tmpl_types_item');
-		$temp['items'] = $types;
-		$temp['results'] = $types_results;
-		$temp['statuses'] = $statuses;
-		$report_obj->render_view('index/table', $temp);
-		?>
-	<?php else: ?>
-		<p><?= lang('reports_tmpl_types_empty') ?></p>
-	<?php endif ?>
 <?php endif ?>
 
-
-<?php if ($priorities_include): ?>
-<h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_priorities_header_info') ?>" /><?= lang('reports_tmpl_priorities_header') ?></h1>
-	<?php if ($priorities): ?>
-		<?php
-		$temp = array();
-		$temp['header'] = lang('reports_tmpl_priorities_item');
-		$temp['items'] = $priorities;
-		$temp['results'] = $priorities_results;
-		$temp['statuses'] = $statuses;
-		$report_obj->render_view('index/table', $temp);
-		?>
-	<?php else: ?>
-		<p><?= lang('reports_tmpl_priorities_empty') ?></p>
-	<?php endif ?>
-<?php endif ?>
 
 <?php
 $temp = array();
