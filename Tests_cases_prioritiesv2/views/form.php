@@ -19,6 +19,24 @@
     <!-- Body -->
     <div class="tab-body tab-frame">
         <p>Body here</p>
+        <div class="tab tab1">
+            <?php $report_obj->render_control(
+                $controls,
+                'suites_select',
+                array(
+                    'top' => true,
+                    'project' => $project
+                )
+            ) ?>
+            <?php $report_obj->render_control(
+                $controls,
+                'sections_select',
+                array(
+                    'top' => true,
+                    'project' => $project
+                )
+            ) ?>
+        </div>
     </div>
 </div>
 <div style="margin-top: 1em">
