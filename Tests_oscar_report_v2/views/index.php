@@ -59,9 +59,9 @@ foreach ($runs as $r)
 	tests::set_status_percents($r);
 }
 tests::set_status_percents($stats);
-?>
 
-<? $GI->load->view('report_plugins/charts/defaults') ?>
+$GI->load->view('report_plugins/charts/defaults')
+?>
 
 <?php
 $temp = array();
