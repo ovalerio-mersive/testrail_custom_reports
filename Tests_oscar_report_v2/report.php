@@ -174,6 +174,25 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 	{
 		$project = $context['project'];
 
+		// Render the report to a temporary file and return the path
+		// to TestRail (including additional resources that need to be
+		// copied).
+		return array(
+			'resources' => self::$_resources,
+			'html_file' => $this->render_page(
+				'index',
+				array(
+					'report' => $context['report'],
+					'project' => $project
+				)
+			)
+		);
+	}
+
+	public function run2($context, $options)
+	{
+		$project = $context['project'];
+
 		// Read the test suites first.
 		$suites = $this->_helper->get_suites_by_include(
 			$project->id,
@@ -257,17 +276,17 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 				'index',
 				array(
 					'report' => $context['report'],
-					'project' => $project,
-					'runs' => $runs,
-					'run_rels' => $run_rels,
-					'run_count' => $run_count,
-					'statuses' => $statuses,
-					'types_include' => $types_include,
-					'types' => $types,
-					'types_results' => $types_results,
-					'priorities_include' => $priorities_include,
-					'priorities' => $priorities,
-					'priorities_results' => $priorities_results
+					'project' => $project
+// 					'runs' => $runs,
+// 					'run_rels' => $run_rels,
+// 					'run_count' => $run_count,
+// 					'statuses' => $statuses,
+// 					'types_include' => $types_include,
+// 					'types' => $types,
+// 					'types_results' => $types_results,
+// 					'priorities_include' => $priorities_include,
+// 					'priorities' => $priorities,
+// 					'priorities_results' => $priorities_results
 				)
 			)
 		);
