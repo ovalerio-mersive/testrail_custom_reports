@@ -56,8 +56,8 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
     // The resources to copy to the output directory when generating a
     // report.
     private static $_resources = array(
-        'images/report-assets/suite16.svg',
-        'images/report-assets/help.svg',
+//         'images/report-assets/suite16.svg',
+//         'images/report-assets/help.svg',
         'js/highcharts.js',
         'js/jquery.js',
         'styles/print.css',
