@@ -36,15 +36,6 @@
 						'project' => $project
 					)
 					);
-
-				$report_obj->render_control(
-					$controls,
-					'runs_limit',
-					array(
-						'intro' => lang('report_plugins_runs_limit'),
-						'limits' => array(5, 10, 25, 50, 100, 0)
-					)
-					);
 			?>
 		</div>
 	</div>
