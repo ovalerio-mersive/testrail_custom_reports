@@ -19,8 +19,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 	// the form of this report.
 	private static $_control_schema = array(
 		'runs_select' => array(
-			'namespace' => 'custom_suites',
-			'multiple_suites' => true
+			'namespace' => 'custom_sections'
 		)
 	);
 		
