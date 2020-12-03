@@ -22,6 +22,13 @@ $GI->load->view('report_plugins/layout/header', $header);
 <p>Content will be here!!</p>
 
 <?php
+print_r($report);
+print_r($project);
+print_r($options);
+print_r($suites);
+?>
+
+<?php
 $temp = array();
 $temp['report'] = $report;
 $temp['meta'] = $report_obj->get_meta();
