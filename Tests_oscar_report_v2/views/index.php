@@ -1,3 +1,4 @@
+<?php
 $min_width = 960;
  
 $header = array(
