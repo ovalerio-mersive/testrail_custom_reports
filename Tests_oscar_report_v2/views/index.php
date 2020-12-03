@@ -26,7 +26,7 @@ $header = array(
 $GI->load->view('report_plugins/layout/header', $header);
 ?>
  
-The report content goes hereeee.
+The report content goes here.
 <?php
 $stats = obj::create();
 $stats->passed_count = 0;
@@ -58,7 +58,10 @@ foreach ($runs as $r)
 	$stats->custom_status7_count += $r->custom_status7_count;
 	tests::set_status_percents($r);
 }
+tests::set_status_percents($stats);
 ?>
+
+<? $GI->load->view('report_plugins/charts/defaults') ?>
 
 <?php
 $temp = array();
