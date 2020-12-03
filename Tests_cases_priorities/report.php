@@ -12,7 +12,7 @@
  * http://www.gurock.com/testrail/
  */
 
-class Cases_property_groups_report_plugin extends Report_plugin
+class Tests_cases_priorities_report_plugin extends Report_plugin
 {
     private $_controls;
 
