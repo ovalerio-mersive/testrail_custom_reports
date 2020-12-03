@@ -111,7 +111,7 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 		if (!$input['custom_types_include'] && !$input['custom_priorities_include'])
 		{
 			$validation->add_error(
-				lang('reports_tpr_form_details_include_required')
+				lang('reports_tmpl_form_details_include_required')
 			);
 
 			return false;
