@@ -88,7 +88,23 @@ $GI->load->view('report_plugins/charts/defaults')
 		</p>
 	<?php endif ?>
 <?php else: ?>
-	<p><?= lang('reports_tpr_runs_empty') ?></p>
+	<p><?= lang('reports_tmpl_runs_empty') ?></p>
+<?php endif ?>
+
+<?php if ($types_include): ?>
+	<h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_types_header_info') ?>" /><?= lang('reports_tmpl_types_header') ?></h1>
+	<?php if ($types): ?>
+		<?php
+		$temp = array();
+		$temp['header'] = lang('reports_tmpl_types_item');
+		$temp['items'] = $types;
+		$temp['results'] = $types_results;
+		$temp['statuses'] = $statuses;
+		$report_obj->render_view('index/table', $temp);
+		?>
+	<?php else: ?>
+		<p><?= lang('reports_tmpl_types_empty') ?></p>
+	<?php endif ?>
 <?php endif ?>
 
 <?php
