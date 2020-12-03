@@ -1,6 +1,6 @@
 <?php
 $min_width = 250;
-print_r($project);
+print_r($statuses);
  
 $header = array(
 	'project' => $project,
