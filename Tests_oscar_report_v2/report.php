@@ -144,77 +144,77 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 	{
 		$project = $context['project'];
 
-		// Read the test suites first.
-		$suites = $this->_helper->get_suites_by_include(
-			$project->id,
-			$options['runs_suites_ids'],
-			$options['runs_suites_include']
-		);
-
-		$suite_ids = obj::get_ids($suites);
-
-		// We then get the actual list of test runs used, depending on the report options.
-		if ($suite_ids)
-		{
-			$runs = $this->_helper->get_runs_by_include(
-				$project->id,
-				$suite_ids,
-				$options['runs_include'],
-				$options['runs_ids'],
-				$options['runs_filters'],
-				null, // Active and completed
-				$options['runs_limit'],
-				$run_rels,
-				$run_count
-			);
-		}
-		else
-		{
-			$runs = array();
-			$run_rels = array();
-			$run_count = 0;
-		}
-	
-		$run_ids = obj::get_ids($runs);
-
-		// Get all active statuses from the database.
-		$statuses = $this->_model->get_statuses();
-		$status_ids = obj::get_ids($statuses);
-	
-		// Read the case types and priorities from the database.
-		$types_include = $options['types_include'];
-		$types = array();
-		$types_results = array();
-	
-		if ($types_include && $run_ids)
-		{
-			$types = $this->_model->get_types();
-			foreach ($types as $type)
-			{
-				$types_results[$type->id] = 
-					$this->_model->get_type_results(
-						$run_ids,
-						$type->id
-					);
-			}
-		}
-
-		$priorities_include = $options['priorities_include'];
-		$priorities = array();
-		$priorities_results = array();
-
-		if ($priorities_include && $run_ids)
-		{
-			$priorities = $this->_model->get_priorities();
-			foreach ($priorities as $priority)
-			{
-				$priorities_results[$priority->id] = 
-					$this->_model->get_priority_results(
-						$run_ids,
-						$priority->id
-					);
-			}
-		}
+// 		// Read the test suites first.
+// 		$suites = $this->_helper->get_suites_by_include(
+// 			$project->id,
+// 			$options['runs_suites_ids'],
+// 			$options['runs_suites_include']
+// 		);
+//
+// 		$suite_ids = obj::get_ids($suites);
+//
+// 		// We then get the actual list of test runs used, depending on the report options.
+// 		if ($suite_ids)
+// 		{
+// 			$runs = $this->_helper->get_runs_by_include(
+// 				$project->id,
+// 				$suite_ids,
+// 				$options['runs_include'],
+// 				$options['runs_ids'],
+// 				$options['runs_filters'],
+// 				null, // Active and completed
+// 				$options['runs_limit'],
+// 				$run_rels,
+// 				$run_count
+// 			);
+// 		}
+// 		else
+// 		{
+// 			$runs = array();
+// 			$run_rels = array();
+// 			$run_count = 0;
+// 		}
+//
+// 		$run_ids = obj::get_ids($runs);
+//
+// 		// Get all active statuses from the database.
+// 		$statuses = $this->_model->get_statuses();
+// 		$status_ids = obj::get_ids($statuses);
+//
+// 		// Read the case types and priorities from the database.
+// 		$types_include = $options['types_include'];
+// 		$types = array();
+// 		$types_results = array();
+//
+// 		if ($types_include && $run_ids)
+// 		{
+// 			$types = $this->_model->get_types();
+// 			foreach ($types as $type)
+// 			{
+// 				$types_results[$type->id] =
+// 					$this->_model->get_type_results(
+// 						$run_ids,
+// 						$type->id
+// 					);
+// 			}
+// 		}
+//
+// 		$priorities_include = $options['priorities_include'];
+// 		$priorities = array();
+// 		$priorities_results = array();
+//
+// 		if ($priorities_include && $run_ids)
+// 		{
+// 			$priorities = $this->_model->get_priorities();
+// 			foreach ($priorities as $priority)
+// 			{
+// 				$priorities_results[$priority->id] =
+// 					$this->_model->get_priority_results(
+// 						$run_ids,
+// 						$priority->id
+// 					);
+// 			}
+// 		}
 
 
 		// Render the report to a temporary file and return the path
@@ -227,16 +227,16 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 				array(
 					'report' => $context['report'],
 					'project' => $project,
-					'runs' => $runs,
-					'run_rels' => $run_rels,
-					'run_count' => $run_count,
-					'statuses' => $statuses,
-					'types_include' => $types_include,
-					'types' => $types,
-					'types_results' => $types_results,
-					'priorities_include' => $priorities_include,
-					'priorities' => $priorities,
-					'priorities_results' => $priorities_results
+// 					'runs' => $runs,
+// 					'run_rels' => $run_rels,
+// 					'run_count' => $run_count,
+// 					'statuses' => $statuses,
+// 					'types_include' => $types_include,
+// 					'types' => $types,
+// 					'types_results' => $types_results,
+// 					'priorities_include' => $priorities_include,
+// 					'priorities' => $priorities,
+// 					'priorities_results' => $priorities_results
 				)
 			)
 		);
