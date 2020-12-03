@@ -144,7 +144,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'project' => $project,
 					'options' => $options,
                     'suites' => $suites,
-                    'case_groupby' => $options['cases_groupby'],
+                    // 'case_groupby' => $options['cases_groupby'],
                     'show_links' => !$options['content_hide_links']
                 )
             )
