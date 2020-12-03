@@ -5,7 +5,6 @@
 
 <div class="tabs">
 	<div class="tab-header">
-	    <?php print_r($project) ?>
 		<a href="javascript:void(0)" class="tab1 current" rel="1" onclick="App.Tabs.activate(this)">
 			<?php if ($project->suite_mode == TP_PROJECTS_SUITES_SINGLE): ?>
 			<?php echo  lang('reports_cpg_form_sections') ?>
