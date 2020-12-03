@@ -19,9 +19,6 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
     // The controls and options for those controls that are used on
     // the form of this report.
     private static $_control_schema = array(
-        'suites_select' => array(
-            'namespace' => 'custom_suites'
-        ),
         'sections_select' => array(
             'namespace' => 'custom_sections'
         )
