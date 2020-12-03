@@ -15,6 +15,8 @@
 			<?php echo  lang('reports_cpg_form_suites') ?>
 			<?php endif ?>
 		</a>
+		<a href="javascript:void(0)" class="tab3 <?php echo  $tab == 3 ? 'current' : '' ?>" rel="3"
+			onclick="App.Tabs.activate(this)"><?php echo  lang('reports_cpg_form_cases') ?></a>
 	</div>
 	<div class="tab-body tab-frame">
 		<div class="tab tab1 <?php echo  $tab != 1 ? 'hidden' : '' ?>">
@@ -63,6 +65,31 @@
 				array(
 					'top' => true,
 					'project' => $project
+				)
+			) ?>
+		</div>
+		<div class="tab tab3 <?php echo  $tab != 3 ? 'hidden' : '' ?>">
+			<?php $report_obj->render_control(
+				$controls,
+				'cases_filter',
+				array(
+					'top' => true,
+					'project' => $project
+				)
+			) ?>
+			<?php $report_obj->render_control(
+				$controls,
+				'cases_columns',
+				array(
+					'columns' => $case_columns
+				)
+			) ?>
+			<?php $report_obj->render_control(
+				$controls,
+				'cases_limit',
+				array(
+					'limits' => array(10, 25, 50, 100, 250, 500, 1000),
+					'intro' => lang('reports_cpg_form_cases_limit')
 				)
 			) ?>
 		</div>
