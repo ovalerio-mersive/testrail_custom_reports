@@ -68,31 +68,6 @@
 				)
 			) ?>
 		</div>
-		<div class="tab tab3 <?php echo  $tab != 3 ? 'hidden' : '' ?>">
-			<?php $report_obj->render_control(
-				$controls,
-				'cases_filter',
-				array(
-					'top' => true,
-					'project' => $project
-				)
-			) ?>
-			<?php $report_obj->render_control(
-				$controls,
-				'cases_columns',
-				array(
-					'columns' => $case_columns
-				)
-			) ?>
-			<?php $report_obj->render_control(
-				$controls,
-				'cases_limit',
-				array(
-					'limits' => array(10, 25, 50, 100, 250, 500, 1000),
-					'intro' => lang('reports_cpg_form_cases_limit')
-				)
-			) ?>
-		</div>
 	</div>
 </div>
 
