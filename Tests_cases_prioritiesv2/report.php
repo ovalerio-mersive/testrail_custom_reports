@@ -55,7 +55,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 	public function validate_form($context, $input, $validation)
 	{
 		$project = $context['project'];
-		$cases_groupby = $this->_get_groupby($project);
+		// $cases_groupby = $this->_get_groupby($project);
 
 		$values = $this->validate_controls(
 			$this->_controls,
@@ -91,8 +91,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
 		$params = array(
 			'controls' => $this->_controls,
-			'project' => $project,
-			'case_groupby' => $this->_get_groupby($project)
+			'project' => $project
+			// 'case_groupby' => $this->_get_groupby($project)
 		);
 
 		return array(
