@@ -12,15 +12,44 @@
  * http://www.gurock.com/testrail/
  */
 
-class Tests_cases_priorities_report_plugin extends Report_plugin
+class Cases_property_groups_report_plugin extends Report_plugin
 {
     private $_controls;
 
     // The controls and options for those controls that are used on
     // the form of this report.
     private static $_control_schema = array(
+        'cases_grouping' => array(
+            'type' => 'grouping_select',
+            'namespace' => 'custom_cases',
+            'default' => 'cases:priority_id'
+        ),
+        'suites_select' => array(
+            'namespace' => 'custom_suites'
+        ),
         'sections_select' => array(
             'namespace' => 'custom_sections'
+        ),
+        'cases_columns' => array(
+            'type' => 'columns_select',
+            'namespace' => 'custom_cases',
+            'default' => array(
+                'cases:id' => 75,
+                'cases:title' => 0
+            )
+        ),
+        'cases_filter' => array(
+            'namespace' => 'custom_cases'
+        ),
+        'cases_limit' => array(
+            'type' => 'limits_select',
+            'namespace' => 'custom_cases',
+            'min' => 0,
+            'max' => 1000,
+            'default' => 25
+        ),
+        'content_hide_links' => array(
+            'namespace' => 'custom_content',
         )
     );
 
@@ -48,7 +77,29 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
     {
         // Assign the validation rules for the controls used on the
         // form.
-        $this->prepare_controls($this->_controls, $context, $validation);
+        $this->prepare_controls($this->_controls, $context,
+            $validation);
+
+        // Assign the validation rules for the fields on the form
+        // that are not covered by the controls and are specific to
+        // this report.
+        $validation->add_rules(
+            array(
+                'custom_cases_include_summary' => array(
+                    'type' => 'bool',
+                    'default' => false
+                ),
+                'custom_cases_include_details' => array(
+                    'type' => 'bool',
+                    'default' => false
+                )
+            )
+        );
+
+        if (request::is_post())
+        {
+            return;
+        }
 
         // We assign the default values for the form depending on the
         // event. For 'add', we use the default values of this plugin.
@@ -57,7 +108,17 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
         // that we prefix all fields in the form with 'custom_' and
         // that the storage format omits this prefix (validate_form).
 
-        $defaults = $context['custom_options'];
+        if ($context['event'] == 'add')
+        {
+            $defaults = array(
+                'cases_include_summary' => true,
+                'cases_include_details' => true
+            );
+        }
+        else
+        {
+            $defaults = $context['custom_options'];
+        }
 
         foreach ($defaults as $field => $value)
         {
@@ -67,6 +128,18 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
 
     public function validate_form($context, $input, $validation)
     {
+        // At least one case option must be selected (summary or
+        // details).
+        if (!$input['custom_cases_include_summary'] &&
+            !$input['custom_cases_include_details'])
+        {
+            $validation->add_error(
+                lang('reports_cpg_form_cases_required')
+            );
+
+            return false;
+        }
+
         // We begin with validating the controls used on the form.
         $values = $this->validate_controls(
             $this->_controls,
@@ -180,6 +253,7 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
         // We read the test suites first.
         $suites = $this->_helper->get_suites_by_include(
             $project->id,
+            $options['suites_ids'],
             $options['suites_include']
         );
 
