@@ -33,6 +33,12 @@ print_r($suites);
 echo "<br>-------------------------<br>";
 ?>
 
+<?php foreach ($suites as $suite): ?>
+	echo "<br/>"
+	print_r($suite);
+<?php endforeach ?>
+
+
 <?php
 $temp = array();
 $temp['report'] = $report;
