@@ -15,8 +15,6 @@
 			<?php echo  lang('reports_cpg_form_suites') ?>
 			<?php endif ?>
 		</a>
-		<a href="javascript:void(0)" class="tab3 <?php echo  $tab == 3 ? 'current' : '' ?>" rel="3"
-			onclick="App.Tabs.activate(this)"><?php echo  lang('reports_cpg_form_cases') ?></a>
 	</div>
 	<div class="tab-body tab-frame">
 		<div class="tab tab1 <?php echo  $tab != 1 ? 'hidden' : '' ?>">
