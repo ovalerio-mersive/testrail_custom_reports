@@ -1,49 +1,49 @@
 <table class="grid">
 	<colgroup>
 		<col></col>
-		<? foreach ($statuses as $status): ?>
+		<?php foreach ($statuses as $status): ?>
 			<col style="width: 100px"></col>
-		<? endforeach ?>
+		<?php endforeach ?>
 		<col style="width: 75px"></col>
 	</colgroup>
 	<tr class="header">
 		<th><?=h( $header )?></th>
-		<? foreach ($statuses as $status): ?>
+		<?php foreach ($statuses as $status): ?>
 			<th style="text-align: right">
 				<span class="statusBox" style="<?= tests::get_status_box_colors($status->color_dark) ?>">&nbsp;&nbsp;</span>
 				<?=h( $status->label ) ?>
 			</th>
-		<? endforeach ?>
+		<?php endforeach ?>
 		<th style="text-align: right"><?= lang('reports_tmpl_table_total') ?></th>
 	</tr>
-	<? arr::alternator() ?>
-	<? foreach ($items as $item): ?>
-		<? $alt = arr::alternator('odd', 'even') ?>
+	<?php arr::alternator() ?>
+	<?php foreach ($items as $item): ?>
+		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 			<td><?=h( $item->name )?></td>
-			<? $total = 0 ?>
-			<? foreach ($statuses as $status): ?>
-				<? if (isset($results[$item->id][$status->id])): ?>
-					<? $total += $results[$item->id][$status->id] ?>
-				<? endif ?>
-			<? endforeach ?>
-			<? foreach ($statuses as $status): ?>
+			<?php $total = 0 ?>
+			<?php foreach ($statuses as $status): ?>
+				<?php if (isset($results[$item->id][$status->id])): ?>
+					<?php $total += $results[$item->id][$status->id] ?>
+				<?php endif ?>
+			<?php endforeach ?>
+			<?php foreach ($statuses as $status): ?>
 			<td style="text-align: right">
-				<? if (isset($results[$item->id][$status->id])): ?>
-					<? $result = $results[$item->id][$status->id] ?>
-					<? if ($total > 0): ?>
-						<? $percent = (int) (($result / $total) * 100) ?>
-					<? else: ?>
-						<? $percent = 0 ?>
-					<? endif ?>
-				<? else: ?>
-					<? $result = 0 ?>
-					<? $percent = 0 ?>
-				<? endif ?>
+				<?php if (isset($results[$item->id][$status->id])): ?>
+					<?php $result = $results[$item->id][$status->id] ?>
+					<?php if ($total > 0): ?>
+						<?php $percent = (int) (($result / $total) * 100) ?>
+					<?php else: ?>
+						<?php $percent = 0 ?>
+					<?php endif ?>
+				<?php else: ?>
+					<?php $result = 0 ?>
+					<?php $percent = 0 ?>
+				<?php endif ?>
 				<?= $result ?> <span class="secondary">(<?= $percent ?>%)</span>
 			</td>
-			<? endforeach ?>
+			<?php endforeach ?>
 			<td style="text-align: right"><?= $total ?></td>
 		</tr>
-	<? endforeach ?>
+	<?php endforeach ?>
 </table>
