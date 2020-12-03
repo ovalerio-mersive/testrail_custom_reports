@@ -99,7 +99,7 @@ $report_obj->render_view('index/charts/status', $temp);
 		$temp['items'] = $types;
 		$temp['results'] = $types_results;
 		$temp['statuses'] = $statuses;
-		$report_obj->render_view('index/table', $temp);
+		$report_obj->render_view('index/table', $temp, $statuses);
 		?>
 	<? else: ?>
 		<p><?= lang('reports_tpr_types_empty') ?></p>
