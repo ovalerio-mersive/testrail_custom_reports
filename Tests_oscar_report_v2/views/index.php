@@ -19,11 +19,12 @@ $GI->load->view('report_plugins/layout/header', $header);
 ?>
  
 The report content goes here.
-<h1>Hola</h1>
- 
+
+<?php
 $temp = array();
 $temp['report'] = $report;
 $temp['meta'] = $report_obj->get_meta();
 $temp['show_options'] = true;
 $temp['show_report'] = true;
 $GI->load->view('report_plugins/layout/footer', $temp);
+?>

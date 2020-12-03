@@ -276,17 +276,17 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 				'index',
 				array(
 					'report' => $context['report'],
-					'project' => $project
-// 					'runs' => $runs,
-// 					'run_rels' => $run_rels,
-// 					'run_count' => $run_count,
-// 					'statuses' => $statuses,
-// 					'types_include' => $types_include,
-// 					'types' => $types,
-// 					'types_results' => $types_results,
-// 					'priorities_include' => $priorities_include,
-// 					'priorities' => $priorities,
-// 					'priorities_results' => $priorities_results
+					'project' => $project,
+					'runs' => $runs,
+					'run_rels' => $run_rels,
+					'run_count' => $run_count,
+					'statuses' => $statuses,
+					'types_include' => $types_include,
+					'types' => $types,
+					'types_results' => $types_results,
+					'priorities_include' => $priorities_include,
+					'priorities' => $priorities,
+					'priorities_results' => $priorities_results
 				)
 			)
 		);
