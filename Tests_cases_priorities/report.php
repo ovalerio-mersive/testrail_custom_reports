@@ -19,37 +19,11 @@ class Tests_cases_priorities_report_plugin extends Report_plugin
     // The controls and options for those controls that are used on
     // the form of this report.
     private static $_control_schema = array(
-        'cases_grouping' => array(
-            'type' => 'grouping_select',
-            'namespace' => 'custom_cases',
-            'default' => 'cases:priority_id'
-        ),
         'suites_select' => array(
             'namespace' => 'custom_suites'
         ),
         'sections_select' => array(
             'namespace' => 'custom_sections'
-        ),
-        'cases_columns' => array(
-            'type' => 'columns_select',
-            'namespace' => 'custom_cases',
-            'default' => array(
-                'cases:id' => 75,
-                'cases:title' => 0
-            )
-        ),
-        'cases_filter' => array(
-            'namespace' => 'custom_cases'
-        ),
-        'cases_limit' => array(
-            'type' => 'limits_select',
-            'namespace' => 'custom_cases',
-            'min' => 0,
-            'max' => 1000,
-            'default' => 25
-        ),
-        'content_hide_links' => array(
-            'namespace' => 'custom_content',
         )
     );
 
