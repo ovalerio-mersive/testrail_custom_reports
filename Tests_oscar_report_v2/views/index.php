@@ -107,6 +107,23 @@ $GI->load->view('report_plugins/charts/defaults')
 	<?php endif ?>
 <?php endif ?>
 
+
+<?php if ($priorities_include): ?>
+<h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_priorities_header_info') ?>" /><?= lang('reports_tmpl_priorities_header') ?></h1>
+	<?php if ($priorities): ?>
+		<?php
+		$temp = array();
+		$temp['header'] = lang('reports_tmpl_priorities_item');
+		$temp['items'] = $priorities;
+		$temp['results'] = $priorities_results;
+		$temp['statuses'] = $statuses;
+		$report_obj->render_view('index/table', $temp);
+		?>
+	<?php else: ?>
+		<p><?= lang('reports_tmpl_priorities_empty') ?></p>
+	<?php endif ?>
+<?php endif ?>
+
 <?php
 $temp = array();
 $temp['report'] = $report;
