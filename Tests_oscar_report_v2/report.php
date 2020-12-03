@@ -1,22 +1,22 @@
-
-
-
 <?php
+
+/**
+ * Copyright Gurock Software GmbH. See license.md for details.
+ *
+ * This is a sample custom report plugin that computes and displays
+ * the result distribution for different test properties.
+ *
+ * http://docs.gurock.com/testrail-custom/reports-introduction
+ * http://www.gurock.com/testrail/
+ */
+
 class Tests_oscar_report_v2_report_plugin extends Report_plugin
 {
-	private $_controls;
 	private $_model;
+	private $_controls;
 
-	private static $_resources = array(
-		'images/app/run10.png',
-		'images/icons/help.png',
-		'js/highcharts.js',
-		'js/jquery.js',
-		'styles/print.css',
-		'styles/reset.css',
-		'styles/view.css'
-	);
-
+	// The controls and options for those controls that are used on
+	// the form of this report.
 	private static $_control_schema = array(
 		'runs_select' => array(
 			'namespace' => 'custom_runs',
@@ -27,17 +27,27 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			'namespace' => 'custom_runs',
 			'min' => 0,
 			'max' => 100,
-			'default' => 25
+			'default' => 10
 		)
+	);
+		
+	// The resources (files) to copy to the output directory when
+	// generating a report.
+	private static $_resources = array(
+		// 'images/app/run10.png',
+		// 'images/icons/help.png',
+		'js/highcharts.js',
+		'js/jquery.js',
+		'styles/print.css',
+		'styles/reset.css',
+		'styles/view.css'
 	);
 
 	public function __construct()
 	{
 		parent::__construct();
-
-		$this->_model = new Tests_oscar_report_v2_summary_model();
+		$this->_model = new Tests_property_results_summary_model();
 		$this->_model->init();
-
 		$this->_controls = $this->create_controls(
 			self::$_control_schema
 		);
@@ -45,27 +55,36 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 
 	public function prepare_form($context, $validation)
 	{
-		// Assign the validation rules for the controls used on the form.
-		$this->prepare_controls($this->_controls, $context, $validation);
+		// Assign the validation rules for the controls used on the
+		// form.
+		$this->prepare_controls($this->_controls, $context, 
+			$validation);
 
 		// Assign the validation rules for the fields on the form.
 		$validation->add_rules(
 			array(
 				'custom_types_include' => array(
 					'type' => 'bool',
-					'default' => true
+					'default' => false
 				),
 				'custom_priorities_include' => array(
 					'type' => 'bool',
-					'default' => true
+					'default' => false
 				)
 			)
 		);
-	
+
 		if (request::is_post())
 		{
 			return;
 		}
+
+		// We assign the default values for the form depending on the
+		// event. For 'add', we use the default values of this plugin.
+		// For 'edit/rerun', we use the previously saved values of
+		// the report/report job to initialize the form. Please note
+		// that we prefix all fields in the form with 'custom_' and
+		// that the storage format omits this prefix (validate_form).
 
 		if ($context['event'] == 'add')
 		{
@@ -78,7 +97,7 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 		{
 			$defaults = $context['custom_options'];
 		}
-	
+
 		foreach ($defaults as $field => $value)
 		{
 			$validation->set_default('custom_' . $field, $value);
@@ -92,29 +111,32 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 		if (!$input['custom_types_include'] && !$input['custom_priorities_include'])
 		{
 			$validation->add_error(
-				lang('reports_tmpl_form_details_include_required')
+				lang('reports_tpr_form_details_include_required')
 			);
 
 			return false;
 		}
-
+				
 		// We begin with validating the controls used on the form.
 		$values = $this->validate_controls(
 			$this->_controls,
 			$context,
 			$input,
 			$validation);
- 
+
 		if (!$values)
 		{
 			return false;
 		}
-
+		
 		static $fields = array(
 			'types_include',
 			'priorities_include'
 		);
 
+		// And then add our fields from the form input that are not
+		// covered by the controls and return the data as it should be
+		// stored in the report options.
 		foreach ($fields as $field)
 		{
 			$key = 'custom_' . $field;
@@ -131,9 +153,17 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			'project' => $context['project']
 		);
 
+		// Note that we return separate HTML snippets for the form/
+		// options and the used dialogs (which must be included after
+		// the actual form as they include their own <form> tags).
 		return array(
 			'form' => $this->render_view(
 				'form',
+				$params,
+				true
+			),
+			'after_form' => $this->render_view(
+				'form_dialogs',
 				$params,
 				true
 			)
@@ -153,7 +183,8 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 
 		$suite_ids = obj::get_ids($suites);
 
-		// We then get the actual list of test runs used, depending on the report options.
+		// We then get the actual list of test runs used, depending on
+		// the report options.
 		if ($suite_ids)
 		{
 			$runs = $this->_helper->get_runs_by_include(
@@ -181,7 +212,8 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 		$statuses = $this->_model->get_statuses();
 		$status_ids = obj::get_ids($statuses);
 
-		// Read the case types and priorities from the database.
+		// Read the types and priorities from the database including
+		// results.
 		$types_include = $options['types_include'];
 		$types = array();
 		$types_results = array();
@@ -191,7 +223,7 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			$types = $this->_model->get_types();
 			foreach ($types as $type)
 			{
-				$types_results[$type->id] =
+				$types_results[$type->id] = 
 					$this->_model->get_type_results(
 						$run_ids,
 						$type->id
@@ -208,14 +240,13 @@ class Tests_oscar_report_v2_report_plugin extends Report_plugin
 			$priorities = $this->_model->get_priorities();
 			foreach ($priorities as $priority)
 			{
-				$priorities_results[$priority->id] =
+				$priorities_results[$priority->id] = 
 					$this->_model->get_priority_results(
 						$run_ids,
 						$priority->id
 					);
 			}
 		}
-
 
 		// Render the report to a temporary file and return the path
 		// to TestRail (including additional resources that need to be
@@ -283,7 +314,7 @@ class Tests_oscar_report_v2_summary_model extends BaseModel
 			$run_ids,
 			$type_id
 		);
- 
+
 		$results = $query->result();
 		return obj::get_lookup_scalar(
 			$results,
