@@ -152,16 +152,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			    cases, sections, priorities
 			WHERE
 				cases.section_id=sections.id and cases.priority_id=priorities.id and
-				cases.section_id = 3;',
+				cases.section_id in ({0});',
 			$section_ids
 		);
-
-		$results = $query->result();
-		return $results;
-		// return obj::get_lookup_scalar(
-		// 	$results,
-		// 	'case_id',
-		// 	$results
-		// );
+		return $query->result();
 	}
 }

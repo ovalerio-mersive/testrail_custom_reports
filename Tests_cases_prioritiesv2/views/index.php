@@ -26,15 +26,6 @@ echo "<br>CASES-------------------------<br>";
 print_r($cases);
 echo "<br>-------------------------<br><br><br><br><br>";
 
-echo "<br>SUITE IDS-------------------------<br>";
-print_r($suite_ids);
-echo "<br>-------------------------<br>";
-
-echo "<br>REPORT-------------------------<br>";
-print_r($report);
-echo "<br>-------------------------<br>";
-
-
 echo "<br>SECTION IDS-------------------------<br>";
 print_r($section_ids);
 echo "<br>-------------------------<br>";
