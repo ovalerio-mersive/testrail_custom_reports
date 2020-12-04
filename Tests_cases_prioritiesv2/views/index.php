@@ -28,10 +28,10 @@ echo "<br>PROJECT-------------------------<br>";
 print_r($project);
 echo "<br>OPTIONS-------------------------<br>";
 print_r($options);
+echo "<br>Report 2-------------------------<br>";
+print_r($report['custom_options']);
 echo "<br>-------------------------<br><br><br><br><br>";
 ?>
-
-
 
 
 <?php
