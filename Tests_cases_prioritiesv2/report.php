@@ -198,7 +198,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		if ($section_ids == "") {
 			$query = $this->db->query(
 				'SELECT
-					cases.id, sections.name, priorities.name
+					cases.id as case_id, sections.name as section_name, priorities.name as p_name
 				FROM
 					cases, sections, priorities
 				WHERE
@@ -208,7 +208,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		} else {
 			$query = $this->db->query(
 				'SELECT
-					cases.id, sections.name, priorities.name
+					cases.id as case_id, sections.name as section_name, priorities.name as p_name
 				FROM
 					cases, sections, priorities
 				WHERE
