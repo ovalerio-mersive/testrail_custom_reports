@@ -23,7 +23,7 @@
 	<?php foreach ($items as $item): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-			hola
+			<td><?=h( $item->section_name )?></td>
 		</tr>
 	<?php endforeach ?>
 </table>
