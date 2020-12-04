@@ -129,7 +129,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'section_ids' => $section_ids,
 					'suite_ids' => $suite_ids,
 					'cases' => $cases,
-					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases(),
+					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases(3), // 3 is the id for high priority
 					'show_links' => !$options['content_hide_links']
                 )
             )
@@ -139,13 +139,14 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
 class Tests_cases_prioritiesv2_summary_model extends BaseModel
 {
-	public function get_total_automated_p1_testcases() {
+	public function get_total_automated_p1_testcases($priority_id) {
 		$query = $this->db->query(
-			'SELECT count(*) 
+			'SELECT 
+				count(*) as tatal_automated_tcs_with_priority 
 			FROM 
 				cases c, priorities p 
 			WHERE 
-				c.priority_id=p.id AND p.priority=2 AND type_id=(
+				c.priority_id=p.id AND p.priority={0} AND type_id=(
 																SELECT 
 																	id 
 																FROM 
@@ -159,7 +160,8 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 																		WHERE 
 																			name="Automated"
 																	)
-																);'
+																);',
+			priority_id
 		);
 		return $query->result();
 	}
