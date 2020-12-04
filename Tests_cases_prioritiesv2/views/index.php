@@ -29,6 +29,10 @@ echo "<br>-------------------------<br><br><br><br><br>";
 echo "<br>SECTION IDS-------------------------<br>";
 print_r($section_ids);
 echo "<br>-------------------------<br>";
+
+echo "<br>OPTIONS-------------------------<br>";
+print_r($options);
+echo "<br>-------------------------<br>";
 ?>
 
 
