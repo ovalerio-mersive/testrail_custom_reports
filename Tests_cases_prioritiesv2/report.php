@@ -142,7 +142,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	public function get_total_automated_p1_testcases($priority_id) {
 		$query = $this->db->query(
 			'SELECT 
-				count(*) as tatal_automated_tcs_with_priority 
+				count(*) as total_automated_tcs_with_priority 
 			FROM 
 				cases c, priorities p 
 			WHERE 
