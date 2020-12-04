@@ -147,14 +147,14 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
         // );
 		$query = $this->db->query(
 			'SELECT
-			    c.id as case_id,
-			    s.id as section_id,
-			    s.name as section_name,
-			    p.name as priority_name
+			    cases.id as case_id,
+			    sections.id as section_id,
+			    sections.name as section_name,
+			    priorities.name as priority_name
 			FROM
-			    cases c, sections s, priorities p
-			WHERE
-			    c.section_id in ({0});',
+			    cases, sections, priorities',
+			//WHERE
+			// cases.section_id in ({0});',
 			$section_ids
 		);
 
