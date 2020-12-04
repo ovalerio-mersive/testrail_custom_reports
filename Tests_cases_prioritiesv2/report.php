@@ -13,6 +13,7 @@
 class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 {
 	private $_controls;
+	private $_model;
 
 	// The controls and options for those controls that are used on
 	// the form of this report.
@@ -40,6 +41,10 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 	public function __construct()
 	{
 		parent::__construct();
+		// initialize the db model
+		$this->_model = new Tests_cases_prioritiesv2_summary_model();
+		$this->_model->init();
+
 		$this->_controls = $this->create_controls(
 			self::$_control_schema
 		);
@@ -108,12 +113,15 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 		// Limit this report to specific test cases, if requested.
         // This is only relevant for single-suite projects and with a
         // section filter.
-        $case_ids = $this->_helper->get_case_scope_by_include(
-            $suite_ids,
-            arr::get($options, 'sections_ids'),
-            arr::get($options, 'sections_include'),
-            $has_cases
-        );
+//         $case_ids = $this->_helper->get_case_scope_by_include(
+//             $suite_ids,
+//             arr::get($options, 'sections_ids'),
+//             arr::get($options, 'sections_include'),
+//             $has_cases
+//         );
+
+        // read data from the database
+        $cases = $this->_model->get_cases_from_section($$report->custom_options['sections_ids']);
 
 		// Render the report to a temporary file and return the path
         // to TestRail (including additional resources that need to be
@@ -126,10 +134,37 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
                     'report' => $context['report'],
 					'project' => $project,
 					'options' => $options,
-                    // 'suites' => $suites,
                     'show_links' => !$options['content_hide_links']
                 )
             )
         );
+	}
+}
+
+class Tests_cases_prioritiesv2_summary_model extends BaseModel
+{
+	public function get_cases_from_section($section_ids)
+	{
+		$query = $this->db->query(
+			'SELECT
+			    c.id as case_id,
+			    s.id as section_id,
+			    s.name as section_name,
+			    p.name as priority_name
+			FROM
+			    cases c, sections s, priorities p
+			WHERE
+			    c.section_id in ({0});',
+			$section_ids
+		);
+
+		$results = $query->result();
+		return obj::get_lookup_scalar(
+			$results,
+			'case_id',
+			'section_id',
+			'section_name',
+			'priority_name'
+		);
 	}
 }
