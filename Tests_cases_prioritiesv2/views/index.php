@@ -21,18 +21,6 @@ $GI->load->view('report_plugins/layout/header', $header);
 
 <p>Content will be here!!</p>
 
-<?php
-echo "<br>REPORT-------------------------<br>";
-print_r($report);
-echo "<br>PROJECT-------------------------<br>";
-print_r($project);
-echo "<br>OPTIONS-------------------------<br>";
-print_r($options);
-echo "<br>Report 2-------------------------<br>";
-print_r($report->custom_options['sections_ids']);
-echo "<br>-------------------------<br><br><br><br><br>";
-?>
-
 <?php foreach ($report->custom_options['sections_ids'] as $section): ?>
 <?php   echo "<br/>" ?>
 <?php   print_r($section); ?>
@@ -42,8 +30,12 @@ echo "<br>-------------------------<br><br><br><br><br>";
 echo "<br>-------------------------<br><br><br><br><br>";
 print_r($cases);
 echo "<br>-------------------------<br><br><br><br><br>";
-
 ?>
+
+<?php foreach ($cases as $case): ?>
+<?php   echo "<br/>" ?>
+<?php   print_r($case); ?>
+<?php endforeach ?>
 
 
 <?php
