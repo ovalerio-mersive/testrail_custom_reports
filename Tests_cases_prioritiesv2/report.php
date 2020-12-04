@@ -112,7 +112,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
         // read data from the database
         $section_ids = $context['report']->custom_options['sections_ids'];
-        $section_ids = "'" . implode("','",$section_ids) . "'";
+		//$section_ids = "'" . implode("','",$section_ids) . "'";
+		$section_ids = arr::get($options, 'sections_ids');
         $cases = $this->_model->get_cases_from_section($section_ids);
 
 		// Render the report to a temporary file and return the path
