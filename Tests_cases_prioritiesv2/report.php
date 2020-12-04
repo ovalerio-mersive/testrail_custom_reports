@@ -142,19 +142,35 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 {
 	public function get_cases_from_section($section_ids)
 	{
-		$query = $this->db->query(
-			'SELECT
-			    cases.id as case_id,
-			    sections.id as section_id,
-			    sections.name as section_name,
-			    priorities.name as priority_name
-			FROM
-			    cases, sections, priorities
-			WHERE
-				cases.section_id=sections.id and cases.priority_id=priorities.id and
-				cases.section_id in ({0});',
-			$section_ids
-		);
+		if (count($section_ids) > 0) {
+			$query = $this->db->query(
+				'SELECT
+					cases.id as case_id,
+					sections.id as section_id,
+					sections.name as section_name,
+					priorities.name as priority_name
+				FROM
+					cases, sections, priorities
+				WHERE
+					cases.section_id=sections.id and cases.priority_id=priorities.id and
+					cases.section_id in ({0});',
+				$section_ids
+			);
+		} else {
+			$query = $this->db->query(
+				'SELECT
+					cases.id as case_id,
+					sections.id as section_id,
+					sections.name as section_name,
+					priorities.name as priority_name
+				FROM
+					cases, sections, priorities
+				WHERE
+					cases.section_id=sections.id and cases.priority_id=priorities.id',
+				$section_ids
+			);
+		}
+		
 		return $query->result();
 	}
 }
