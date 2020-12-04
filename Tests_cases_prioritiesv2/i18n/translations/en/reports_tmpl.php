@@ -9,7 +9,8 @@ $lang['reports_tmpl_cases_empty'] = 'No cases found.';
 $lang['reports_tmpl_cases_header'] = 'Summary Cases by Priority';
 $lang['reports_tmpl_cases_header_info'] = 'Shows the list of cases that are used for this report.';
 $lang['reports_tmpl_table_automated_total'] = 'Total Automated';
-$lang['reports_tmpl_table_automated_p1'] = 'Automated P1.';
+$lang['reports_tmpl_table_automated_p1'] = 'Automated P1';
+$lang['reports_tmpl_section_item'] = 'Section';
 
 
 // $lang['reports_cas_form_grouping'] = 'Grouping &amp; Changes';
