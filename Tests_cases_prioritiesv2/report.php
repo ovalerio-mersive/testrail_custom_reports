@@ -139,15 +139,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'section_ids' => $section_ids,
 					'suite_ids' => $suite_ids,
 					'cases' => $cases,
-					'query' => "SELECT
-                                    c.id as case_id,
-                                    s.id as section_id,
-                                    s.name as section_name,
-                                    p.name as priority_name
-                                FROM
-                                    cases c, sections s, priorities p
-                                WHERE
-                                    c.section_id in ('$section_ids');"
+					'query' => "SELECT c.id as case_id, s.id as section_id, s.name as section_name, p.name as priority_name FROM cases c, sections s, priorities p WHERE c.section_id in ('$section_ids');",
                     'show_links' => !$options['content_hide_links']
                 )
             )
