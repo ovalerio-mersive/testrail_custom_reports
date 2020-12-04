@@ -130,7 +130,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'suite_ids' => $suite_ids,
 					'cases' => $cases,
 					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases(3), // 3 is the id for high priority
-					'total_automated_cases' => $this->_model->get_total_automated_test_cases(), // 3 is the id for high priority
+					'total_automated_cases' => $this->_model->get_total_automated_test_cases(),
 					'show_links' => !$options['content_hide_links']
                 )
             )
