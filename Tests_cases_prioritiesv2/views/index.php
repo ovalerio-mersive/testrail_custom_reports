@@ -25,7 +25,7 @@ $stats->p1s = 0;
 $stats->p2s = 0;
 $stats->p3s = 0;
 $stats->p4s = 0;
-// $stats->total_tcs = count($cases);
+$stats->total_tcs = count($cases);
 
 foreach ($cases as $c)
 {
@@ -50,6 +50,7 @@ foreach ($cases as $c)
 	}
 }
 
+echo "Total cases: " . $stats->total_tcs . "<br/>";
 echo "Cases with p1: " . $stats->p1s . "<br/>";
 echo "Cases with p2: " . $stats->p2s . "<br/>";
 echo "Cases with p3: " . $stats->p3s . "<br/>";
