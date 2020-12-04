@@ -1,10 +1,10 @@
 <table class="grid">
 	<colgroup>
-		<!-- <col></col> -->
+		<col></col>
 		<?php foreach ($priorities as $p): ?>
 			<col style="width: 100px"></col>
 		<?php endforeach ?>
-		<col style="width: 75px"></col>
+		<col style="width: 100px"></col>
 		<col style="width: 75px"></col>
 	</colgroup>
 	<tr class="header">
