@@ -27,6 +27,8 @@ print_r($cases);
 echo "<br>-------------------------<br><br><br><br><br>";
 print_r($section_ids);
 echo "<br>-------------------------<br><br><br><br><br>";
+print_r($suite_ids);
+echo "<br>-------------------------<br><br><br><br><br>";
 ?>
 
 <?php foreach ($cases as $case): ?>
