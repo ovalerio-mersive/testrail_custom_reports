@@ -4,8 +4,8 @@
 		<?php foreach ($priorities as $p): ?>
 			<col style="width: 100px"></col>
 		<?php endforeach ?>
-		<col style="width: 100px"></col>
-		<col style="width: 75px"></col>
+		<col style="width: 300px"></col>
+		<col style="width: 1500px"></col>
 	</colgroup>
 	<tr class="header">
 		<th><?=h( $header )?></th>
