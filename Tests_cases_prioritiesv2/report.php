@@ -129,8 +129,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'section_ids' => $section_ids,
 					'suite_ids' => $suite_ids,
 					'cases' => $cases,
-					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases(3), // 3 is the id for high priority
-					'total_automated_cases' => $this->_model->get_total_automated_test_cases(),
+					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases($section_ids, 3), // 3 is the id for high priority
+					'total_automated_cases' => $this->_model->get_total_automated_test_cases($section_ids),
 					'show_links' => !$options['content_hide_links']
                 )
             )
