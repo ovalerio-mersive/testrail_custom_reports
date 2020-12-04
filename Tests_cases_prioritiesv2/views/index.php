@@ -56,7 +56,7 @@ echo "Cases with p2: " . $stats->p2s . "  (". number_format((float)($stats->p2s 
 echo "Cases with p3: " . $stats->p3s . "  (". number_format((float)($stats->p3s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 echo "Cases with p4: " . $stats->p4s . "  (". number_format((float)($stats->p4s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
-print_r($automated_p1_cases->total_automated_tcs_with_priority);
+print_r($automated_p1_cases['total_automated_tcs_with_priority']);
 // echo "<br><br>Automated P1 test cases: " . $automated_p1_cases . "  (". number_format((float)($automated_p1_cases * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 ?>
