@@ -48,13 +48,12 @@ foreach ($cases as $c)
 			break;
 	
 	}
-
-	echo "Cases with p1: " . $stats->p1s . "<br/>";
-	echo "Cases with p2: " . $stats->p2s . "<br/>";
-	echo "Cases with p3: " . $stats->p3s . "<br/>";
-	echo "Cases with p4: " . $stats->p4s . "<br/>";
-
 }
+
+echo "Cases with p1: " . $stats->p1s . "<br/>";
+echo "Cases with p2: " . $stats->p2s . "<br/>";
+echo "Cases with p3: " . $stats->p3s . "<br/>";
+echo "Cases with p4: " . $stats->p4s . "<br/>";
 
 ?>
 
