@@ -203,7 +203,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				FROM
 					cases c, sections s, priorities p
 				WHERE
-					c.section_id=sections.id and c.priority_id=priorities.id',
+					c.section_id=s.id and c.priority_id=p.id',
 				$section_ids
 			);
 		} else {
@@ -213,7 +213,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				FROM
 					cases c, sections s, priorities p
 				WHERE
-					c.section_id=sections.id and c.priority_id=priorities.id and c.section_id in ({0});',
+					c.section_id=s.id and c.priority_id=p.id and c.section_id in ({0});',
 				$section_ids
 			);
 		}
