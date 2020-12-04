@@ -28,7 +28,7 @@ echo "<br>-------------------------<br><br><br><br><br>";
 ?>
 
 <?php foreach ($cases as $case): ?>
-<?php   echo "<br/>" ?>
+<?php   echo "<br/> ---" ?>
 <?php   print_r($case); ?>
 <?php endforeach ?>
 
