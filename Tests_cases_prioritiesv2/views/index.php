@@ -33,7 +33,7 @@ print_r($suites);
 echo "<br>-------------------------<br><br><br><br><br>";
 ?>
 
-<?php foreach ($options['suites_ids'] as $suite): ?>
+<?php foreach ($suites as $suite): ?>
 <?php	echo "<br/>" ?>
 <?php	print_r($suite); ?>
 <?php endforeach ?>
