@@ -139,7 +139,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'section_ids' => $section_ids,
 					'suite_ids' => $suite_ids,
 					'cases' => $cases,
-					'query': "SELECT
+					'query' => "SELECT
                                     c.id as case_id,
                                     s.id as section_id,
                                     s.name as section_name,
