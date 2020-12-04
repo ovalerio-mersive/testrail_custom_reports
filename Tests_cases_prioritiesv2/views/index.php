@@ -52,6 +52,8 @@ foreach ($cases as $c)
 	}
 }
 
+print_r($priorities);
+
 echo "<br/><br/><hr/><br/>Total cases: 		" . $stats->total_tcs . "<br/>";
 echo "Cases with Low priority: 		" . $stats->p_low . "  (". number_format((float)($stats->p_low * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 echo "Cases with Medium priority: 	" . $stats->p_medium . "  (". number_format((float)($stats->p_medium * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
