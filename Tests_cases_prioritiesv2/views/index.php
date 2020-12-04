@@ -29,7 +29,7 @@ print_r($project);
 echo "<br>OPTIONS-------------------------<br>";
 print_r($options);
 echo "<br>Report 2-------------------------<br>";
-print_r($report->custom_options['suites_ids']);
+print_r($report->custom_options['sections_ids']);
 echo "<br>-------------------------<br><br><br><br><br>";
 ?>
 
