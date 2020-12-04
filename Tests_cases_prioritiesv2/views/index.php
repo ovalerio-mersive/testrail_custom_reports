@@ -42,7 +42,7 @@ echo "<br>-------------------------<br>";
 
 <?php foreach ($cases as $ca): ?>
 <?php   echo "<br/> --- " ?>
-<?php   echo $ca; ?>
+<?php   echo "..." . $ca; ?>
 <?php   print_r($ca); ?>
 <?php endforeach ?>
 
