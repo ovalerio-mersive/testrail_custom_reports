@@ -11,10 +11,9 @@
 		<?php foreach ($cases as $case): ?>
 			<th style="text-align: right">
 				<span class="statusBox">&nbsp;&nbsp;</span>
-				<?=h( $case ) ?>
+				<?php print_r($case) ?>
 			</th>
 		<?php endforeach ?>
-		<!-- <th style="text-align: right"><?= lang('reports_tmpl_table_total') ?></th> -->
 	</tr>
 	<?php arr::alternator() ?>
 </table>
