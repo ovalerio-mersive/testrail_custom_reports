@@ -12,7 +12,7 @@
 		<?php foreach ($priorities as $p): ?>
 			<th style="text-align: right">
 				<span class="statusBox">&nbsp;&nbsp;</span>
-				<?= h( $p.name ) ?>
+				<?= h( $p.short_name ) ?>
 			</th>
 		<?php endforeach ?>
 		<th style="text-align: right"><?= lang('reports_tmpl_table_automated_p1') ?></th>
