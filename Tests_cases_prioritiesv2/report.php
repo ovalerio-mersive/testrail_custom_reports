@@ -129,8 +129,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'section_ids' => $section_ids,
 					'suite_ids' => $suite_ids,
 					'cases' => $cases,
-					// 'query' => "SELECT c.id as case_id, s.id as section_id, s.name as section_name, p.name as priority_name FROM cases c, sections s, priorities p WHERE c.section_id in ('$section_ids');",
-                    'show_links' => !$options['content_hide_links']
+					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases(),
+					'show_links' => !$options['content_hide_links']
                 )
             )
         );
@@ -138,7 +138,32 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 }
 
 class Tests_cases_prioritiesv2_summary_model extends BaseModel
-{	
+{
+	public function get_total_automated_p1_testcases() {
+		$query = $this->db->query(
+			'SELECT count(*) 
+			FROM 
+				cases c, priorities p 
+			WHERE 
+				c.priority_id=p.id AND p.priority=2 AND type_id=(
+																SELECT 
+																	id 
+																FROM 
+																	case_types 
+																WHERE
+																	id=(
+																		SELECT 
+																			id 
+																		FROM 
+																			case_types 
+																		WHERE 
+																			name="Automated"
+																	)
+																);'
+		);
+		return $query->result();
+	}
+	
 	public function get_cases_from_section($section_ids)
 	{
 		if ($section_ids == "") {

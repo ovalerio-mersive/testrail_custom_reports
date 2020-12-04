@@ -51,10 +51,12 @@ foreach ($cases as $c)
 }
 
 echo "Total cases: " . $stats->total_tcs . "<br/>";
-echo "Cases with p1: " . $stats->p1s . "(". number_format((float)($stats->p1s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "Cases with p2: " . $stats->p2s . "(". number_format((float)($stats->p2s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "Cases with p3: " . $stats->p3s . "(". number_format((float)($stats->p3s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "Cases with p4: " . $stats->p4s . "(". number_format((float)($stats->p4s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+echo "Cases with p1: " . $stats->p1s . "  (". number_format((float)($stats->p1s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+echo "Cases with p2: " . $stats->p2s . "  (". number_format((float)($stats->p2s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+echo "Cases with p3: " . $stats->p3s . "  (". number_format((float)($stats->p3s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+echo "Cases with p4: " . $stats->p4s . "  (". number_format((float)($stats->p4s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+
+echo "<br><br>Automated P1 test cases: " . $automated_p1_cases . "  (". number_format((float)($automated_p1_cases * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 ?>
 
