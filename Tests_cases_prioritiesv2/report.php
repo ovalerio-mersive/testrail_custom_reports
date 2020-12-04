@@ -110,16 +110,6 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
 		$suite_ids = obj::get_ids($suites);
 
-		// Limit this report to specific test cases, if requested.
-        // This is only relevant for single-suite projects and with a
-        // section filter.
-//         $case_ids = $this->_helper->get_case_scope_by_include(
-//             $suite_ids,
-//             arr::get($options, 'sections_ids'),
-//             arr::get($options, 'sections_include'),
-//             $has_cases
-//         );
-
         // read data from the database
         $section_ids = $context['report']->custom_options['sections_ids'];
         $section_ids = implode("','",$section_ids);
@@ -151,21 +141,21 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 {
 	public function get_cases_from_section($section_ids)
 	{
-	    $query = $this->db->query(
-            "SELECT c.id as case_id, s.id as section_id, s.name as section_name, p.name as priority_name FROM cases c, sections s, priorities p WHERE c.section_id in ('$section_ids');",
-        );
-// 		$query = $this->db->query(
-// 			'SELECT
-// 			    c.id as case_id,
-// 			    s.id as section_id,
-// 			    s.name as section_name,
-// 			    p.name as priority_name
-// 			FROM
-// 			    cases c, sections s, priorities p
-// 			WHERE
-// 			    c.section_id in ("{0}");',
-// 			$section_ids
-// 		);
+	    // $query = $this->db->query(
+        //     "SELECT c.id as case_id, s.id as section_id, s.name as section_name, p.name as priority_name FROM cases c, sections s, priorities p WHERE c.section_id in ('$section_ids');",
+        // );
+		$query = $this->db->query(
+			'SELECT
+			    c.id as case_id,
+			    s.id as section_id,
+			    s.name as section_name,
+			    p.name as priority_name
+			FROM
+			    cases c, sections s, priorities p
+			WHERE
+			    c.section_id in ("{0}");',
+			$section_ids
+		);
 
 		$results = $query->result();
 		return $results;
