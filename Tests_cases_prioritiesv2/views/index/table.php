@@ -8,7 +8,9 @@
 	</colgroup>
 	<tr class="header">
 		<th><?=h( $header )?></th>
-		<th><?=h( $header )?></th>
+		<?php foreach ($priorities as $p): ?>
+			<th style="text-align: right">$p->name</th>
+		<?php endforeach ?>
 	</tr>
 	<?php arr::alternator() ?>
 </table>

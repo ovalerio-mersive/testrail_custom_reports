@@ -68,6 +68,7 @@ echo "<hr/>";
 	<?php
 	$temp = array();
 	$temp['header'] = lang('reports_tmpl_cases_item');
+	$temp['priorities'] = $priorities;
 	$temp['cases'] = $cases;
 	$report_obj->render_view('index/table', $temp);
 	?>
