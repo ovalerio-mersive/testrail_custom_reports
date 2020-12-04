@@ -140,7 +140,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
 class Tests_cases_prioritiesv2_summary_model extends BaseModel
 {
-	public function get_total_automated_test_cases() {
+	public function get_total_automated_test_cases($section_ids) {
 		$query = $this->db->query(
 			'SELECT 
 				count(*) as total_automated_tcs
@@ -160,13 +160,14 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 															case_types 
 														WHERE 
 															name="Automated"
-													)
-												);'
+													) and cases.section_id in ({0})
+												);',
+			$section_ids	
 		);
 		return $query->result();
 	}
 
-	public function get_total_automated_p1_testcases($priority_id) {
+	public function get_total_automated_p1_testcases($section_ids, $priority_id) {
 		$query = $this->db->query(
 			'SELECT 
 				count(*) as total_automated_tcs_with_priority 
@@ -186,9 +187,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 																			case_types 
 																		WHERE 
 																			name="Automated"
-																	)
+																	) and cases.section_id in ({1})
 																);',
-			$priority_id
+			$priority_id, $section_ids
 		);
 		return $query->result();
 	}
