@@ -20,10 +20,40 @@ $GI->load->view('report_plugins/layout/header', $header);
 ?>
 
 <?php
-foreach ($cases as $case)
+$stats = obj::create();
+$stats->p1s = 0;
+$stats->p2s = 0;
+$stats->p3s = 0;
+$stats->p4s = 0;
+// $stats->total_tcs = count($cases);
+
+foreach ($cases as $c)
 {
-	echo "<br><br><br> -- ";
-	print_r($case);
+	// echo "<br><br><br> -- ";
+	// print_r($case);
+	switch ($c->priority_id) {
+		case 1:
+			$stats->p1s += 1;
+			break;
+		case 2:
+			$stats->p2s += 1;
+			break;
+		case 3:
+			$stats->p3s += 1;
+			break;
+		case 4:
+			$stats->p4s += 1;
+			break;
+		default:
+			break;
+	
+	}
+
+	echo "Cases with p1: " . $stats->p1s . "<br/>";
+	echo "Cases with p2: " . $stats->p2s . "<br/>";
+	echo "Cases with p3: " . $stats->p3s . "<br/>";
+	echo "Cases with p4: " . $stats->p4s . "<br/>";
+
 }
 
 ?>

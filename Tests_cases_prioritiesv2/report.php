@@ -138,7 +138,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 }
 
 class Tests_cases_prioritiesv2_summary_model extends BaseModel
-{
+{	
 	public function get_cases_from_section($section_ids)
 	{
 		if ($section_ids == "") {
