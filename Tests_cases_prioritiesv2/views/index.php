@@ -30,9 +30,14 @@ echo "<br>SUITE IDS-------------------------<br>";
 print_r($suite_ids);
 echo "<br>-------------------------<br>";
 
-// echo "<br>QUERY-------------------------<br>";
-// print_r($query);
-// echo "<br>-------------------------<br><br><br><br><br>";
+echo "<br>REPORT-------------------------<br>";
+print_r($report);
+echo "<br>-------------------------<br>";
+
+
+echo "<br>SECTION IDS-------------------------<br>";
+print_r($section_ids);
+echo "<br>-------------------------<br>";
 ?>
 
 <?php foreach ($cases as $case): ?>
