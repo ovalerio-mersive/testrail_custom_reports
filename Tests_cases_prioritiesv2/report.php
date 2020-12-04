@@ -151,15 +151,16 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	public function get_cases_from_section($section_ids)
 	{
 	    $query = $this->db->query(
-	    "SELECT
-            c.id as case_id,
-            s.id as section_id,
-            s.name as section_name,
-            p.name as priority_name
-        FROM
-            cases c, sections s, priorities p
-        WHERE
-            c.section_id in ('$section_ids');"
+            "SELECT
+                c.id as case_id,
+                s.id as section_id,
+                s.name as section_name,
+                p.name as priority_name
+            FROM
+                cases c, sections s, priorities p
+            WHERE
+                c.section_id in ('$section_ids');"
+        );
 // 		$query = $this->db->query(
 // 			'SELECT
 // 			    c.id as case_id,
