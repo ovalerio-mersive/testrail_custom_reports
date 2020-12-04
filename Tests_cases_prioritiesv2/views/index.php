@@ -25,9 +25,6 @@ $GI->load->view('report_plugins/layout/header', $header);
 echo "<br>-------------------------<br><br><br><br><br>";
 print_r($cases);
 echo "<br>-------------------------<br><br><br><br><br>";
-print_r($section_ids);
-print_r(array_keys($section_ids));
-print_r(array_values($section_ids));
 
 echo "<br>Implode: ";
 print(implode("','",$section_ids));
