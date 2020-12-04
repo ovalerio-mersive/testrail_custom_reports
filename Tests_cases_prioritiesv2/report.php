@@ -121,7 +121,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 //         );
 
         // read data from the database
-        $cases = $this->_model->get_cases_from_section($$report->custom_options['sections_ids']);
+        $cases = $this->_model->get_cases_from_section($context['report']->custom_options['sections_ids']);
 
 		// Render the report to a temporary file and return the path
         // to TestRail (including additional resources that need to be
