@@ -55,7 +55,6 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 	public function validate_form($context, $input, $validation)
 	{
 		$project = $context['project'];
-		// $cases_groupby = $this->_get_groupby($project);
 
 		$values = $this->validate_controls(
 			$this->_controls,
@@ -70,29 +69,13 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 		return $values;
 	}
 
-	private function _get_groupby($project)
-	{
-		$attributes = array(
-			'day' => lang('reports_cas_form_cases_groupby_day'),
-			'month' => lang('reports_cas_form_cases_groupby_month'),
-			'suite' =>
-				$project->suite_mode == TP_PROJECTS_SUITES_SINGLE ?
-					lang('reports_cas_form_cases_groupby_cases') :
-					lang('reports_cas_form_cases_groupby_suite')
-		);
-
-		asort($attributes);
-		return $attributes;
-	}
-
 	public function render_form($context)
 	{
 		$project = $context['project'];
 
 		$params = array(
 			'controls' => $this->_controls,
-			'project' => $project,
-			'case_groupby' => $this->_get_groupby($project)
+			'project' => $project
 		);
 
 		return array(
@@ -143,8 +126,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
                     'report' => $context['report'],
 					'project' => $project,
 					'options' => $options,
-                    'suites' => $suite_ids,
-                    // 'case_groupby' => $options['cases_groupby'],
+                    // 'suites' => $suites,
                     'show_links' => !$options['content_hide_links']
                 )
             )
