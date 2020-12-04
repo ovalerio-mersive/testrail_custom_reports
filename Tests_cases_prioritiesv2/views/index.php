@@ -40,9 +40,10 @@ print_r($section_ids);
 echo "<br>-------------------------<br>";
 ?>
 
-<?php foreach ($cases as $case): ?>
+<?php foreach ($cases as $ca): ?>
 <?php   echo "<br/> --- " ?>
-<?php   print_r($case); ?>
+<?php   echo $ca; ?>
+<?php   print_r($ca); ?>
 <?php endforeach ?>
 
 
