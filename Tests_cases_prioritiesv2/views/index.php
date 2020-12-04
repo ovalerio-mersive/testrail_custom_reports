@@ -21,10 +21,10 @@ $GI->load->view('report_plugins/layout/header', $header);
 
 <?php
 $stats = obj::create();
-$stats->p1s = 0;
-$stats->p2s = 0;
-$stats->p3s = 0;
-$stats->p4s = 0;
+$stats->p_low = 0;
+$stats->p_medium = 0;
+$stats->p_high = 0;
+$stats->p_critical = 0;
 $stats->total_tcs = count($cases);
 $stats->total_automated_tcs_p1 = $automated_p1_cases[0]->total_automated_tcs_with_priority;
 $stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
@@ -33,22 +33,21 @@ foreach ($cases as $c)
 {
 	// echo "<br><br><br> -- ";
 	// print_r($case);
-	switch ($c->priority_id) {
-		case 1:
-			$stats->p1s += 1;
+	switch ($c->priority_name) {
+		case "Low":
+			$stats->p_low += 1;
 			break;
-		case 2:
-			$stats->p2s += 1;
+		case "Medium":
+			$stats->p_medium += 1;
 			break;
-		case 3:
-			$stats->p3s += 1;
+		case "High":
+			$stats->p_high += 1;
 			break;
-		case 4:
-			$stats->p4s += 1;
+		case "Critical":
+			$stats->p_critical += 1;
 			break;
 		default:
 			break;
-	
 	}
 }
 
@@ -59,7 +58,7 @@ echo "Cases with p3: " . $stats->p3s . "  (". number_format((float)($stats->p3s 
 echo "Cases with p4: " . $stats->p4s . "  (". number_format((float)($stats->p4s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 echo "<br><br>Automated P1 test cases: " . $stats->total_automated_tcs_p1 . "  (". number_format((float)($stats->total_automated_tcs_p1 * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "<br><br>Total automated test cases: " . $stats->total_automated_tcs . "  (". number_format((float)($stats->total_automated_tcs * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+echo "<br>Total automated test cases: " . $stats->total_automated_tcs . "  (". number_format((float)($stats->total_automated_tcs * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 ?>
 
