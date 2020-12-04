@@ -38,6 +38,13 @@ echo "<br>-------------------------<br><br><br><br><br>";
 <?php   print_r($section); ?>
 <?php endforeach ?>
 
+<?php
+echo "<br>-------------------------<br><br><br><br><br>";
+print_r($cases);
+echo "<br>-------------------------<br><br><br><br><br>";
+
+?>
+
 
 <?php
 $temp = array();
