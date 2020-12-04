@@ -227,7 +227,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			'SELECT
 				*
 			FROM
-				priorities;',
+				priorities;'
 		);
 		return $query->result();
 	}
