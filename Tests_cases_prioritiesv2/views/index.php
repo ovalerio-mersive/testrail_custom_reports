@@ -21,11 +21,6 @@ $GI->load->view('report_plugins/layout/header', $header);
 
 <p>Content will be here!!</p>
 
-<?php foreach ($report->custom_options['sections_ids'] as $section): ?>
-<?php   echo "<br/>" ?>
-<?php   print_r($section); ?>
-<?php endforeach ?>
-
 <?php
 echo "<br>-------------------------<br><br><br><br><br>";
 print_r($cases);
