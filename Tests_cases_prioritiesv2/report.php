@@ -161,7 +161,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 																			name="Automated"
 																	)
 																);',
-			priority_id
+			$priority_id
 		);
 		return $query->result();
 	}
