@@ -152,15 +152,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	public function get_cases_from_section($section_ids)
 	{
 	    $query = $this->db->query(
-            "SELECT
-                c.id as case_id,
-                s.id as section_id,
-                s.name as section_name,
-                p.name as priority_name
-            FROM
-                cases c, sections s, priorities p
-            WHERE
-                c.section_id in ('$section_ids');"
+            "SELECT c.id as case_id, s.id as section_id, s.name as section_name, p.name as priority_name FROM cases c, sections s, priorities p WHERE c.section_id in ('$section_ids');",
         );
 // 		$query = $this->db->query(
 // 			'SELECT
@@ -176,12 +168,13 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 // 		);
 
 		$results = $query->result();
-		return obj::get_lookup_scalar(
-			$results,
-			'case_id',
-			'section_id',
-			'section_name',
-			'priority_name'
-		);
+		return $results;
+// 		return obj::get_lookup_scalar(
+// 			$results,
+// 			'case_id',
+// 			'section_id',
+// 			'section_name',
+// 			'priority_name'
+// 		);
 	}
 }
