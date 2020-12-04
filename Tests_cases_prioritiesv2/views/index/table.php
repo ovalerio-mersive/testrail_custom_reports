@@ -8,9 +8,7 @@
 	</colgroup>
 	<tr class="header">
 		<th><?=h( $header )?></th>
-		<?php foreach ($cases as $case): ?>
-			<th style="text-align: right">Col</th>
-		<?php endforeach ?>
+		<th><?=h( $header )?></th>
 	</tr>
 	<?php arr::alternator() ?>
 </table>
