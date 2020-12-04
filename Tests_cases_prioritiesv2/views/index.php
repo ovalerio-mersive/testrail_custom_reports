@@ -60,7 +60,7 @@ print_r($automated_p1_cases);
 // echo "<br><br>Automated P1 test cases: " . $automated_p1_cases . "  (". number_format((float)($automated_p1_cases * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 foreach ($automated_p1_cases as $auto) {
-	print_r($auto);
+	print_r($auto->total_automated_tcs_with_priority);
 }
 ?>
 
