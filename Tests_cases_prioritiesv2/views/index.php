@@ -19,16 +19,10 @@ $header = array(
 $GI->load->view('report_plugins/layout/header', $header);
 ?>
 
-<p>Content will be here!!</p>
-
 <?php
-echo "<br>CASES-------------------------<br>";
-print_r($cases);
-echo "<br>-------------------------<br><br><br><br><br>";
-
 foreach ($cases as $case)
 {
-	echo "<br> -- ";
+	echo "<br><br><br> -- ";
 	print_r($case);
 }
 
