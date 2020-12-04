@@ -32,8 +32,8 @@ $stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
 
 foreach ($cases as $c)
 {
-	echo "<br><br><br> -- ";
-	print_r($c);
+	// echo "<br><br><br> -- ";
+	// print_r($c);
 	switch ($c->p_name) {
 		case "Low":
 			$stats->p_low += 1;

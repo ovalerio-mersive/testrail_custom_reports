@@ -6,7 +6,7 @@ $lang['reports_tmpl_meta_summary'] = 'Custom report created to display a summary
 $lang['reports_tmpl_meta_description'] = 'It displays a table with a summary (total, percentage) of test cases that belongs to each priority.';
 
 $lang['reports_tmpl_cases_empty'] = 'No cases found.';
-$lang['reports_tmpl_cases_header'] = 'Cases';
+$lang['reports_tmpl_cases_header'] = 'Summary Cases by priority';
 $lang['reports_tmpl_cases_header_info'] = 'Shows the list of cases that are used for this report.';
 
 
