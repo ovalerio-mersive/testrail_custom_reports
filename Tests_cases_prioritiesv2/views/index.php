@@ -34,7 +34,7 @@ print_r($cases);
 foreach ($cases as $c)
 {
 	echo "<br><br><br> -- ";
-	print_r($case);
+	print_r($c);
 	switch ($c->p_name) {
 		case "Low":
 			$stats->p_low += 1;
