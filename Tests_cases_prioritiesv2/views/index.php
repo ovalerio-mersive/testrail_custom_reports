@@ -26,10 +26,6 @@ echo "<br>-------------------------<br><br><br><br><br>";
 print_r($cases);
 echo "<br>-------------------------<br><br><br><br><br>";
 
-echo "<br> For section_ids";
-foreach($section_ids as $result) {
-    echo $result, '<br>';
-}
 echo "<br>-------------------------<br><br><br><br><br>";
 print_r($suite_ids);
 echo "<br>-------------------------<br><br><br><br><br>";
