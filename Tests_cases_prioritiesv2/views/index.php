@@ -28,6 +28,11 @@ echo "<br>-------------------------<br><br><br><br><br>";
 
 echo "<br>SECTION IDS-------------------------<br>";
 print_r($section_ids);
+
+if ($section_ids == "") {
+	echo "section_ids is empty";
+}
+
 echo "<br>-------------------------<br>";
 
 echo "<br>OPTIONS-------------------------<br>";
