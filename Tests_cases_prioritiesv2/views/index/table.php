@@ -5,7 +5,7 @@
 			<col style="width: 100px"></col>
 		<?php endforeach ?>
 		<col style="width: 300px"></col>
-		<col style="width: 1500px"></col>
+		<col style="width: 150px"></col>
 	</colgroup>
 	<tr class="header">
 		<th><?=h( $header )?></th>
