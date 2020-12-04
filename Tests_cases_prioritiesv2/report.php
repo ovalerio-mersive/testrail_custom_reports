@@ -122,8 +122,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
         // read data from the database
         $section_ids = $context['report']->custom_options['sections_ids'];
-//         $section_ids = obj::get_ids($section_ids);
-        $cases = $this->_model->get_cases_from_section(array_values($section_ids));
+        $section_ids = implode("','",$section_ids);
+        $cases = $this->_model->get_cases_from_section($section_ids);
 
 		// Render the report to a temporary file and return the path
         // to TestRail (including additional resources that need to be
@@ -150,18 +150,28 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 {
 	public function get_cases_from_section($section_ids)
 	{
-		$query = $this->db->query(
-			'SELECT
-			    c.id as case_id,
-			    s.id as section_id,
-			    s.name as section_name,
-			    p.name as priority_name
-			FROM
-			    cases c, sections s, priorities p
-			WHERE
-			    c.section_id in ({0});',
-			$section_ids
-		);
+	    $query = $this->db->query(
+	    "SELECT
+            c.id as case_id,
+            s.id as section_id,
+            s.name as section_name,
+            p.name as priority_name
+        FROM
+            cases c, sections s, priorities p
+        WHERE
+            c.section_id in ('$section_ids');"
+// 		$query = $this->db->query(
+// 			'SELECT
+// 			    c.id as case_id,
+// 			    s.id as section_id,
+// 			    s.name as section_name,
+// 			    p.name as priority_name
+// 			FROM
+// 			    cases c, sections s, priorities p
+// 			WHERE
+// 			    c.section_id in ("{0}");',
+// 			$section_ids
+// 		);
 
 		$results = $query->result();
 		return obj::get_lookup_scalar(
