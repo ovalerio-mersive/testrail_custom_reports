@@ -1,3 +1,4 @@
+<?php print_r($item); ?>
 <table class="grid">
 	<colgroup>
 		<col></col>
@@ -19,4 +20,10 @@
 		<th style="text-align: right"><?= lang('reports_tmpl_table_automated_total') ?></th>
 	</tr>
 	<?php arr::alternator() ?>
+	<?php foreach ($items as $item): ?>
+		<?php $alt = arr::alternator('odd', 'even') ?>
+		<tr class="<?= $alt ?>">
+			<td><?=h( $item->name )?></td>
+		</tr>
+	<?php endforeach ?>
 </table>
