@@ -19,6 +19,7 @@ $header = array(
 $GI->load->view('report_plugins/layout/header', $header);
 ?>
 
+<h1>For debuging</h1>
 <?php
 $stats = obj::create();
 $stats->p_low = 0;
@@ -61,6 +62,22 @@ echo "<br>Automated P1 test cases: " . $stats->total_automated_tcs_p1 . "  (". n
 echo "<br>Total automated test cases: " . $stats->total_automated_tcs . "  (". number_format((float)($stats->total_automated_tcs * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 echo "<hr/>";
 ?>
+
+<h1>Table</h1>
+<?php if ($cases): ?>
+	<h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_types_header_info') ?>" /><?= lang('reports_tmpl_types_header') ?></h1>
+	<?php if ($types): ?>
+		<?php
+		$temp = array();
+		$temp['header'] = lang('reports_tmpl_cases_item');
+		$temp['results'] = $types_results;
+		$temp['cases'] = $cases;
+		$report_obj->render_view('index/table', $temp);
+		?>
+	<?php else: ?>
+		<p><?= lang('reports_tmpl_cases_empty') ?></p>
+	<?php endif ?>
+<?php endif ?>
 
 
 

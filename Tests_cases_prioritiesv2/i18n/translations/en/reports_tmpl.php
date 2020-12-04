@@ -5,16 +5,20 @@ $lang['reports_tmpl_meta_group'] = 'Custom report';
 $lang['reports_tmpl_meta_summary'] = 'Custom report created to display a summary of the test cases mainly based on their priorities';
 $lang['reports_tmpl_meta_description'] = 'It displays a table with a summary (total, percentage) of test cases that belongs to each priority.';
 
-$lang['reports_cas_form_grouping'] = 'Grouping &amp; Changes';
-$lang['reports_cas_form_suites'] = 'Test Suites';
-$lang['reports_cas_form_sections'] = 'Sections';
-$lang['reports_cas_form_cases'] = 'Test Cases';
-$lang['reports_cas_form_cases_groupby'] = 'Group the changes by:';
-$lang['reports_cas_form_cases_groupby_day'] = 'Day';
-$lang['reports_cas_form_cases_groupby_month'] = 'Month';
-$lang['reports_cas_form_cases_groupby_cases'] = 'Test Cases';
-$lang['reports_cas_form_cases_groupby_suite'] = 'Test Suite';
-$lang['reports_cas_form_cases_groupby_invalid'] = 'Unknown or unsupported test case grouping option.';
+$lang['reports_tmpl_cases_empty'] = 'No cases found.';
+$lang['reports_tmpl_cases_item'] = 'Cases';
+
+
+// $lang['reports_cas_form_grouping'] = 'Grouping &amp; Changes';
+// $lang['reports_cas_form_suites'] = 'Test Suites';
+// $lang['reports_cas_form_sections'] = 'Sections';
+// $lang['reports_cas_form_cases'] = 'Test Cases';
+// $lang['reports_cas_form_cases_groupby'] = 'Group the changes by:';
+// $lang['reports_cas_form_cases_groupby_day'] = 'Day';
+// $lang['reports_cas_form_cases_groupby_month'] = 'Month';
+// $lang['reports_cas_form_cases_groupby_cases'] = 'Test Cases';
+// $lang['reports_cas_form_cases_groupby_suite'] = 'Test Suite';
+// $lang['reports_cas_form_cases_groupby_invalid'] = 'Unknown or unsupported test case grouping option.';
 
 $lang['reports_cas_form_cases_changes'] = 'Include the following changes:';
 $lang['reports_cas_form_cases_include_new'] = 'New test cases';
