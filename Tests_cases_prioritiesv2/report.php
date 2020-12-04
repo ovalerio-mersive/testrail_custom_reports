@@ -159,9 +159,10 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		$results = $query->result();
 		return obj::get_lookup_scalar(
 			$results,
-			'cases',
+			'case_id',
 			array(
-				'section_id' => 'section_id'
+				'section_id' => 'section_id',
+				'section_name' => 'section_name'
 			)
 		);
 	}
