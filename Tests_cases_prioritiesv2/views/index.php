@@ -26,9 +26,6 @@ echo "<br>-------------------------<br><br><br><br><br>";
 print_r($cases);
 echo "<br>-------------------------<br><br><br><br><br>";
 
-echo "<br>Implode: ";
-print(implode("','",$section_ids));
-
 echo "<br> For section_ids";
 foreach($section_ids as $result) {
     echo $result, '<br>';
