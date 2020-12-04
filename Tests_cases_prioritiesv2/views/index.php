@@ -29,6 +29,10 @@ print_r($section_ids);
 print_r(array_keys($section_ids));
 print_r(array_values($section_ids));
 print(implode("','",$section_ids));
+
+foreach($section_ids as $result) {
+    echo $result, '<br>';
+}
 echo "<br>-------------------------<br><br><br><br><br>";
 print_r($suite_ids);
 echo "<br>-------------------------<br><br><br><br><br>";
