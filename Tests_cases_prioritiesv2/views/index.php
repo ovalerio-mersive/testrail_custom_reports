@@ -28,15 +28,10 @@ echo "<br>PROJECT-------------------------<br>";
 print_r($project);
 echo "<br>OPTIONS-------------------------<br>";
 print_r($options);
-echo "<br>SUITES-------------------------<br>";
-print_r($suites);
 echo "<br>-------------------------<br><br><br><br><br>";
 ?>
 
-<?php foreach ($suites as $suite): ?>
-<?php	echo "<br/>" ?>
-<?php	print_r($suite); ?>
-<?php endforeach ?>
+
 
 
 <?php
