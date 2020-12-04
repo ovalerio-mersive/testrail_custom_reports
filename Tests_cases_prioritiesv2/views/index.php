@@ -29,36 +29,38 @@ $stats->total_tcs = count($cases);
 $stats->total_automated_tcs_p1 = $automated_p1_cases[0]->total_automated_tcs_with_priority;
 $stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
 
-foreach ($cases as $c)
-{
-	// echo "<br><br><br> -- ";
-	// print_r($case);
-	switch ($c->priority_name) {
-		case "Low":
-			$stats->p_low += 1;
-			break;
-		case "Medium":
-			$stats->p_medium += 1;
-			break;
-		case "High":
-			$stats->p_high += 1;
-			break;
-		case "Critical":
-			$stats->p_critical += 1;
-			break;
-		default:
-			break;
-	}
-}
+print_r($cases)
 
-echo "Total cases: " . $stats->total_tcs . "<br/>";
-echo "Cases with p1: " . $stats->p1s . "  (". number_format((float)($stats->p1s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "Cases with p2: " . $stats->p2s . "  (". number_format((float)($stats->p2s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "Cases with p3: " . $stats->p3s . "  (". number_format((float)($stats->p3s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "Cases with p4: " . $stats->p4s . "  (". number_format((float)($stats->p4s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+// foreach ($cases as $c)
+// {
+// 	// echo "<br><br><br> -- ";
+// 	// print_r($case);
+// 	switch ($c->priority_name) {
+// 		case "Low":
+// 			$stats->p_low += 1;
+// 			break;
+// 		case "Medium":
+// 			$stats->p_medium += 1;
+// 			break;
+// 		case "High":
+// 			$stats->p_high += 1;
+// 			break;
+// 		case "Critical":
+// 			$stats->p_critical += 1;
+// 			break;
+// 		default:
+// 			break;
+// 	}
+// }
 
-echo "<br><br>Automated P1 test cases: " . $stats->total_automated_tcs_p1 . "  (". number_format((float)($stats->total_automated_tcs_p1 * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
-echo "<br>Total automated test cases: " . $stats->total_automated_tcs . "  (". number_format((float)($stats->total_automated_tcs * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+// echo "Total cases: " . $stats->total_tcs . "<br/>";
+// echo "Cases with Low priority: " . $stats->p_low . "  (". number_format((float)($stats->p_low * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+// echo "Cases with Medium priority: " . $stats->p_medium . "  (". number_format((float)($stats->p_medium * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+// echo "Cases with High priority: " . $stats->p_high . "  (". number_format((float)($stats->p_high * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+// echo "Cases with Critical priority: " . $stats->p_critical . "  (". number_format((float)($stats->p_critical * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+
+// echo "<br><br>Automated P1 test cases: " . $stats->total_automated_tcs_p1 . "  (". number_format((float)($stats->total_automated_tcs_p1 * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+// echo "<br>Total automated test cases: " . $stats->total_automated_tcs . "  (". number_format((float)($stats->total_automated_tcs * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 ?>
 
