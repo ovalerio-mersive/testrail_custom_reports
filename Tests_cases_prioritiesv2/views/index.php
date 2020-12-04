@@ -27,6 +27,7 @@ $stats->p3s = 0;
 $stats->p4s = 0;
 $stats->total_tcs = count($cases);
 $stats->total_automated_tcs_p1 = $automated_p1_cases[0]->total_automated_tcs_with_priority;
+$stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
 
 foreach ($cases as $c)
 {
@@ -58,6 +59,7 @@ echo "Cases with p3: " . $stats->p3s . "  (". number_format((float)($stats->p3s 
 echo "Cases with p4: " . $stats->p4s . "  (". number_format((float)($stats->p4s * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 echo "<br><br>Automated P1 test cases: " . $stats->total_automated_tcs_p1 . "  (". number_format((float)($stats->total_automated_tcs_p1 * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
+echo "<br><br>Total automated test cases: " . $stats->total_automated_tcs . "  (". number_format((float)($stats->total_automated_tcs * 100) / $stats->total_tcs, 2, '.', '') ."%)" . "<br/>";
 
 ?>
 
