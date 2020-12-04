@@ -33,6 +33,11 @@ print_r($report->custom_options['sections_ids']);
 echo "<br>-------------------------<br><br><br><br><br>";
 ?>
 
+<?php foreach ($report->custom_options['sections_ids'] as $section): ?>
+<?php   echo "<br/>" ?>
+<?php   print_r($section); ?>
+<?php endforeach ?>
+
 
 <?php
 $temp = array();
