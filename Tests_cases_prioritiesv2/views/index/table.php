@@ -1,4 +1,4 @@
-<?php print_r($item); ?>
+<?php print_r($items); ?>
 <table class="grid">
 	<colgroup>
 		<col></col>
