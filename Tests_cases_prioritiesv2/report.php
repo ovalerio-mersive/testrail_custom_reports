@@ -160,7 +160,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 															case_types 
 														WHERE 
 															name="Automated"
-													) and cases.section_id in ({0})
+													) and c.section_id in ({0})
 												);',
 			$section_ids	
 		);
@@ -187,7 +187,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 																			case_types 
 																		WHERE 
 																			name="Automated"
-																	) and cases.section_id in ({1})
+																	) and c.section_id in ({1})
 																);',
 			$priority_id, $section_ids
 		);
@@ -199,22 +199,21 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		if ($section_ids == "") {
 			$query = $this->db->query(
 				'SELECT
-					cases.id as case_id, sections.name as section_name, priorities.name as p_name
+					c.id as case_id, s.name as section_name, p.name as p_name
 				FROM
-					cases, sections, priorities
+					cases c, sections s, priorities p
 				WHERE
-					cases.section_id=sections.id and cases.priority_id=priorities.id',
+					c.section_id=sections.id and c.priority_id=priorities.id',
 				$section_ids
 			);
 		} else {
 			$query = $this->db->query(
 				'SELECT
-					cases.id as case_id, sections.name as section_name, priorities.name as p_name
+					c.id as case_id, s.name as section_name, p.name as p_name
 				FROM
-					cases, sections, priorities
+					cases c, sections s, priorities p
 				WHERE
-					cases.section_id=sections.id and cases.priority_id=priorities.id and
-					cases.section_id in ({0});',
+					c.section_id=sections.id and c.priority_id=priorities.id and c.section_id in ({0});',
 				$section_ids
 			);
 		}
