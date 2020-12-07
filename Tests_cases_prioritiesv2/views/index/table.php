@@ -23,9 +23,6 @@
 	<?php foreach ($items as $item): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-			<?php 
-				echo "tests"; 
-				print_r($item); 
-			?>
+			<td colspan="4"><?php print_r($item); ?> </td>
 		</tr>
 </table>
