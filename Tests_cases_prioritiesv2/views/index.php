@@ -41,11 +41,9 @@ foreach($section_ids as $s) {
 
 		$stats = obj::create();
 		$stats->priority_count = 0;
-		$stats->priority_name = "";
+		$stats->priority_name = $p->name;
 		foreach($cases as $c) {
 			// echo "<h3>Checking case: ". $c->case_id ."</h3>";
-			$stats->priority_name = $c->p_name;
-
 			if ($c->case_p_id == $p->id && $c->case_s_id == $s) {
 				$stats->priority_count += 1;
 			}
