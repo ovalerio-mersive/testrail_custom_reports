@@ -24,9 +24,7 @@ $items = [];
 
 foreach($section_ids as $s) {
 	$section_info = array();
-
 	foreach($priorities as $p) {
-
 		$stats = obj::create();
 		$stats->section_id = $s;
 		$stats->priority_count = 0;
