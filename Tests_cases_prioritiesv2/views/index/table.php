@@ -1,4 +1,4 @@
-<?php print_r($items); ?>
+<?php var_dump($items); ?>
 <table class="grid">
 	<colgroup>
 		<col></col>
@@ -24,7 +24,7 @@
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-		 	echo "<td>" . key($sections) . " -- Sections obj" . print_r($sections) . "</td>";
+		 	echo "<td>" . key($sections) . " -- Sections obj: " . var_dump($sections) . "</td>";
 			foreach ($sections as $s) {
 					echo "<td style='text-align: right'>". print_r($s) ."</td>";
 					// foreach($priorities as $p) {
