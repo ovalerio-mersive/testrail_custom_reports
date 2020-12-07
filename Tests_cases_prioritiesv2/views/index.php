@@ -46,7 +46,7 @@ foreach($suite_ids as $s) {
 			}
 			echo "<br/><br/>";
 			print_r($c);
-			if ($c->case_p_id == $p->p_id) {
+			if ($c->case_p_id == $p->id) {
 				$stats->priority_count += 1;
 			}
 		}
