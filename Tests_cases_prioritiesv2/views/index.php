@@ -35,25 +35,31 @@ $summary = [];
 foreach($section_ids as $s) {
 	echo "<br/><br/>";
 	print_r($s);
-	$section_info = [];
+	$section_info = array();
 	$stats = obj::create();
 	$stats->section_name = "";
-	$stats->priority_name = "";
 	$stats->priority_count = 0;
 
 	foreach($priorities as $p) {
 		echo "<br/>Checking priority: <br/>";
 		print_r($p->name);
+
+		$stats->priority_name = "";
 		foreach($cases as $c) {
 			echo "<br/>Checking case: <br/>";
 			print_r($c->case_id);
-			if ($c->case_p_id == $p->id && $c->case_s_id == $s && $c->case_p_id == $p->id) {
-				$stats->section_name = $c->section_name;
+
+			if ($stats->priority_name == "") {
 				$stats->priority_name = $c->p_name;
+			}
+
+			if ($c->case_p_id == $p->id && $c->case_s_id == $s) {
 				$stats->priority_count += 1;
 			}
 		}
-		array_push($section_info, $stats);
+		$section_info = array(
+			$s => $stats
+		);
 		echo "<br/><br/><br/>Section info<br/>";
 		print_r($section_info);
 	}
