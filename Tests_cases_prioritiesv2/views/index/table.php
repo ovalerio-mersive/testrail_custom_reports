@@ -1,5 +1,5 @@
 <table class="grid">
-<caption style="text-align:botton">
+<caption style="caption-side:bottom;text-align:right;">
 	<h3><?= lang('reports_tmpl_table_automated_p1') ?>: <?php $total_automated_cases ?> </h3>
 	<h3><?= lang('reports_tmpl_table_automated_total') ?>: </h3>
 </caption>
