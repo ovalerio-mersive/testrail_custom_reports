@@ -26,7 +26,7 @@
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-		 	echo "<td>" . key($sections) . " -- Sections obj: " . var_dump($sections) . "</td>";
+		 	echo "<td>" . key($sections) . " -- Sections obj: <pre>" . var_dump($sections) . "</pre></td>";
 			foreach ($sections as $s) {
 					echo "<td style='text-align: right'>". print_r($s) ."</td>";
 					// foreach($priorities as $p) {
