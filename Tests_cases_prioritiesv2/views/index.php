@@ -94,7 +94,18 @@ print_r($summary);
 // echo "<hr/>";
 ?>
 
-
+<h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_cases_header_info') ?>" /><?= lang('reports_tmpl_cases_header') ?></h1>
+<?php if ($cases): ?>
+	<?php
+	$temp = array();
+	$temp['header'] = lang('reports_tmpl_section_item');
+	$temp['priorities'] = $priorities;
+	$temp['items'] = $cases;
+	$report_obj->render_view('index/table', $temp);
+	?>
+<?php else: ?>
+	<p><?= lang('reports_tmpl_cases_empty') ?></p>
+<?php endif ?>
 
 
 <?php
