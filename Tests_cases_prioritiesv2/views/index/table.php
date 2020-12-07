@@ -1,4 +1,4 @@
-<!-- <?php print_r($items); ?> -->
+<?php print_r($items); ?>
 <table class="grid">
 	<colgroup>
 		<col></col>
@@ -23,6 +23,7 @@
 	<?php foreach ($items as $item): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-			<td colspan="4"><?php print_r($item); ?> </td>
+			<td colspan=><?php print_r($item); ?> </td>
 		</tr>
+	<?php endforeach ?>
 </table>
