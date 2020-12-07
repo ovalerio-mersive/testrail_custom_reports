@@ -36,7 +36,6 @@ foreach($section_ids as $s) {
 	echo "<h1>Cheking Section id ". $s ."</h1>";
 	$section_info = array();
 	$stats = obj::create();
-	$stats->section_name = "";
 	$stats->priority_count = 0;
 
 	foreach($priorities as $p) {
