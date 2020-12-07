@@ -23,8 +23,13 @@
 	<?php foreach ($items as $sections): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
+			<td> <?phpkey($sections) ?> </td>
 			<?php foreach ($sections as $s): ?>
-				<td><?php echo key($sections); echo "<br/<br/>"; print_r($s);?></td>
+				<?php 
+					foreach($priorities as $p) {
+						echo "<td>". $p->name ."</td>";
+					}
+				?>
 			<?php endforeach ?>
 		</tr>
 	<?php endforeach ?>
