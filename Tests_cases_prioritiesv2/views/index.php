@@ -42,9 +42,9 @@ foreach($section_ids as $s) {
 	$stats->priority_count = 0;
 
 	foreach($priorities as $p) {
-		// echo "<br/>Checking priority: " . $p.name . "<br/>";
+		echo "<br/>Checking priority: " . parse_str($p.name) . "<br/>";
 		foreach($cases as $c) {
-			// echo "<br/>Checking case: " . parse_str($c.case_id) . "<br/>";
+			echo "<br/>Checking case: " . parse_str($c.case_id) . "<br/>";
 			if ($c->case_p_id == $p->id && $c->case_s_id == $s && $c->case_p_id == $p->id) {
 				$stats->section_name = $c->section_name;
 				$stats->priority_name = $c->p_name;
