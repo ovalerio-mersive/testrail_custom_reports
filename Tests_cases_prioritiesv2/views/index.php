@@ -40,11 +40,11 @@ foreach($section_ids as $s) {
 	$stats->priority_count = 0;
 
 	foreach($priorities as $p) {
-		echo "<h2>Checking priority: ". $p->name ."<h2/>";
+		echo "<h2>Checking priority: ". $p->name ."</h2>";
 
 		$stats->priority_name = "";
 		foreach($cases as $c) {
-			echo "<h3>Checking case: ". $c->case_id ."<h3/>";
+			echo "<h3>Checking case: ". $c->case_id ."</h3>";
 			if ($stats->priority_name == "") {
 				$stats->priority_name = $c->p_name;
 			}
