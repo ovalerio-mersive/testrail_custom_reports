@@ -32,21 +32,23 @@ $stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
 
 $summary = [];
 
-foreach($suite_ids as $s) {
+foreach($section_ids as $s) {
 	echo "<br/><br/>";
 	print_r($s);
 	$stats = obj::create();
-	$stats->suite_name = $s.name;
+	$stats->section_name = "";
 	$stats->priority_name = "";
 	$stats->priority_count = 0;
 
 	foreach($priorities as $p) {
 		foreach($cases as $c) {
-			if ($stats->priority_name == "") {
-				$stats->suite_name = $c->section_name;
+			// if ($stats->priority_name == "") {
+			// 	$stats->section_name = $c->section_name;
+			// 	$stats->priority_name = $c->p_name;
+			// }
+			if ($c->case_p_id == $p->id && $c->section_id == $s && $c->priority_id == $p->id) {
+				$stats->section_name = $c->section_name;
 				$stats->priority_name = $c->p_name;
-			}
-			if ($c->case_p_id == $p->id) {
 				$stats->priority_count += 1;
 			}
 		}
