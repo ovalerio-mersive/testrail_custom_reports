@@ -28,6 +28,7 @@ foreach($section_ids as $s) {
 	foreach($priorities as $p) {
 
 		$stats = obj::create();
+		$stats->section_id = $s;
 		$stats->priority_count = 0;
 		$stats->priority_name = $p->name;
 		foreach($cases as $c) {
@@ -35,10 +36,6 @@ foreach($section_ids as $s) {
 				$stats->priority_count += 1;
 			}
 		}
-		// $section_info = array(
-		// 	$s . "_" . $stats->priority_name => $stats
-		// );
-		// array_push($items, $section_info);
 		array_push($items, $stats);
 	}
 }
