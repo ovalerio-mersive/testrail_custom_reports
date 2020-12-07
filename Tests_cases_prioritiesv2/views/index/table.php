@@ -26,7 +26,7 @@
 			<td> <?php echo key($sections) ?> </td>
 			<?php foreach ($sections as $s): ?>
 				<?php 
-					echo "<td style='text-align: right'>". $s ."</td>";
+					echo "<td style='text-align: right'>". print_r($s) ."</td>";
 					// foreach($priorities as $p) {
 					// 	if ($s->priority_name == $p->name) {
 					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
