@@ -1,9 +1,10 @@
 <?php print_r($total_automated_cases); ?>
-<?php print_r($total_automated_cases); ?>
+<?php print_r($automated_p1_cases); ?>
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
-	
-	
+<?php
+	echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ":" . $automated_p1_cases . "</h3>";
+?>	
 </caption>
 	<tr class="header">
 		<th><?=h( $header )?></th>
