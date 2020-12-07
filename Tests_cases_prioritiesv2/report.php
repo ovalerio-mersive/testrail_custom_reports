@@ -207,7 +207,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					p.name as p_name, 
 					p.id as p_id
 				FROM
-					cases c, sections s, priorities p, s.parent_id
+					cases c, sections s, priorities p
 				WHERE
 					c.section_id=s.id and c.priority_id=p.id'
 			);
