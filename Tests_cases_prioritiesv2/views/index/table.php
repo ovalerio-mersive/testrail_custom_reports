@@ -20,7 +20,7 @@
 		<th style="text-align: right"><?= lang('reports_tmpl_table_automated_total') ?></th>
 	</tr>
 	<?php arr::alternator() ?>
-	<?php foreach ($items as $sections): ?>
+	<?php foreach ($items as $item): ?>
 	<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 				<td>
