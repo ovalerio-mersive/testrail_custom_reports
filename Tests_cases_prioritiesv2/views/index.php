@@ -43,10 +43,10 @@ foreach($section_ids as $s) {
 
 	foreach($priorities as $p) {
 		echo "<br/>Checking priority: <br/>";
-		print_r($p.name);
+		print_r($p->name);
 		foreach($cases as $c) {
 			echo "<br/>Checking case: <br/>";
-			print_r($c.case_id);
+			print_r($c->case_id);
 			if ($c->case_p_id == $p->id && $c->case_s_id == $s && $c->case_p_id == $p->id) {
 				$stats->section_name = $c->section_name;
 				$stats->priority_name = $c->p_name;
