@@ -30,6 +30,8 @@
 			foreach($items as $item) {
 				echo "<br/><br/><br/>";
 				print_r($item);
+				print_r($item->priority_count);
+				echo "<br/><br/><br/>";
 				echo "<td>" . print_r($item) . "</td>"; 
 			}
 		 	// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
