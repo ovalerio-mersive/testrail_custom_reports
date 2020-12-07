@@ -44,9 +44,7 @@ foreach($section_ids as $s) {
 		$stats->priority_name = "";
 		foreach($cases as $c) {
 			// echo "<h3>Checking case: ". $c->case_id ."</h3>";
-			if ($stats->priority_name == "") {
-				$stats->priority_name = $c->p_name;
-			}
+			$stats->priority_name = $c->p_name;
 
 			if ($c->case_p_id == $p->id && $c->case_s_id == $s) {
 				$stats->priority_count += 1;
