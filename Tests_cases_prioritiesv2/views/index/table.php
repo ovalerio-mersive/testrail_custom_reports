@@ -23,19 +23,18 @@
 	</tr>
 	<?php arr::alternator() ?>
 	<?php foreach ($section_ids as $section_id): ?>
-		<?php foreach ($priorities as $p): ?>
-			<?php $alt = arr::alternator('odd', 'even') ?>
-			<tr class="<?= $alt ?>">
-			<?php
-				echo "<td>" . $section_id . "</td>";
-				foreach($items as $item) {
-					if ($section_id == $item->section_id) {
-						echo "<td>" . $item->priority_count . "</td>";
-					}
+		<?php $alt = arr::alternator('odd', 'even') ?>
+		<tr class="<?= $alt ?>">
+		<?php
+			echo "<td>" . $section_id . "</td>";
+			foreach($items as $item) {
+				if ($section_id == $item->section_id) {
+					echo "<td>" . $item->priority_count . "</td>";
+					break;
 				}
-				// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
-			?>
-			</tr>
-			<?php endforeach ?>
+			}
+			// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
+		?>
+		</tr>
 	<?php endforeach ?>
 </table>
