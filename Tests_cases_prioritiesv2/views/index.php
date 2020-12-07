@@ -57,7 +57,7 @@ print_r($items);
 	$temp = array();
 	$temp['header'] = lang('reports_tmpl_section_item');
 	$temp['priorities'] = $priorities;
-	$temp['items'] = $cases;
+	$temp['items'] = $items;
 	$report_obj->render_view('index/table', $temp);
 	?>
 <?php else: ?>
