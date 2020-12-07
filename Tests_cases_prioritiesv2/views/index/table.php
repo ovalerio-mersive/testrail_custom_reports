@@ -23,9 +23,8 @@
 	<?php foreach ($items as $item): ?>
 	<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-				<td>
-					<?php print_r($item); ?> 
-				</td>
+				<td><?php print_r($item->priority_count); ?></td>
+				<td><?php print_r($item->priority_name); ?></td>
 		</tr>
 	<?php endforeach ?>
 </table>
