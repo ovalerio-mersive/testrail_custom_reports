@@ -27,13 +27,13 @@
 			<?php foreach ($sections as $s): ?>
 				<?php 
 					echo "<td style='text-align: right'>". $s->priority_count ."</td>";
-					// foreach($priorities as $p) {
-					// 	if ($s->priority_name == $p->name) {
-					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
-					// 	} else {
-					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
-					// 	}
-					// }
+					foreach($priorities as $p) {
+						if ($s->priority_name == $p->name) {
+							echo "<td style='text-align: right'>". $s->priority_count ."</td>";
+						} else {
+							echo "<td style='text-align: right'>". $s->priority_count ."</td>";
+						}
+					}
 				?>
 			<?php endforeach ?>
 		</tr>

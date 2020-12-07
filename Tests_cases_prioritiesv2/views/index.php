@@ -23,11 +23,11 @@ $GI->load->view('report_plugins/layout/header', $header);
 $items = [];
 
 foreach($section_ids as $s) {
-	echo "<h1>Cheking Section id ". $s ."</h1>";
+	// echo "<h1>Cheking Section id ". $s ."</h1>";
 	$section_info = array();
 
 	foreach($priorities as $p) {
-		echo "<h2>Checking priority: ". $p->name ."</h2>";
+		// echo "<h2>Checking priority: ". $p->name ."</h2>";
 
 		$stats = obj::create();
 		$stats->priority_count = 0;
@@ -40,15 +40,15 @@ foreach($section_ids as $s) {
 		$section_info = array(
 			$s => $stats
 		);
-		echo "Section info<br/>";
-		print_r($section_info);
-		echo "<br/><br/><br/>";
+		// echo "Section info<br/>";
+		// print_r($section_info);
+		// echo "<br/><br/><br/>";
 		array_push($items, $section_info);
 	}
 }
 
-echo "<br/><br/><br/>items<br/>";
-print_r($items);
+// echo "<br/><br/><br/>items<br/>";
+// print_r($items);
 ?>
 
 <h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_cases_header_info') ?>" /><?= lang('reports_tmpl_cases_header') ?></h1>
