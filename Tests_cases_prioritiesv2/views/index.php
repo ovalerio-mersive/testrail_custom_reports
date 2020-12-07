@@ -55,8 +55,9 @@ foreach($section_ids as $s) {
 		$section_info = array(
 			$s => $stats
 		);
-		echo "<br/>Section info<br/><br/><br/>";
+		echo "<br/>Section info<br/>";
 		print_r($section_info);
+		echo "<br/><br/><br/>";
 	}
 	array_push($summary, $section_info);
 }
