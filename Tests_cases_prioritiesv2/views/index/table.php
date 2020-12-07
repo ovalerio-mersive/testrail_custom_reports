@@ -24,8 +24,8 @@
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-			 echo "<td>" . key($sections) .  "</td>";
-			 foreach ($sections as $s): 
+		 	echo "<td>" . key($sections) . "</td>";
+			foreach ($sections as $s) {
 					echo "<td style='text-align: right'>". print_r($s) ."</td>";
 					// foreach($priorities as $p) {
 					// 	if ($s->priority_name == $p->name) {
@@ -34,6 +34,7 @@
 					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
 					// 	}
 					// }
+			}
 		?>
 		</tr>
 	<?php endforeach ?>
