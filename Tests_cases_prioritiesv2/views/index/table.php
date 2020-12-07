@@ -30,7 +30,6 @@
 			foreach($items as $item) {
 				if ($section_id == $item->section_id) {
 					echo "<td>" . $item->priority_count . "</td>";
-					break;
 				}
 			}
 			// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
