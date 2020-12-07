@@ -1,12 +1,8 @@
 <table class="grid">
-	<colgroup>
-		<col></col>
-		<?php foreach ($priorities as $p): ?>
-			<col style="width: 100px"></col>
-		<?php endforeach ?>
-		<col style="width: 300px"><?= lang('reports_tmpl_table_automated_p1') ?></col>
-		<col style="width: 150px"><?= lang('reports_tmpl_table_automated_total') ?></col>
-	</colgroup>
+<caption style="text-align:right">
+	<label><?= lang('reports_tmpl_table_automated_p1') ?>: </label>
+	<label><?= lang('reports_tmpl_table_automated_total') ?>: </label>
+</caption>
 	<tr class="header">
 		<th><?=h( $header )?></th>
 		<?php foreach ($priorities as $p): ?>
