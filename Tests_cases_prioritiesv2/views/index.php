@@ -43,7 +43,6 @@ foreach($section_ids as $s) {
 		$stats->priority_count = 0;
 		$stats->priority_name = $p->name;
 		foreach($cases as $c) {
-			// echo "<h3>Checking case: ". $c->case_id ."</h3>";
 			if ($c->case_p_id == $p->id && $c->case_s_id == $s) {
 				$stats->priority_count += 1;
 			}
@@ -51,11 +50,11 @@ foreach($section_ids as $s) {
 		$section_info = array(
 			$s => $stats
 		);
-		echo "<br/>Section info<br/>";
+		echo "Section info<br/>";
 		print_r($section_info);
 		echo "<br/><br/><br/>";
+		array_push($summary, $section_info);
 	}
-	array_push($summary, $section_info);
 }
 
 echo "<br/><br/><br/>Summary<br/>";
