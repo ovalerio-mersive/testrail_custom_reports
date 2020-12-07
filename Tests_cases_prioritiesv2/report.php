@@ -200,7 +200,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		if ($section_ids == "") {
 			$query = $this->db->query(
 				'SELECT
-					c.id as case_id, s.name as section_name, p.name as p_name
+					c.id as case_id, s.name as section_name, p.name as p_name, p.id as p_id
 				FROM
 					cases c, sections s, priorities p, s.parent_id
 				WHERE
