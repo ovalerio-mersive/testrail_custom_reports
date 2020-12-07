@@ -41,10 +41,10 @@ foreach($suite_ids as $s) {
 	foreach($priorities as $p) {
 		foreach($cases as $c) {
 			if ($stats->priority_name == "") {
-				// $stats->suite_name = $c.section_name;
-				$stats->priority_name = $c.p_name;
+				$stats->suite_name = $c->section_name;
+				$stats->priority_name = $c->p_name;
 			}
-			if ($c.priority_id == $p.priority) {
+			if ($c->priority_id == $p->priority) {
 				$stats->priority_count += 1;
 			}
 		}
