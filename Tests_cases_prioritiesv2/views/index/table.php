@@ -23,7 +23,7 @@
 	<?php foreach ($items as $sections): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-			<td> <?php key($sections) ?> </td>
+			<td> <?php echo key($sections) ?> </td>
 			<?php foreach ($sections as $s): ?>
 				<?php 
 					echo "<td style='text-align: right'>". $s->priority_count ."</td>";
