@@ -35,10 +35,11 @@ foreach($section_ids as $s) {
 				$stats->priority_count += 1;
 			}
 		}
-		$section_info = array(
-			$s . "_" . $stats->priority_name => $stats
-		);
-		array_push($items, $section_info);
+		// $section_info = array(
+		// 	$s . "_" . $stats->priority_name => $stats
+		// );
+		// array_push($items, $section_info);
+		array_push($items, $stats);
 	}
 }
 
