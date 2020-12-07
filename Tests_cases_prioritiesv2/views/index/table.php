@@ -1,8 +1,8 @@
 <?php print_r($total_automated_cases); ?>
-<?php print_r($total_automated_cases); ?>
+<?php print_($total_automated_cases); ?>
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
-	<h3><?= lang('reports_tmpl_table_automated_p1') . ": " . $total_automated_cases; ?> </h3>
+	<h3><?= lang('reports_tmpl_table_automated_p1') ?> <?php echo $total_automated_cases; ?> </h3>
 	<h3><?= lang('reports_tmpl_table_automated_total') ?>: </h3>
 </caption>
 	<tr class="header">
