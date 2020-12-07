@@ -24,7 +24,7 @@
 	<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 				<td>
-					<?php print_r($item->section_name); ?> 
+					<?php print_r($item); ?> 
 				</td>
 		</tr>
 	<?php endforeach ?>
