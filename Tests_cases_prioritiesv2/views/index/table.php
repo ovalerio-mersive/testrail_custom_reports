@@ -1,7 +1,7 @@
 <table class="grid">
 <caption style="text-align:botton">
-	<h2><?= lang('reports_tmpl_table_automated_p1') ?>: $total_automated_cases</h2>
-	<h2><?= lang('reports_tmpl_table_automated_total') ?>: </hs>
+	<h3><?= lang('reports_tmpl_table_automated_p1') ?>: <?php echo $total_automated_cases ?> </h3>
+	<h3><?= lang('reports_tmpl_table_automated_total') ?>: </h3>
 </caption>
 	<tr class="header">
 		<th><?=h( $header )?></th>
