@@ -29,25 +29,51 @@ $stats->total_tcs = count($cases);
 $stats->total_automated_tcs_p1 = $automated_p1_cases[0]->total_automated_tcs_with_priority;
 $stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
 
-foreach ($cases as $c)
-{
-	switch ($c->p_name) {
-		case "Low":
-			$stats->p_low += 1;
-			break;
-		case "Medium":
-			$stats->p_medium += 1;
-			break;
-		case "High":
-			$stats->p_high += 1;
-			break;
-		case "Critical":
-			$stats->p_critical += 1;
-			break;
-		default:
-			break;
+
+$summary = [];
+
+foreach($suite_ids as $s) {
+	$stats = obj::create();
+	$stats->suite_name = "";
+	$stats->priority_name = "";
+	$stats->priority_count = 0;
+
+	foreach($priorities as $p) {
+		foreach($cases as $c) {
+			if ($stats->priority_name == "") {
+				$stats->suite_name = $c.section_name;
+				$stats->priority_name = $c.p_name;
+			}
+			if ($c.priority_id == $p.priority) {
+				$stats->priority_count += 1;
+			}
+		}
 	}
+	array_push($summary, $stats);
 }
+
+echo "<br/><br/><br/><br/>";
+print_r($summary);
+
+// foreach ($cases as $c)
+// {
+// 	switch ($c->p_name) {
+// 		case "Low":
+// 			$stats->p_low += 1;
+// 			break;
+// 		case "Medium":
+// 			$stats->p_medium += 1;
+// 			break;
+// 		case "High":
+// 			$stats->p_high += 1;
+// 			break;
+// 		case "Critical":
+// 			$stats->p_critical += 1;
+// 			break;
+// 		default:
+// 			break;
+// 	}
+// }
 
 // <h1>For debuging</h1>
 // print_r($priorities);

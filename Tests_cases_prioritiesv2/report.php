@@ -202,10 +202,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				'SELECT
 					c.id as case_id, s.name as section_name, p.name as p_name
 				FROM
-					cases c, sections s, priorities p
+					cases c, sections s, priorities p, s.parent_id
 				WHERE
-					c.section_id=s.id and c.priority_id=p.id',
-				$section_ids
+					c.section_id=s.id and c.priority_id=p.id'
 			);
 		} else {
 			$query = $this->db->query(
