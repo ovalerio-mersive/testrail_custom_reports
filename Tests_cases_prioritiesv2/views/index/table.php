@@ -26,7 +26,7 @@
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-		echo "<td>" . section_id . "</td>"
+		echo "<td>" . $section_id . "</td>"
 		 	// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
 		?>
 		</tr>
