@@ -29,7 +29,7 @@
 			echo "<td>" . $section_id . "</td>";
 			foreach($items as $item) {
 				if ($section_id == $item->section_id) {
-					echo "<td>" . $item->priority_count . "</td>";
+					echo "<td style='text-align: right'>" . $item->priority_count . "</td>";
 				}
 			}
 			// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
