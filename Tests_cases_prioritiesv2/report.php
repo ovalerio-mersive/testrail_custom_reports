@@ -201,7 +201,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			$query = $this->db->query(
 				'SELECT
 					c.id as case_id, 
-					c.priority_id as c_p_id, 
+					c.priority_id as case_p_id, 
 					s.name as section_name, 
 					p.name as p_name, 
 					p.id as p_id
