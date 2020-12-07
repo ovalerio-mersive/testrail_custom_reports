@@ -4,8 +4,8 @@
 		<?php foreach ($priorities as $p): ?>
 			<col style="width: 100px"></col>
 		<?php endforeach ?>
-		<col style="width: 300px"></col>
-		<col style="width: 150px"></col>
+		<col style="width: 300px"><?= lang('reports_tmpl_table_automated_p1') ?></col>
+		<col style="width: 150px"><?= lang('reports_tmpl_table_automated_total') ?></col>
 	</colgroup>
 	<tr class="header">
 		<th><?=h( $header )?></th>
