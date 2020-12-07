@@ -1,4 +1,6 @@
+<pre>
 <?php var_dump($items); ?>
+</pre>
 <table class="grid">
 	<colgroup>
 		<col></col>
