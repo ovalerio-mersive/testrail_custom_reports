@@ -42,7 +42,11 @@ foreach($section_ids as $s) {
 // print_r($items);
 ?>
 
-<h1><img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_cases_header_info') ?>" /><?= lang('reports_tmpl_cases_header') ?></h1>
+<h1>
+	<img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_cases_header_info') ?>" />
+	<?= lang('reports_tmpl_cases_header') ?> 
+	<?= lang('reports_tmpl_table_automated_p1' ) ?>
+</h1>
 <?php if ($cases): ?>
 	<?php
 	$temp = array();
