@@ -28,7 +28,7 @@
 		<?php
 			echo "<td>" . $section_id . "</td>";
 			foreach($items as $item) {
-				echo "<td>" . $item . "</td>"; 
+				echo "<td>" . var_dump($item) . "</td>"; 
 			}
 		 	// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
 		?>
