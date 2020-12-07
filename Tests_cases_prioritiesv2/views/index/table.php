@@ -1,6 +1,3 @@
-<pre>
-<?php var_dump($items); ?>
-</pre>
 <table class="grid">
 	<colgroup>
 		<col></col>
@@ -32,7 +29,6 @@
 					echo "<td style='text-align: right'>" . $item->priority_count . "</td>";
 				}
 			}
-			// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
 		?>
 		</tr>
 	<?php endforeach ?>
