@@ -21,11 +21,13 @@
 	</tr>
 	<?php arr::alternator() ?>
 	<?php foreach ($items as $sections): ?>
-		<?php foreach ($sections as $s): ?>
-		<?php $alt = arr::alternator('odd', 'even') ?>
+	<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-			<td colspan=><?php print_r($s); ?> </td>
+			<?php foreach ($sections as $s): ?>
+				<td>
+					<?php print_r($s); ?> 
+				</td>
+			<?php endforeach ?>
 		</tr>
-		<?php endforeach ?>
 	<?php endforeach ?>
 </table>
