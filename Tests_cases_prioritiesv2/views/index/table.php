@@ -1,3 +1,5 @@
+print_v($total_automated_cases);
+print_v($total_automated_cases);
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
 	<h3><?= lang('reports_tmpl_table_automated_p1') ?>: <?php $total_automated_cases ?> </h3>

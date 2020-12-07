@@ -51,6 +51,7 @@ foreach($section_ids as $s) {
 	$temp['priorities'] = $priorities;
 	$temp['items'] = $items;
 	$temp['section_ids'] = $section_ids;
+	$temp['automated_p1_cases'] = $automated_p1_cases;
 	$temp['total_automated_cases'] = $total_automated_cases;
 	$report_obj->render_view('index/table', $temp);
 	?>
