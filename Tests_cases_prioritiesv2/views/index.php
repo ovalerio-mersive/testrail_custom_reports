@@ -33,6 +33,8 @@ $stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
 $summary = [];
 
 foreach($suite_ids as $s) {
+	echo "<br/><br/>";
+	print_r($s);
 	$stats = obj::create();
 	$stats->suite_name = "";
 	$stats->priority_name = "";
@@ -44,9 +46,7 @@ foreach($suite_ids as $s) {
 				$stats->suite_name = $c->section_name;
 				$stats->priority_name = $c->p_name;
 			}
-			echo "<br/><br/>";
-			print_r($c);
-			if ($c->case_p_id == $p->id) {
+			if ($c->case_p_id == $p->p->id) {
 				$stats->priority_count += 1;
 			}
 		}
