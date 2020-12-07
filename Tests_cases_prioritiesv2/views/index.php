@@ -43,7 +43,7 @@ foreach($section_ids as $s) {
 
 		$stats->priority_name = "";
 		foreach($cases as $c) {
-			echo "<h3>Checking case: ". $c->case_id ."</h3>";
+			// echo "<h3>Checking case: ". $c->case_id ."</h3>";
 			if ($stats->priority_name == "") {
 				$stats->priority_name = $c->p_name;
 			}
