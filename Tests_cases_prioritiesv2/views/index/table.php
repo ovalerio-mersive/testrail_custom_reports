@@ -28,6 +28,7 @@
 		<?php
 			echo "<td>" . $section_id . "</td>";
 			foreach($items as $item) {
+				echo "<br/><br/><br/>";
 				print_r($item);
 				echo "<td>" . print_r($item) . "</td>"; 
 			}
