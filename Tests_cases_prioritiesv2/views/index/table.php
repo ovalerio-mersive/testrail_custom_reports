@@ -30,7 +30,7 @@
 			foreach($items as $item) {
 				echo "<br/><br/><br/>";
 				print_r($item);
-				print_r($item->priority_count);
+				// print_r($item->priority_count);
 				echo "<br/><br/><br/>";
 				echo "<td>" . print_r($item) . "</td>"; 
 			}
