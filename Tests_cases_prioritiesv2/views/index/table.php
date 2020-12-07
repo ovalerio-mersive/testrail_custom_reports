@@ -23,11 +23,9 @@
 	<?php foreach ($items as $sections): ?>
 	<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-			<?php foreach ($sections as $s): ?>
 				<td>
-					<?php print_r($s); ?> 
+					<?php print_r($item->section_name); ?> 
 				</td>
-			<?php endforeach ?>
 		</tr>
 	<?php endforeach ?>
 </table>
