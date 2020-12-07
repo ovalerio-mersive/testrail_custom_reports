@@ -33,20 +33,19 @@ $stats->total_automated_tcs = $total_automated_cases[0]->total_automated_tcs;
 $summary = [];
 
 foreach($section_ids as $s) {
-	echo "<br/><br/>";
-	print_r($s);
+	echo "<h1/>Cheking Section id". $s ."<h1/>";
 	$section_info = array();
 	$stats = obj::create();
 	$stats->section_name = "";
 	$stats->priority_count = 0;
 
 	foreach($priorities as $p) {
-		echo "<br/>Checking priority: <br/>";
+		echo "<h2/>Checking priority: <h2/>";
 		print_r($p->name);
 
 		$stats->priority_name = "";
 		foreach($cases as $c) {
-			echo "<br/>Checking case: <br/>";
+			echo "<h3/>Checking case: <h3/>";
 			print_r($c->case_id);
 
 			if ($stats->priority_name == "") {
