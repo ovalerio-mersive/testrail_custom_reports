@@ -36,7 +36,7 @@ foreach($section_ids as $s) {
 			}
 		}
 		$section_info = array(
-			$s => $stats
+			$s . $stats->priority_name => $stats
 		);
 		array_push($items, $section_info);
 	}
