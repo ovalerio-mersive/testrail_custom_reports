@@ -23,12 +23,17 @@
 	<?php foreach ($items as $sections): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-			<td> <?phpkey($sections) ?> </td>
+			<td> <?php key($sections) ?> </td>
 			<?php foreach ($sections as $s): ?>
 				<?php 
-					foreach($priorities as $p) {
-						echo "<td>". $p->name ."</td>";
-					}
+					echo "<td style='text-align: right'>". $s->priority_count ."</td>";
+					// foreach($priorities as $p) {
+					// 	if ($s->priority_name == $p->name) {
+					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
+					// 	} else {
+					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
+					// 	}
+					// }
 				?>
 			<?php endforeach ?>
 		</tr>
