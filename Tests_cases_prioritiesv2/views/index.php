@@ -23,11 +23,9 @@ $GI->load->view('report_plugins/layout/header', $header);
 $items = [];
 
 foreach($section_ids as $s) {
-	// echo "<h1>Cheking Section id ". $s ."</h1>";
 	$section_info = array();
 
 	foreach($priorities as $p) {
-		// echo "<h2>Checking priority: ". $p->name ."</h2>";
 
 		$stats = obj::create();
 		$stats->priority_count = 0;
@@ -40,9 +38,6 @@ foreach($section_ids as $s) {
 		$section_info = array(
 			$s => $stats
 		);
-		// echo "Section info<br/>";
-		// print_r($section_info);
-		// echo "<br/><br/><br/>";
 		array_push($items, $section_info);
 	}
 }
@@ -58,6 +53,7 @@ foreach($section_ids as $s) {
 	$temp['header'] = lang('reports_tmpl_section_item');
 	$temp['priorities'] = $priorities;
 	$temp['items'] = $items;
+	$temp['section_ids'] = $section_ids;
 	$report_obj->render_view('index/table', $temp);
 	?>
 <?php else: ?>

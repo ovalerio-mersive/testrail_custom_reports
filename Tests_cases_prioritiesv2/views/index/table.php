@@ -22,21 +22,12 @@
 		<th style="text-align: right"><?= lang('reports_tmpl_table_automated_total') ?></th>
 	</tr>
 	<?php arr::alternator() ?>
-	<?php foreach ($items as $sections): ?>
+	<?php foreach ($section_ids as $section_id): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-		 	echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
-			foreach ($sections as $s) {
-					echo "<td style='text-align: right'>". print_r($s) ."</td>";
-					// foreach($priorities as $p) {
-					// 	if ($s->priority_name == $p->name) {
-					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
-					// 	} else {
-					// 		echo "<td style='text-align: right'>". $s->priority_count ."</td>";
-					// 	}
-					// }
-			}
+		echo "<td>" . section_id . "</td>"
+		 	// echo "<td>" . key($sections) . " -- Count obj: " . $sections[key($sections)]->priority_count . "</td>";
 		?>
 		</tr>
 	<?php endforeach ?>
