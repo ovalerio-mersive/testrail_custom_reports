@@ -36,7 +36,7 @@ foreach($suite_ids as $s) {
 	echo "<br/><br/>";
 	print_r($s);
 	$stats = obj::create();
-	$stats->suite_name = "";
+	$stats->suite_name = $s.name;
 	$stats->priority_name = "";
 	$stats->priority_count = 0;
 
