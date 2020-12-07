@@ -1,7 +1,7 @@
 <table class="grid">
-<caption style="text-align:right">
-	<label><?= lang('reports_tmpl_table_automated_p1') ?>: </label>
-	<label><?= lang('reports_tmpl_table_automated_total') ?>: </label>
+<caption style="text-align:botton">
+	<h2><?= lang('reports_tmpl_table_automated_p1') ?>: $total_automated_cases</h2>
+	<h2><?= lang('reports_tmpl_table_automated_total') ?>: </hs>
 </caption>
 	<tr class="header">
 		<th><?=h( $header )?></th>
@@ -11,8 +11,6 @@
 				<?= h( $p->name ) ?>
 			</th>
 		<?php endforeach ?>
-		<th style="text-align: right"><?= lang('reports_tmpl_table_automated_p1') ?></th>
-		<th style="text-align: right"><?= lang('reports_tmpl_table_automated_total') ?></th>
 	</tr>
 	<?php arr::alternator() ?>
 	<?php foreach ($section_ids as $section_id): ?>
