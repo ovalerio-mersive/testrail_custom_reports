@@ -46,7 +46,7 @@ foreach($section_ids as $s) {
 			// 	$stats->section_name = $c->section_name;
 			// 	$stats->priority_name = $c->p_name;
 			// }
-			if ($c->case_p_id == $p->id && $c->section_id == $s && $c->priority_id == $p->id) {
+			if ($c->case_p_id == $p->id && $c->case_s_id == $s && $c->priority_id == $p->id) {
 				$stats->section_name = $c->section_name;
 				$stats->priority_name = $c->p_name;
 				$stats->priority_count += 1;

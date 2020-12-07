@@ -203,6 +203,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					c.id as case_id, 
 					c.priority_id as case_p_id, 
 					s.name as section_name, 
+					s.id as case_s_id, 
 					p.name as p_name, 
 					p.id as p_id
 				FROM
@@ -216,6 +217,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					c.id as case_id, 
 					c.priority_id as case_p_id, 
 					s.name as section_name, 
+					s.id as case_s_id,
 					p.name as p_name,
 					p.id as p_id
 				FROM
