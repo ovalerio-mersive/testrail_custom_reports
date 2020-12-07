@@ -20,11 +20,12 @@
 		<th style="text-align: right"><?= lang('reports_tmpl_table_automated_total') ?></th>
 	</tr>
 	<?php arr::alternator() ?>
-	<?php foreach ($items as $item): ?>
-	<?php $alt = arr::alternator('odd', 'even') ?>
+	<?php foreach ($items as $sections): ?>
+		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
-				<td><?php print_r($item->priority_count); ?></td>
-				<td><?php print_r($item->priority_name); ?></td>
+			<?php foreach ($sections as $s): ?>
+				<td><?php print_r($s); ?></td>
+			<?php endforeach ?>
 		</tr>
 	<?php endforeach ?>
 </table>
