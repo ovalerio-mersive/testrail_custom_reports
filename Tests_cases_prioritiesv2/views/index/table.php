@@ -15,13 +15,13 @@
 		<?php endforeach ?>
 	</tr>
 	<?php arr::alternator() ?>
-	<?php foreach ($sections as $section_id): ?>
+	<?php foreach ($sections as $section): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-			echo "<td>" . $section_id . "</td>";
+			echo "<td>" . $section->id . "</td>";
 			foreach($items as $item) {
-				if ($section_id == $item->section_id) {
+				if ($section->id == $item->section_id) {
 					echo "<td style='text-align: right'>" . $item->priority_count . "</td>";
 				}
 			}
