@@ -1,5 +1,3 @@
-<?php print_r($total_automated_cases); ?>
-<?php print_r($automated_p1_cases); ?>
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
 <?php

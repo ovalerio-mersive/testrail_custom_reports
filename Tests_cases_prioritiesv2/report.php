@@ -33,8 +33,10 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 	// generating a report.
 	private static $_resources = array(
 		'js/jquery.js',
+		'js/bootstrap.min.js',
 		'styles/print.css',
 		'styles/reset.css',
+		'styles/bootstrap4.min.css',
 		'styles/view.css'
 	);
 
