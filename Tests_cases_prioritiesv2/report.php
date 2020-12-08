@@ -179,10 +179,10 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					$result->parent_id
 				);
 				$result_parent = $query->result();
-			// 	$full_name = $full_name . " \ " . $result_parent[0]->name;
-			// 	$tmp_result = $result_parent;
+				$full_name = $full_name . " \ " . $result_parent[0]->name;
+				$tmp_result = $result_parent;
 			}
-			// $result->name = $full_name;
+			$result->name = $full_name;
 		}
 		return $results;
 	}
