@@ -1,7 +1,7 @@
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
 <div class="card">
-	<?php echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": ". $automated_p1_cases[0]->total_automated_tcs_with_priority ." / 20% </h3>"; ?>		
+	<?php echo "<h3 class='m-3' style='font-size:18;'>" . lang('reports_tmpl_table_automated_p1') . ": ". $automated_p1_cases[0]->total_automated_tcs_with_priority ." / 20% </h3>"; ?>		
 	<?php echo "<h3>" . lang('reports_tmpl_table_automated_total') . ": ". $total_automated_cases[0]->total_automated_tcs ." / 20% </h3>"; ?>
 </div>
 </caption>
