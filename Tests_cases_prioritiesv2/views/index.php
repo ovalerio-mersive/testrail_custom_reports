@@ -51,15 +51,16 @@ foreach($cases as $c) {
 <?php if ($cases): ?>
 	<?php
 	$temp = array();
-	$temp['header'] = lang('reports_tmpl_section_item');
-	$temp['priorities'] = $priorities;
-	$temp['items'] = $items;
-	$temp['total_cases'] = $total_cases;
-	$temp['sections'] = $sections;
-	$temp['suite_id'] = $suite_ids[0];
-	$temp['automated_p1_cases'] = $automated_p1_cases;
-	$temp['total_automated_cases'] = $total_automated_cases;
-	$report_obj->render_view('index/table', $temp);
+	print_r($sections);
+	// $temp['header'] = lang('reports_tmpl_section_item');
+	// $temp['priorities'] = $priorities;
+	// $temp['items'] = $items;
+	// $temp['total_cases'] = $total_cases;
+	// $temp['sections'] = $sections;
+	// $temp['suite_id'] = $suite_ids[0];
+	// $temp['automated_p1_cases'] = $automated_p1_cases;
+	// $temp['total_automated_cases'] = $total_automated_cases;
+	// $report_obj->render_view('index/table', $temp);
 	?>
 <?php else: ?>
 	<p><?= lang('reports_tmpl_cases_empty') ?></p>
