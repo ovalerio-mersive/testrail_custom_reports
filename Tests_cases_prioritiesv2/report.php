@@ -269,11 +269,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		} else {
 			echo "Entro a todos los sections";
 			$query = $this->db->query(
-				'SELECT 
-					count(*) as total_automated_tcs_with_priority 
-				FROM 
-					cases c, priorities p 
-				WHERE c.priority_id=p.id AND p.priority={0} AND c.type_id = (SELECT id from case_types where name="Automated"))',
+				'SELECT count(*) as total_automated_tcs_with_priority FROM cases c, priorities p WHERE c.priority_id=p.id AND p.priority={0} AND c.type_id = (SELECT id from case_types where name="Automated")',
 				$priority_id
 			);
 		}
