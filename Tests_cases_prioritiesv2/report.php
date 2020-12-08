@@ -113,8 +113,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
         // read data from the database
         $section_ids = $context['report']->custom_options['sections_ids'];
 		$section_ids = arr::get($options, 'sections_ids');
-		echo "Print1";
-		print_r($section_ids);
+		// echo "Print1";
+		// print_r($section_ids);
 
 		// Render the report to a temporary file and return the path
         // to TestRail (including additional resources that need to be
