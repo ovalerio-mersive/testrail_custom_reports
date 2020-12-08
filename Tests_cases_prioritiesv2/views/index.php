@@ -24,21 +24,21 @@ $items = [];
 
 print_r($sections);
 
-// foreach($sections as $s) {
-// 	$section_info = array();
-// 	foreach($priorities as $p) {
-// 		$stats = obj::create();
-// 		$stats->section_id = $s;
-// 		$stats->priority_count = 0;
-// 		$stats->priority_name = $p->name;
-// 		foreach($cases as $c) {
-// 			if ($c->case_p_id == $p->id && $c->case_s_id == $s) {
-// 				$stats->priority_count += 1;
-// 			}
-// 		}
-// 		array_push($items, $stats);
-// 	}
-// }
+foreach($sections as $s) {
+	$section_info = array();
+	foreach($priorities as $p) {
+		$stats = obj::create();
+		$stats->section_id = $s->id;
+		$stats->priority_count = 0;
+		$stats->priority_name = $p->name;
+		foreach($cases as $c) {
+			if ($c->case_p_id == $p->id && $c->case_s_id == $s->id) {
+				$stats->priority_count += 1;
+			}
+		}
+		array_push($items, $stats);
+	}
+}
 ?>
 
 
