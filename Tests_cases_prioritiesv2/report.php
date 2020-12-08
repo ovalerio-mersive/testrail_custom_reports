@@ -183,7 +183,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					FROM 
 						sections
 					WHERE
-						parent_id={0};',
+						id={0};',
 					$tmp_result->parent_id
 				);
 				$result_parent = $query2->result();
