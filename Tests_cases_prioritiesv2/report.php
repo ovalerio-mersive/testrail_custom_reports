@@ -270,23 +270,8 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					count(*) as total_automated_tcs_with_priority 
 				FROM 
 					cases c, priorities p 
-				WHERE 
-					c.priority_id=p.id AND p.priority={0} AND type_id=(
-																	SELECT 
-																		id 
-																	FROM 
-																		case_types 
-																	WHERE
-																		id=(
-																			SELECT 
-																				id 
-																			FROM 
-																				case_types 
-																			WHERE 
-																				name="Automated"
-																		) and c.section_id in ({1})
-																	);',
-				$priority_id, $section_ids
+				WHERE c.priority_id=p.id AND p.priority=3 AND c.type_id = (SELECT id from case_types where name="Automated"))',
+				$priority_id
 			);
 		}
 		return $query->result();
