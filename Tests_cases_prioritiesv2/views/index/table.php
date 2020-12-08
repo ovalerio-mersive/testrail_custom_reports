@@ -20,13 +20,6 @@
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-			print_r($sections);
-			$tmp_section = $section;
-			$section_full_name = "";
-			while($tmp_section->depth > 0) {
-				$section_full_name = $section_full_name . " / " . $sections[];
-			}
-
 			echo "<td><a href='/index.php?/suites/view/" . $suite_id . "&group_by=cases:section_id&group_order=asc&group_id=" . $section->id . "'>" . $section->name . "</a></td>";
 			$total_tcs = 0;
 			foreach($items as $item) {
