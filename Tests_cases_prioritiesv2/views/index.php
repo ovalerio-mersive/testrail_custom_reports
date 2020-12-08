@@ -50,7 +50,7 @@ foreach($cases as $c) {
 </h1>
 <?php if ($cases): ?>
 	<?php
-	print_r($total_cases);
+	print_r($suite_id);
 	$temp = array();
 	$temp['header'] = lang('reports_tmpl_section_item');
 	$temp['priorities'] = $priorities;
