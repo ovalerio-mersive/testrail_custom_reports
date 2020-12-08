@@ -3,8 +3,8 @@
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
 <?php
-	echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ":" . $automated_p1_cases[0]->total_automated_tcs_with_priority . "</h3>";
-	echo "<h3>" . lang('reports_tmpl_table_automated_total') . ":" . $total_automated_cases[0]->total_automated_tcs . "</h3>";
+	echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": " . $automated_p1_cases[0]->total_automated_tcs_with_priority . " ( x% )</h3>";
+	echo "<h3>" . lang('reports_tmpl_table_automated_total') . ": " . $total_automated_cases[0]->total_automated_tcs . " ( x% )</h3>";
 ?>	
 </caption>
 	<tr class="header">
