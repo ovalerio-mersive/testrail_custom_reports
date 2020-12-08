@@ -166,7 +166,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			$tmp_result = $result;
 
 			echo "<br/><br/><br/>";
-			print_r(tmp_result);
+			print_r($tmp_result);
 			// while ($tmp_result->depth > 0) {
 			// 	// get the parent information
 			// 	$query = $this->db->query(
