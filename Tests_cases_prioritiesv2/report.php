@@ -159,7 +159,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				$section_ids
 			);
 		}
-		$result=$query->result();
+		return $query->result();
 	}
 
 	public function get_total_automated_test_cases($section_ids) {
