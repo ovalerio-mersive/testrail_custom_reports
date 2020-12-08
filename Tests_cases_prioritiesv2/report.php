@@ -165,7 +165,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			$full_name = $result->name;
 			$tmp_result = $result;
 
-			echo "<br/><br/><br/> Analyzing " . $tmp_result->name . "<br/>";
+			echo "<br/><br/><br/> Analyzing " . $tmp_result->name . " -- " . $tmp_result->depth . "--" . $tmp_result->parent_id . "<br/>";
 			print_r($tmp_result);
 			echo " ----- ";
 			print_r($tmp_result->depth);
@@ -177,9 +177,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 
 			while ($tmp_result->depth > 0 && $counter < 10) {
 				// get the parent information
-				echo "Analyzing: ";
-				print_r($tmp_result);
-				$query = $this->db->query(
+				$query2 = $this->db->query(
 					'SELECT 
 						* 
 					FROM 
@@ -188,7 +186,8 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 						parent_id={0};',
 					$tmp_result->parent_id
 				);
-				$result_parent = $query->result();
+				$result_parent = $query2->result();
+				echo "<br/>Parent: " . $result_parent[0]->name;
 				$full_name = $full_name . " \ " . $result_parent[0]->name;
 				echo " ---- ";
 				print_r($full_name);
