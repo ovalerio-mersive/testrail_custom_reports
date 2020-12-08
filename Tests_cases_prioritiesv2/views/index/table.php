@@ -2,7 +2,7 @@
 <caption style="caption-side:bottom;text-align:right;">
 <div class="card">
 	<div class="row">
-		<?php echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": </h3> <label'> ". $automated_p1_cases[0]->total_automated_tcs_with_priority ." / 20% </label><br/>"; ?>		
+		<?php echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": </h3> <label> ". $automated_p1_cases[0]->total_automated_tcs_with_priority ." / 20% </label><br/>"; ?>		
 		<?php echo "<h3>" . lang('reports_tmpl_table_automated_total') . ": </h3> <label> ". $total_automated_cases[0]->total_automated_tcs ." / 20% </label>"; ?>
 	</div>
 </div>
