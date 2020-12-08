@@ -146,17 +146,17 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				'SELECT 
 					* 
 				FROM 
-					sections;'
+					sections
+				WHERE 
+					id in ({0});',
+				$section_ids
 			);
 		} else {
 			$query = $this->db->query(
 				'SELECT 
 					* 
 				FROM 
-					sections
-				WHERE 
-					id in ({0});',
-				$section_ids
+					sections;'
 			);
 		}
 		$results = $query->result();
