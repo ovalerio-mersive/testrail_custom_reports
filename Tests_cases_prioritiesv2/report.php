@@ -176,6 +176,8 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 
 			while ($tmp_result->depth > 0) {
 				// get the parent information
+				echo "Analyzing: ";
+				print_r($tmp_result->dept);
 				$query = $this->db->query(
 					'SELECT 
 						* 
@@ -187,6 +189,8 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				);
 				$result_parent = $query->result();
 				$full_name = $full_name . " \ " . $result_parent[0]->name;
+				echo " ---- ";
+				print_r($full_name);
 				$tmp_result = $result_parent[0];
 			}
 			$result->name = $full_name;
