@@ -178,7 +178,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					$tmp_result->parent_id
 				);
 				$result_parent = $query2->result();
-				$full_name = $result_parent[0]->name . "/" . $full_name;
+				$full_name = $result_parent[0]->name . " \ " . $full_name;
 				$tmp_result = $result_parent[0];
 				$counter += 1;
 			}
@@ -284,9 +284,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 																				case_types 
 																			WHERE 
 																				name="Automated"
-																		)
+																		) and c.section_id in ({1})
 																	);',
-				$priority_id
+				$priority_id, $section_ids
 			);
 		}
 		return $query->result();
