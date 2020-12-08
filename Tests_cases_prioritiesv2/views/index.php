@@ -44,11 +44,12 @@ foreach($sections as $s) {
 </h1>
 <?php if ($cases): ?>
 	<?php
+	print_r($cases);
 	$temp = array();
 	$temp['header'] = lang('reports_tmpl_section_item');
 	$temp['priorities'] = $priorities;
 	$temp['items'] = $items;
-	$temp['total_cases'] = count($cases);
+	// $temp['total_cases'] = count($cases);
 	$temp['sections'] = $sections;
 	$temp['automated_p1_cases'] = $automated_p1_cases;
 	$temp['total_automated_cases'] = $total_automated_cases;
