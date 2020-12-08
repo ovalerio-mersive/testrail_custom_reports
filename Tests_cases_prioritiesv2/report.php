@@ -115,7 +115,6 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
         // read data from the database
         $section_ids = $context['report']->custom_options['sections_ids'];
 		$section_ids = arr::get($options, 'sections_ids');
-        $cases = $this->_model->get_cases_from_section($section_ids);
 
 		// Render the report to a temporary file and return the path
         // to TestRail (including additional resources that need to be
@@ -130,7 +129,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'options' => $options,
 					'section_ids' => $section_ids,
 					'suite_ids' => $suite_ids,
-					'cases' => $cases,
+					'cases' => $this->_model->get_cases_from_section($section_ids),
 					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases($section_ids, 3), // 3 is the id for high priority
 					'total_automated_cases' => $this->_model->get_total_automated_test_cases($section_ids),
 					'priorities' => $this->_model->get_priorities(),
