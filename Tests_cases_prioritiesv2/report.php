@@ -165,7 +165,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			$full_name = $result->name;
 			$tmp_result = $result;
 
-			echo "<br/><br/><br/>";
+			echo "<br/><br/><br/> Analyzing " . $tmp_result->name . "<br/>";
 			print_r($tmp_result);
 			echo " ----- ";
 			print_r($tmp_result->depth);
