@@ -188,9 +188,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				);
 				$result_parent = $query2->result();
 				echo "<br/>Parent: " . $result_parent[0]->name;
-				$full_name = $full_name . " \ " . $result_parent[0]->name;
+				$full_name = $result_parent[0]->name . " \ " . $full_name;
 				echo " ---- ";
-				echo "FULL NAME:" . $full_name;
+				echo "<br/>FULL NAME:" . $full_name;
 				$tmp_result = $result_parent[0];
 				$counter += 1;
 			}
