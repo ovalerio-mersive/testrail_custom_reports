@@ -930,4 +930,8 @@ table.grid tr.evenSelected:hover {
   
   .accordion > .card .card-header {
 	margin-bottom: -1px;
-  }
+	}
+	
+	.p-2 {
+		padding: 0.5rem !important;
+	}
