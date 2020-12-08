@@ -188,56 +188,107 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	}
 
 	public function get_total_automated_test_cases($section_ids) {
-		$query = $this->db->query(
-			'SELECT 
-				count(*) as total_automated_tcs
-			FROM 
-				cases c, priorities p 
-			WHERE 
-				c.priority_id=p.id AND type_id=(
-												SELECT 
-													id 
-												FROM 
-													case_types 
-												WHERE
-													id=(
-														SELECT 
-															id 
-														FROM 
-															case_types 
-														WHERE 
-															name="Automated"
-													) and c.section_id in ({0})
-												);',
-			$section_ids	
-		);
+		if ($section_ids == "") {
+			$query = $this->db->query(
+				'SELECT 
+					count(*) as total_automated_tcs
+				FROM 
+					cases c, priorities p 
+				WHERE 
+					c.priority_id=p.id AND type_id=(
+													SELECT 
+														id 
+													FROM 
+														case_types 
+													WHERE
+														id=(
+															SELECT 
+																id 
+															FROM 
+																case_types 
+															WHERE 
+																name="Automated"
+														) and c.section_id in ({0})
+													);',
+				$section_ids	
+			);
+		} else {
+			$query = $this->db->query(
+				'SELECT 
+					count(*) as total_automated_tcs
+				FROM 
+					cases c, priorities p 
+				WHERE 
+					c.priority_id=p.id AND type_id=(
+													SELECT 
+														id 
+													FROM 
+														case_types 
+													WHERE
+														id=(
+															SELECT 
+																id 
+															FROM 
+																case_types 
+															WHERE 
+																name="Automated"
+														) 
+													);'	
+			);
+		}
 		return $query->result();
 	}
 
 	public function get_total_automated_p1_testcases($section_ids, $priority_id) {
-		$query = $this->db->query(
-			'SELECT 
-				count(*) as total_automated_tcs_with_priority 
-			FROM 
-				cases c, priorities p 
-			WHERE 
-				c.priority_id=p.id AND p.priority={0} AND type_id=(
-																SELECT 
-																	id 
-																FROM 
-																	case_types 
-																WHERE
-																	id=(
-																		SELECT 
-																			id 
-																		FROM 
-																			case_types 
-																		WHERE 
-																			name="Automated"
-																	) and c.section_id in ({1})
-																);',
-			$priority_id, $section_ids
-		);
+		if ($section_ids == "") {
+			$query = $this->db->query(
+				'SELECT 
+					count(*) as total_automated_tcs_with_priority 
+				FROM 
+					cases c, priorities p 
+				WHERE 
+					c.priority_id=p.id AND p.priority={0} AND type_id=(
+																	SELECT 
+																		id 
+																	FROM 
+																		case_types 
+																	WHERE
+																		id=(
+																			SELECT 
+																				id 
+																			FROM 
+																				case_types 
+																			WHERE 
+																				name="Automated"
+																		) and c.section_id in ({1})
+																	);',
+				$priority_id, $section_ids
+			);
+		} else {
+			$query = $this->db->query(
+				'SELECT 
+					count(*) as total_automated_tcs_with_priority 
+				FROM 
+					cases c, priorities p 
+				WHERE 
+					c.priority_id=p.id AND p.priority={0} AND type_id=(
+																	SELECT 
+																		id 
+																	FROM 
+																		case_types 
+																	WHERE
+																		id=(
+																			SELECT 
+																				id 
+																			FROM 
+																				case_types 
+																			WHERE 
+																				name="Automated"
+																		)
+																	);',
+				$priority_id
+			);
+		}
 		return $query->result();
 	}
 	
