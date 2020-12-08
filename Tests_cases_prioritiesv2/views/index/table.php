@@ -3,10 +3,10 @@
 <div class="card">
 	<div class="row">
 		<div class="col-6">
-			<?php echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": <h4 class='display-4'> ". $automated_p1_cases[0]->total_automated_tcs_with_priority ." / 20% </h4></h3>"; ?>
+			<?php echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": <h4 class='mr-3 display-4 float-right'> ". $automated_p1_cases[0]->total_automated_tcs_with_priority ." / 20% </h4></h3>"; ?>
 		</div>
 		<div class="col-6">
-			<?php echo "<h3>" . lang('reports_tmpl_table_automated_total') . ": " . $total_automated_cases[0]->total_automated_tcs . " ( x% )</h3>"; ?>
+			<?php echo "<h3>" . lang('reports_tmpl_table_automated_total') . ": <h4 class='ml-3 display-4 float-left'> ". $total_automated_cases[0]->total_automated_tcs ." / 20% </h4></h3>"; ?>
 		</div>
 	</div>
 </div>
