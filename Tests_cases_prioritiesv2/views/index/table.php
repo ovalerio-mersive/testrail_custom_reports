@@ -1,12 +1,14 @@
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
 <div class="card">
-	<div class="card-body">
-		<?php
-			echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": " . $automated_p1_cases[0]->total_automated_tcs_with_priority . " ( x% )</h3>";
-		echo "<h3>" . lang('reports_tmpl_table_automated_total') . ": " . $total_automated_cases[0]->total_automated_tcs . " ( x% )</h3>";
-		?>	
- 	</div>
+	<div class="row">
+		<div class="col-6">
+			<?php echo "<h3>" . lang('reports_tmpl_table_automated_p1') . ": <h4 class='display-4'> ". $automated_p1_cases[0]->total_automated_tcs_with_priority ." / 20% </h4></h3>"; ?>
+		</div>
+		<div class="col-6">
+			<?php echo "<h3>" . lang('reports_tmpl_table_automated_total') . ": " . $total_automated_cases[0]->total_automated_tcs . " ( x% )</h3>"; ?>
+		</div>
+	</div>
 </div>
 </caption>
 	<tr class="header">
