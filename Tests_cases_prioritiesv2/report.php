@@ -163,6 +163,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 
 		foreach($results as $result) {
 			print_r($result);
+			$result->name = $result->name . "updated";
 		}
 		return $results;
 	}
