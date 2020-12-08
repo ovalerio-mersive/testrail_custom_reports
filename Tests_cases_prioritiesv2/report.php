@@ -163,7 +163,8 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 
 		foreach($results as $result) {
 			$full_name = $result->name;
-			while ($result->depth > 0) {
+			$tmp_result = $result;
+			while ($tmp_result->depth > 0) {
 				// get the parent information
 				$query = $this->db->query(
 					'SELECT 
@@ -176,7 +177,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				);
 				$result_parent = $query->result();
 				$full_name = $full_name . " \ " . $result_parent[0]->name;
-				$result->next();
+				$tmp_result = $result_parent;
 			}
 			$result->name = $full_name;
 		}
