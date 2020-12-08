@@ -173,8 +173,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			if ($tmp_result->depth > 0) {
 				echo "---- mayor que 0";
 			}
+			$counter = 0;
 
-			while ($tmp_result->depth > 0) {
+			while ($tmp_result->depth > 0 && $counter < 10) {
 				// get the parent information
 				echo "Analyzing: ";
 				print_r($tmp_result);
@@ -192,6 +193,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				echo " ---- ";
 				print_r($full_name);
 				$tmp_result = $result_parent[0];
+				$counter += 1;
 			}
 			$result->name = $full_name;
 		}
