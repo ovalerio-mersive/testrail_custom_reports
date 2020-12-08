@@ -162,8 +162,22 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		$results = $query->result();
 
 		foreach($results as $result) {
-			print_r($result);
-			$result->name = $result->name . "updated";
+			$full_name = $result->name;
+			while ($result->depth > 0) {
+				// get the parent information
+				$query = $this->db->query(
+					'SELECT 
+						* 
+					FROM 
+						sections
+					WHERE
+						parent_id={0};',
+					$result->parent_id
+				);
+				$result_parent = $query->result();
+				$full_name = $full_name . " \ " . $result_parent[0]->name;
+			}
+			$result->name = $full_name;
 		}
 		return $results;
 	}
