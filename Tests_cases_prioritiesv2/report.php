@@ -170,25 +170,25 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			echo " ----- ";
 			print_r($tmp_result->depth);
 
-			if ($tmp_result->depth > 0) {
-				echo "---- mayor que 0";
-			}
-
-			// while ($result->depth > 0) {
-			// 	// get the parent information
-			// 	$query = $this->db->query(
-			// 		'SELECT 
-			// 			* 
-			// 		FROM 
-			// 			sections
-			// 		WHERE
-			// 			parent_id={0};',
-			// 		$result->parent_id
-			// 	);
-			// 	$result_parent = $query->result();
-			// 	$full_name = $full_name . " \ " . $result_parent[0]->name;
-			// 	$tmp_result = $result_parent;
+			// if ($tmp_result->depth > 0) {
+			// 	echo "---- mayor que 0";
 			// }
+
+			while ($tmp_result->depth > 0) {
+				// get the parent information
+				$query = $this->db->query(
+					'SELECT 
+						* 
+					FROM 
+						sections
+					WHERE
+						parent_id={0};',
+					$tmp_result->parent_id
+				);
+				$result_parent = $query->result();
+				$full_name = $full_name . " \ " . $result_parent[0]->name;
+				$tmp_result = $result_parent[0];
+			}
 			$result->name = $full_name;
 		}
 		return $results;
