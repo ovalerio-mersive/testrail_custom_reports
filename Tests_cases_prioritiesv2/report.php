@@ -113,8 +113,6 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
         // read data from the database
         $section_ids = $context['report']->custom_options['sections_ids'];
 		$section_ids = arr::get($options, 'sections_ids');
-		// echo "Print1";
-		// print_r($section_ids);
 
 		// Render the report to a temporary file and return the path
         // to TestRail (including additional resources that need to be
@@ -143,7 +141,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 class Tests_cases_prioritiesv2_summary_model extends BaseModel
 {
 	public function get_sections($section_ids) {
-		if ($section_ids == "") {
+		if (!empty($section_ids)) {
 			$query = $this->db->query(
 				'SELECT 
 					* 
@@ -190,7 +188,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	}
 
 	public function get_total_automated_test_cases($section_ids) {
-		if ($section_ids == "") {
+		if (!empty($section_ids)) {
 			$query = $this->db->query(
 				'SELECT 
 					count(*) as total_automated_tcs
@@ -242,13 +240,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	}
 
 	public function get_total_automated_p1_testcases($section_ids, $priority_id) {
-		echo "Section ids";
-		echo "<br>section_ids: ". $section_ids ."<br>";
-		print_r($section_ids);
-		echo "End print";
-		echo "Empty: " . empty($section_ids);
 		if (!empty($section_ids)) {
-			echo "Entro con sections especificos";
 			$query = $this->db->query(
 				'SELECT 
 					count(*) as total_automated_tcs_with_priority 
