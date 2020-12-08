@@ -242,7 +242,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	public function get_total_automated_p1_testcases($section_ids, $priority_id) {
 		echo "Section ids";
 		print_r($section_ids);
+		echo "End print";
 		if ($section_ids == "") {
+			echo "Entro con sections especificos";
 			$query = $this->db->query(
 				'SELECT 
 					count(*) as total_automated_tcs_with_priority 
