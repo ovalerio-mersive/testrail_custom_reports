@@ -19,7 +19,7 @@
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-			echo "<td>" . $section->id . "</td>";
+			echo "<td>" . $section->name . "</td>";
 			foreach($items as $item) {
 				if ($section->id == $item->section_id) {
 					echo "<td style='text-align: right'>" . $item->priority_count . "</td>";
