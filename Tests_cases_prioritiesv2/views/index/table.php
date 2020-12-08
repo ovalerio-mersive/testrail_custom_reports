@@ -24,7 +24,7 @@
 			$total_tcs = 0;
 			foreach($items as $item) {
 				if ($section->id == $item->section_id) {
-					echo "<td style='text-align: right'>" . $item->priority_count . "(" . ($item->priority_count * 100) / count(items) . "%)" . "</td>";
+					echo "<td style='text-align: right'>" . $item->priority_count . "(" . ($item->priority_count * 100) / count($items) . "%)" . "</td>";
 					$total_tcs += $item->priority_count;
 				}
 			}
