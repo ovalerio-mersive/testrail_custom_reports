@@ -13,7 +13,7 @@
 				<?= h( $p->name ) ?>
 			</th>
 		<?php endforeach ?>
-		<th>Total</th>
+		<th style='text-align: right'>Total</th>
 	</tr>
 	<?php arr::alternator() ?>
 	<?php foreach ($sections as $section): ?>
