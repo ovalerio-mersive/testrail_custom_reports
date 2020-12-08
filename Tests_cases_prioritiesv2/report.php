@@ -176,6 +176,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				);
 				$result_parent = $query->result();
 				$full_name = $full_name . " \ " . $result_parent[0]->name;
+				$result->next();
 			}
 			$result->name = $full_name;
 		}
