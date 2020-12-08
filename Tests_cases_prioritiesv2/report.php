@@ -244,7 +244,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		print_r($section_ids);
 		echo "End print";
 		echo "Empty: " . empty($section_ids);
-		if (empty($section_ids)) {
+		if ( ! empty($section_ids)) {
 			echo "Entro con sections especificos";
 			$query = $this->db->query(
 				'SELECT 
