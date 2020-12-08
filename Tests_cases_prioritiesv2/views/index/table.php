@@ -13,6 +13,7 @@
 				<?= h( $p->name ) ?>
 			</th>
 		<?php endforeach ?>
+		<th>Total</th>
 	</tr>
 	<?php arr::alternator() ?>
 	<?php foreach ($sections as $section): ?>
@@ -20,11 +21,14 @@
 		<tr class="<?= $alt ?>">
 		<?php
 			echo "<td>" . $section->name . "</td>";
+			$total_tcs = 0;
 			foreach($items as $item) {
 				if ($section->id == $item->section_id) {
 					echo "<td style='text-align: right'>" . $item->priority_count . "</td>";
+					$total_tcs += $item->priority_count;
 				}
 			}
+			echo "<td>" . $total_tcs . "</td>";
 		?>
 		</tr>
 	<?php endforeach ?>
