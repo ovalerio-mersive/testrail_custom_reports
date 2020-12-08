@@ -28,7 +28,7 @@
 					$total_tcs += $item->priority_count;
 				}
 			}
-			echo "<td>" . $total_tcs . "</td>";
+			echo "<td style='text-align: right'>" . $total_tcs . "</td>";
 		?>
 		</tr>
 	<?php endforeach ?>
