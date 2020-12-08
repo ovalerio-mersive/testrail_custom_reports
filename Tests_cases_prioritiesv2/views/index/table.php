@@ -1,8 +1,8 @@
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
 <div class="card p-1">
-	<label style="font-size=12;"><?php echo lang('reports_tmpl_table_automated_p1') . ": <b>". $automated_p1_cases[0]->total_automated_tcs_with_priority ."/20%</b>"; ?></label>
-	<label style="font-size=12;"><?php echo lang('reports_tmpl_table_automated_total') . ": <b>". $total_automated_cases[0]->total_automated_tcs ."/20%</b>"; ?></label>
+	<label style="font-size:12;"><?php echo lang('reports_tmpl_table_automated_p1') . ": <b>". $automated_p1_cases[0]->total_automated_tcs_with_priority ."/20%</b>"; ?></label>
+	<label style="font-size:12;"><?php echo lang('reports_tmpl_table_automated_total') . ": <b>". $total_automated_cases[0]->total_automated_tcs ."/20%</b>"; ?></label>
 </div>
 </caption>
 	<tr class="header">
