@@ -11,6 +11,7 @@ $lang['reports_tmpl_cases_header_info'] = 'Shows the list of cases that are used
 $lang['reports_tmpl_table_automated_total'] = 'Total Automated All Priorities';
 $lang['reports_tmpl_table_automated_p1'] = 'Total Automated High Priority';
 $lang['reports_tmpl_section_item'] = 'Section';
+$lang['reports_tmpl_table_total_cases'] = 'Total Cases';
 
 
 // $lang['reports_cas_form_grouping'] = 'Grouping &amp; Changes';

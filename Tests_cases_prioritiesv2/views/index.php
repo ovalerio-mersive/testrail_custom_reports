@@ -41,7 +41,6 @@ $total_cases = 0;
 foreach($cases as $c) {
 	$total_cases += 1;
 }
-
 ?>
 
 <h1>
@@ -51,7 +50,6 @@ foreach($cases as $c) {
 <?php if ($cases): ?>
 	<?php
 	$temp = array();
-	print_r($sections);
 	$temp['header'] = lang('reports_tmpl_section_item');
 	$temp['priorities'] = $priorities;
 	$temp['items'] = $items;
