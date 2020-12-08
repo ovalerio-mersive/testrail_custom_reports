@@ -170,14 +170,14 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			echo " ----- ";
 			print_r($tmp_result->depth);
 
-			// if ($tmp_result->depth > 0) {
-			// 	echo "---- mayor que 0";
-			// }
+			if ($tmp_result->depth > 0) {
+				echo "---- mayor que 0";
+			}
 
 			while ($tmp_result->depth > 0) {
 				// get the parent information
 				echo "Analyzing: ";
-				print_r($tmp_result->dept);
+				print_r($tmp_result);
 				$query = $this->db->query(
 					'SELECT 
 						* 
