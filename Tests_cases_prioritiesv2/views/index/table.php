@@ -20,7 +20,7 @@
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php
-			echo "<td>" . $section->name . "</td>";
+			echo "<td><a href='/index.php?/suites/view/" . $suite_id . "&group_by=cases:section_id&group_order=asc&group_id=" . $section->id . "'>" . $section->name . "</td>";
 			$total_tcs = 0;
 			foreach($items as $item) {
 				if ($section->id == $item->section_id) {
