@@ -15,7 +15,7 @@
 		<?php endforeach ?>
 	</tr>
 	<?php arr::alternator() ?>
-	<?php foreach ($section_ids as $section_id): ?>
+	<?php foreach ($sections as $section_id): ?>
 		<?php $alt = arr::alternator('odd', 'even') ?>
 		<tr class="<?= $alt ?>">
 		<?php

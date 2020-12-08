@@ -125,7 +125,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
                     'report' => $context['report'],
 					'project' => $project,
 					'options' => $options,
-					'section_ids' => $section_ids,
+					'sections' => $this->_model->get_sections($section_ids),
 					'suite_ids' => $suite_ids,
 					'cases' => $this->_model->get_cases_from_section($section_ids),
 					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases($section_ids, 3), // 3 is the id for high priority
@@ -140,6 +140,28 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 
 class Tests_cases_prioritiesv2_summary_model extends BaseModel
 {
+	public function get_sections($section_ids) {
+		if ($section_ids == "") {
+			$query = $this->db->query(
+				'SELECT 
+					* 
+				FROM 
+					sections;'
+			);
+		} else {
+			$query = $this->db->query(
+				'SELECT 
+					* 
+				FROM 
+					sections
+				WHERE 
+					id in ({0});',
+				$section_ids
+			);
+		}
+		$result=$query->result();
+	}
+
 	public function get_total_automated_test_cases($section_ids) {
 		$query = $this->db->query(
 			'SELECT 

@@ -22,7 +22,9 @@ $GI->load->view('report_plugins/layout/header', $header);
 <?php
 $items = [];
 
-foreach($section_ids as $s) {
+print_r($sections);
+
+foreach($sections as $s) {
 	$section_info = array();
 	foreach($priorities as $p) {
 		$stats = obj::create();
