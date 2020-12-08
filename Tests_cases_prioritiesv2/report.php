@@ -164,15 +164,6 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 		foreach($results as $result) {
 			$full_name = $result->name;
 			$tmp_result = $result;
-
-			echo "<br/><br/><br/> Analyzing " . $tmp_result->name . " -- " . $tmp_result->depth . "--" . $tmp_result->parent_id . "<br/>";
-			print_r($tmp_result);
-			echo " ----- ";
-			print_r($tmp_result->depth);
-
-			if ($tmp_result->depth > 0) {
-				echo "---- mayor que 0";
-			}
 			$counter = 0;
 
 			while ($tmp_result->depth > 0 && $counter < 10) {
@@ -187,10 +178,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 					$tmp_result->parent_id
 				);
 				$result_parent = $query2->result();
-				echo "<br/>Parent: " . $result_parent[0]->name;
 				$full_name = $result_parent[0]->name . " \ " . $full_name;
-				echo " ---- ";
-				echo "<br/>FULL NAME:" . $full_name;
 				$tmp_result = $result_parent[0];
 				$counter += 1;
 			}
