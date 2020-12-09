@@ -35,7 +35,7 @@ $(function () {
 				text: '<?php echo  lang('reports_tmpl_charts_bar_title') ?>'
 			},
 			xAxis: {
-				categories: $priorities,
+				categories: ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums'],
 				tickmarkPlacement: 'on',
 				title: {
 					enabled: false
