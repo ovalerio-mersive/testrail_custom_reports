@@ -48,7 +48,6 @@ foreach($cases as $c) {
 <?php 
 $temp = array();
 $temp['priorities'] = $priorities;
-$temp['case_groupby_name'] = $case_groupby_name;
 $report_obj->render_view('index/charts', $temp);
 ?>
 
