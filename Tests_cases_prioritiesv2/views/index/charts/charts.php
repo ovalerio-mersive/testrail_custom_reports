@@ -30,7 +30,7 @@ $(function () {
             {
                 chart: {
                     renderTo: 'chart0',
-                    type: 'column'
+                    type: 'bar'
                 },
                 title: {
                     text: 'World\'s largest cities per 2017'
