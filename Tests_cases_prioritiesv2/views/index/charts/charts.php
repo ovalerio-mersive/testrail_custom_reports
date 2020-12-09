@@ -42,7 +42,7 @@ $(function () {
                     <?php if (!$is_first): ?>
                     ,
                     <?php endif ?>
-                    <?php $category = h($p->name) ?>
+                    <?php $category = "Test" ?>
                     <?php echo  js::encode_string($category)?>
                     <?php $is_first = false ?>
                     <?php endforeach ?>
