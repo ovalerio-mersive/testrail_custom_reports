@@ -3,6 +3,7 @@
 
 <?php $chart_height = max(count($priorities) * 25 + 75, 150) ?>
 
+<h1>Here will be the chart</h1>
 <div class="chartContainer">
 	<div id="chart0" style="height: <?php echo  $chart_height ?>px;"></div>
 </div>
