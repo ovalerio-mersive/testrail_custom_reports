@@ -35,15 +35,7 @@ $(function () {
 				text: '<?php echo  lang('reports_tmpl_charts_bar_title') ?>'
 			},
 			xAxis: {
-				categories: [
-                    <?php $is_first = true ?>
-                    <?php foreach ($priorities as $p): ?>
-                        <?php if (!$is_first): ?>
-                        ,
-                        <?php endif ?>
-                        <?php $is_first = false ?>
-                    <?php endforeach ?>
-				],
+				categories: $priorities,
 				tickmarkPlacement: 'on',
 				title: {
 					enabled: false
