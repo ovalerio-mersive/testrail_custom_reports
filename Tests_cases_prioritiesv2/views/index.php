@@ -17,6 +17,7 @@ $header = array(
 );
 
 $GI->load->view('report_plugins/layout/header', $header);
+$GI->load->view('report_plugins/charts/defaults');
 ?>
 
 <?php
