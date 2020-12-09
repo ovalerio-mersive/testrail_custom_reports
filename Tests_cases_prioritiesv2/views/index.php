@@ -48,7 +48,7 @@ foreach($cases as $c) {
 <?php 
 $temp = array();
 $temp['priorities'] = $priorities;
-$report_obj->render_view('index/charts', $temp);
+$report_obj->render_view('index/charts/charts', $temp);
 ?>
 
 <h1>
