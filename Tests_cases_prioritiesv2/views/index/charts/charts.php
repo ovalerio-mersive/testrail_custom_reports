@@ -29,6 +29,7 @@ $(function () {
 		chart_bar = new Highcharts.Chart(
             {
                 chart: {
+                    renderTo: 'chart0',
                     type: 'column'
                 },
                 title: {
