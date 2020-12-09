@@ -16,6 +16,7 @@ $lang['reports_tmpl_cases_groupby_priority'] = 'Cases by Priority';
 
 // chart
 $lang['reports_tmpl_charts_bar_title'] = 'Cases by Priority';
+$lang['reports_tmpl_cases_cases'] = 'Cases';
 
 // $lang['reports_cas_form_grouping'] = 'Grouping &amp; Changes';
 // $lang['reports_cas_form_suites'] = 'Test Suites';

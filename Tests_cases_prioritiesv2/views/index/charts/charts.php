@@ -39,15 +39,22 @@ $(function () {
                     text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
                 },
                 xAxis: {
-                    type: 'category',
-                    labels: {
-                        rotation: -45,
-                        style: {
-                            fontSize: '13px',
-                            fontFamily: 'Verdana, sans-serif'
-                        }
-                    }
-                },
+                categories: [
+                <?php $is_first = true ?>
+                <?php foreach ($priorities as $group): ?>
+                    <?php if (!$is_first): ?>
+                    ,
+                    <?php endif ?>
+                    <?php $category = h($group->name) ?>
+                    <?php echo  js::encode_string($category)?>
+                    <?php $is_first = false ?>
+                    <?php endforeach ?>
+                ],
+                tickmarkPlacement: 'on',
+                title: {
+                    enabled: false
+                }
+            }
                 yAxis: {
                     min: 0,
                     title: {
@@ -60,27 +67,16 @@ $(function () {
                 tooltip: {
                     pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
                 },
-                series: [{
-                    name: 'Population',
-                    data: [
-                        ['Shanghai', 24.2],
-                        ['Beijing', 20.8],
-                        ['Karachi', 14.9],
-                        ['Shenzhen', 13.7]
-                    ],
-                    dataLabels: {
-                        enabled: true,
-                        rotation: -90,
-                        color: '#FFFFFF',
-                        align: 'right',
-                        format: '{point.y:.1f}', // one decimal
-                        y: 10, // 10 pixels down from the top
-                        style: {
-                            fontSize: '13px',
-                            fontFamily: 'Verdana, sans-serif'
-                        }
+                series: [
+                    <?php $data = array() ?>
+                    <?php foreach ($priorities as $p): ?>
+                        <?php $data[] = $p->id ?>
+                    <?php endforeach ?>
+                    {
+                        name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
+                        data: <?php echo  json::encode( $data ) ?>
                     }
-                }]
+                ]
             }
         );
 	});
