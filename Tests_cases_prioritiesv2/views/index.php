@@ -12,7 +12,8 @@ $header = array(
 		'styles/print.css' => 'print'
 	),
 	'js' => array(
-		'js/jquery.js'
+		'js/jquery.js',
+		'js/highcharts.js'
 	)
 );
 
@@ -42,6 +43,13 @@ $total_cases = 0;
 foreach($cases as $c) {
 	$total_cases += 1;
 }
+?>
+
+<?php 
+$temp = array();
+$temp['case_groups'] = $case_groups;
+$temp['case_groupby_name'] = $case_groupby_name;
+$report_obj->render_view('index/charts', $temp);
 ?>
 
 <h1>

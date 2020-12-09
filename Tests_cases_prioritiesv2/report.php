@@ -35,7 +35,8 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 		'js/jquery.js',
 		'styles/print.css',
 		'styles/reset.css',
-		'styles/view.css'
+		'styles/view.css',
+		'js/highcharts.js'
 	);
 
 	public function __construct()
