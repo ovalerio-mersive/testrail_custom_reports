@@ -8,6 +8,11 @@
 	<div id="chart0" style="height: <?php echo  $chart_height ?>px;"></div>
 </div>
 
+<?php 
+print_r($priorities);
+
+?>
+
 <script type="text/javascript">
 var chart_bar;
 
@@ -42,8 +47,8 @@ $(function () {
                     <?php if (!$is_first): ?>
                     ,
                     <?php endif ?>
-                    <?php $category = "Test" ?>
-                    <?php echo  js::encode_string($category)?>
+                    <?php $category = $p->name ?>
+                    <?php echo  js::encode_string($category) . " - Test"?>
                     <?php $is_first = false ?>
                     <?php endforeach ?>
 				],
