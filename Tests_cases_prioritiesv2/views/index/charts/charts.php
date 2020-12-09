@@ -36,7 +36,13 @@ $(function () {
 			},
 			xAxis: {
 				categories: [
-                    
+                    <?php $is_first = true ?>
+                    <?php foreach ($priorities as $p): ?>
+                        <?php if (!$is_first): ?>
+                        ,
+                        <?php endif ?>
+                        <?php $is_first = false ?>
+                    <?php endforeach ?>
 				],
 				tickmarkPlacement: 'on',
 				title: {
