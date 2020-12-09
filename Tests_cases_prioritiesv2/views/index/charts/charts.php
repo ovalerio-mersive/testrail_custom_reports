@@ -4,14 +4,13 @@
 <?php $chart_height = max(count($priorities) * 25 + 75, 150) ?>
 
 <h1>Here will be the chart</h1>
+<?php 
+print_r($priorities);
+?>
+
 <div class="chartContainer">
 	<div id="chart0" style="height: <?php echo  $chart_height ?>px;"></div>
 </div>
-
-<?php 
-print_r($priorities);
-
-?>
 
 <script type="text/javascript">
 var chart_bar;
@@ -44,12 +43,12 @@ $(function () {
 				categories: [
                     <?php $is_first = true ?>
                     <?php foreach ($priorities as $p): ?>
-                    <?php if (!$is_first): ?>
-                    ,
-                    <?php endif ?>
-                    <?php $category = $p->name ?>
-                    <?php echo  js::encode_string($category) . " - Test"?>
-                    <?php $is_first = false ?>
+                        <?php if (!$is_first): ?>
+                        ,
+                        <?php endif ?>
+                        <?php $category = $p->name ?>
+                        <?php echo  $p->name ?>
+                        <?php $is_first = false ?>
                     <?php endforeach ?>
 				],
 				tickmarkPlacement: 'on',
