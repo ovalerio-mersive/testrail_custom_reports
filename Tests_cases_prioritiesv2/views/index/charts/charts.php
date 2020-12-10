@@ -1,7 +1,7 @@
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
-<?php $chart_height = max(count($categories_data) * 40 + 75, 150) ?>
+<?php $chart_height = max(count($priorities_categories_data) * 40 + 75, 150) ?>
 
 <div class="chartContainer">
 	<div id="chart0" style="height: <?php echo  $chart_height ?>px;"></div>
@@ -52,7 +52,7 @@ $(function () {
                     text: 'Priorities'
                 },
                 xAxis: {
-                    categories: <?php echo  json::encode( $categories_data ) ?>,
+                    categories: <?php echo  json::encode( $priorities_categories_data ) ?>,
                     tickmarkPlacement: 'on',
                     title: {
                         enabled: false
@@ -81,10 +81,11 @@ $(function () {
                     }
                 },
                 series: [
-{
-    name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
-    data: <?php echo  json::encode( $series_data ) ?>
-}]
+                    {
+                        name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
+                        data: <?php echo  json::encode( $priorities_series_data ) ?>
+                    }
+                ]
             }
         );
 
@@ -98,7 +99,7 @@ $(function () {
                     text: 'Stacked bar chart'
                 },
                 xAxis: {
-                    categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                    categories: <?php echo  json::encode( $sections_categories_data ) ?>,
                 },
                 yAxis: {
                     min: 0,

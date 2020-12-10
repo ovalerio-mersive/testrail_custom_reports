@@ -25,7 +25,9 @@ $GI->load->view('report_plugins/charts/defaults');
 
 <?php
 $items = [];
+$sections_categories_data = [];
 foreach($sections as $s) {
+	array_push($sections_categories_data, $s->name);
 	$section_info = array();
 	foreach($priorities as $p) {
 		$stats = obj::create();
@@ -49,8 +51,8 @@ foreach($cases as $c) {
 
 <?php 
 // series and categories data for the chart
-$series_data = [];
-$categories_data = [];
+$priorities_series_data = [];
+$priorities_categories_data = [];
 foreach($priorities as $p) {
 	$count_p = 0;
 	array_push($categories_data, $p->name);
@@ -63,8 +65,13 @@ foreach($priorities as $p) {
 }
 
 $temp = array();
-$temp['categories_data'] = $categories_data;
-$temp['series_data'] = $series_data;
+// Chart 0
+$temp['priorities_categories_data'] = $priorities_categories_data;
+$temp['priorities_series_data'] = $priorities_series_data;
+// Chart 1
+$temp['sections_categories_data'] = $sections_categories_data;
+$temp['priorities_series_data'] = $priorities_series_data;
+// render charts
 $report_obj->render_view('index/charts/charts', $temp);
 ?>
 
