@@ -138,13 +138,8 @@ $(function () {
                     ?>
                     <?php foreach ($priorities_categories_data as $key=>$data_name): ?>
                         {
-                            <?php 
-                                echo "Printing Key..";
-                                print_r($key);
-                                echo "End Printing..";    
-                            ?>
                             name: <?php echo js::encode_string($data_name) ?>,
-                            data: <?php echo json::encode( [1, 2, 3, 4, 5, 6] ) ?>,
+                            data: <?php echo json::encode($all_rows[$key]) ?>,
                         },
                     <?php endforeach ?>
                         
