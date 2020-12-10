@@ -121,6 +121,8 @@ $(function () {
                     }
                 },
                 series: [
+                    <?php $data_names = array() ?>
+                    <?php $data_values = array() ?>
                     <?php foreach ($priorities as $p): ?>
                         <?php 
                         $total_tcs = 0; 
@@ -129,12 +131,22 @@ $(function () {
                                 $total_tcs += $item->priority_count;
                             }
                         }
+                        array_push($data_names, $p->name);
+                        array_push($data_values, $total_tcs);
                         ?>
-                        {
-                            name: <?php echo js::encode_string($p->name) ?>,
-                            data: <?php echo json::encode( [1, 2, 3, 4, 5] ) ?>,
-                        },
                     <?php endforeach ?>
+
+                    <?php foreach ($data_names as $data_name): ?>
+                        {
+                            name: <?php echo js::encode_string($data_name) ?>,
+                            data: <?php echo json::encode( [1, 2, 3, 4, 5] ) ?>,
+                        }
+                    <?php endforeach ?>
+                        
+                    // {
+                    //     name: <?php echo js::encode_string($p->name) ?>,
+                    //     data: <?php echo json::encode( [1, 2, 3, 4, 5] ) ?>,
+                    // },
                 ]
                 // series: [{
                 //     name: 'John',
