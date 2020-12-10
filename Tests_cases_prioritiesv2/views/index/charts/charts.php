@@ -57,9 +57,9 @@ $(function () {
                 tooltip: {
                     pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
                 },
-                series: [
+                series: {
                     data: [5, 3, 4, 7, 2]
-                ]
+                }
             }
         );
 	});
