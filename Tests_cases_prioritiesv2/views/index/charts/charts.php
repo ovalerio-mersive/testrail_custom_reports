@@ -39,7 +39,7 @@ $(function () {
                     text: 'Priorities'
                 },
                 xAxis: {
-                    categories: $categories_data ),
+                    categories: $categories_data,
                     tickmarkPlacement: 'on',
                     title: {
                         enabled: false
