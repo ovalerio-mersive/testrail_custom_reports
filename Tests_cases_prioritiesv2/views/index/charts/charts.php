@@ -140,7 +140,7 @@ $(function () {
                         {
                             name: <?php echo js::encode_string($data_name) ?>,
                             data: <?php echo json::encode( [1, 2, 3, 4, 5] ) ?>,
-                        }
+                        },
                     <?php endforeach ?>
                         
                     // {
