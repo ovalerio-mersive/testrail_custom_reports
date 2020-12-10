@@ -74,6 +74,7 @@ $temp['priorities_series_data'] = $priorities_series_data;
 // render charts
 $temp['items'] = $items;
 $temp['sections'] = $sections;
+$temp['priorities'] = $priorities;
 $report_obj->render_view('index/charts/charts', $temp);
 ?>
 
