@@ -104,7 +104,7 @@ $(function () {
                     text: 'Stacked bar chart'
                 },
                 xAxis: {
-                    categories: <?php echo  json::encode( $sections_categories_data ) ?>,
+                    categories: <?php echo json::encode( $sections_categories_data ) ?>,
                 },
                 yAxis: {
                     min: 0,
@@ -132,7 +132,7 @@ $(function () {
                         ?>
                         {
                             name: <?php echo js::encode_string($p->name) ?>,
-                            data: <?php echo "4" ?>,
+                            data: <?php echo json::encode( [1, 2, 3, 4, 5] ) ?>,
                         },
                     <?php endforeach ?>
                 ]
