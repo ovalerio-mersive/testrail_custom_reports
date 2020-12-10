@@ -121,20 +121,22 @@ $(function () {
                     }
                 },
                 series: [
-                    <?php 
-                        $data_names = array();
-                        $data_values = array();
-                        foreach ($sections as $section) {
+                    <?php
+                        $row_per_section = array();
+                        $all_rows = array();
+                        foreach ($priorities as $p) {
                             $total_tcs = 0; 
-                            foreach ($priorities as $p) {
+                            foreach ($sections as $section) {
                                 foreach($items as $item) {
                                     if ($p->name == $item->priority_name && $section->id == $item->section_id) {
                                         $total_tcs += $item->priority_count;
                                     }
                                 } 
+                                array_push($row_per_section, $total_tcs); 
                             }
-                            array_push($data_values, $total_tcs); 
+                            array_push($all_rows, $total_tcs); 
                         }
+                        print_r($all_rows);
                     ?>
                     <?php foreach ($priorities_categories_data as $data_name): ?>
                         {
