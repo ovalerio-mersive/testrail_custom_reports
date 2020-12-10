@@ -85,8 +85,7 @@ $(function () {
 {
     name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
     data: <?php echo  json::encode( $data ) ?>
-}
-                ]
+}]
             }
         );
 	});
