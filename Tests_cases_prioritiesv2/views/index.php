@@ -27,7 +27,7 @@ $GI->load->view('report_plugins/charts/defaults');
 $items = [];
 $sections_categories_data = [];
 foreach($sections as $s) {
-	array_push($sections_categories_data, $s->name);
+	// array_push($sections_categories_data, $s->name);
 	$section_info = array();
 	foreach($priorities as $p) {
 		$stats = obj::create();
