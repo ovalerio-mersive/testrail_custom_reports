@@ -252,7 +252,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
         if ($section_ids == "") {
             $query = $this->db->query(
                 'SELECT 
-                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=0 AND c.priority_id=(select id from priorities order by priority desc limit 1) AND c.section_id in ({0}))
+                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=3 AND c.priority_id=(select id from priorities order by priority desc limit 1) AND c.section_id in ({0}))
                     + 
                     (SELECT count(*) FROM cases c WHERE c.custom_automation_type=0 AND c.section_id in ({1})) 
                 AS total_automated_tcs_with_priority',
@@ -261,7 +261,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
         } else {
             $query = $this->db->query(
                 'SELECT 
-                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=0 AND c.priority_id=(select id from priorities order by priority desc limit 1)) 
+                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=3 AND c.priority_id=(select id from priorities order by priority desc limit 1)) 
                     + 
                     (SELECT count(*) FROM cases WHERE cases.custom_automation_type=0) 
                 AS total_automated_tcs_with_priority' 
