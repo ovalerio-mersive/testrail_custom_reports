@@ -136,7 +136,9 @@ $(function () {
                             }
                             array_push($all_rows, $total_tcs); 
                         }
-                        // print_r($all_rows);
+                        echo "Printing..";
+                        print_r($all_rows);
+                        echo "End Printing..";
                     ?>
                     <?php foreach ($priorities_categories_data as $data_name): ?>
                         {
