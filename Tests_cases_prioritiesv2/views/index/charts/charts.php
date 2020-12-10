@@ -1,6 +1,5 @@
 <?php 
-print_r($sections_categories_data);
-
+print_r($items);
 ?>
 
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
@@ -121,6 +120,9 @@ $(function () {
                         stacking: 'normal'
                     }
                 },
+                // series: [
+
+                // ]
                 series: [{
                     name: 'John',
                     data: [5, 3, 4, 7, 2, 3]
