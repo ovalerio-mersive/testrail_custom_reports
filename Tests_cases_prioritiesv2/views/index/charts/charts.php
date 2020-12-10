@@ -137,7 +137,7 @@ $(function () {
                                 print_r($row_per_section);
                                 echo "End Printing..";
                             }
-                            array_push($all_rows, $total_tcs); 
+                            array_push($all_rows, $row_per_section); 
                         }
                         echo "Printing..";
                         print_r($all_rows);
