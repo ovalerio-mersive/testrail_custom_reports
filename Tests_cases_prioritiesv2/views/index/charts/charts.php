@@ -59,7 +59,7 @@ $(function () {
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Population (millions)'
+                        text: 'Priorities (All selected sections)'
                     }
                 },
                 legend: {
@@ -68,9 +68,16 @@ $(function () {
                 tooltip: {
                     pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
                 },
+                // plotOptions: {
+                //     series: {
+                //         stacking: 'normal'
+                //     }
+                // },
                 plotOptions: {
-                    series: {
-                        stacking: 'normal'
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
                     }
                 },
                 // series: [{
