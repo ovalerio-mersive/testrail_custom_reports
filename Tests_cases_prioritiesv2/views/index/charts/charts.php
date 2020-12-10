@@ -7,13 +7,21 @@
 	<div id="chart0" style="height: <?php echo  $chart_height ?>px;"></div>
 </div>
 
+<div class="chartContainer">
+	<div id="chart1" style="height: <?php echo  $chart_height ?>px;"></div>
+</div>
+
 <script type="text/javascript">
 var chart_bar;
+var chart_bar2;
 
 function beforePrint()
 {
 	chart_bar.setSize(900, <?php echo  $chart_height ?>, false);
-	$('#chart0').css('width', '900px');
+    $('#chart0').css('width', '900px');
+
+    chart_bar1.setSize(900, <?php echo  $chart_height ?>, false);
+	$('#chart1').css('width', '900px');
 }
 
 function afterPrint()
@@ -21,7 +29,12 @@ function afterPrint()
 	$('#chart0').css('width', '');
 	var options = chart_bar.options;
 	chart_bar.destroy();
-	chart_bar = new Highcharts.Chart(options);
+    chart_bar = new Highcharts.Chart(options);
+    
+    $('#chart1').css('width', '');
+	var options = chart_bar1.options;
+	chart_bar1.destroy();
+	chart_bar1 = new Highcharts.Chart(options);
 }
 
 $(function () {
@@ -74,6 +87,45 @@ $(function () {
 }]
             }
         );
+
+        chart_bar1 = new Highcharts.Chart(
+            {
+                chart: {
+                    renderTo: 'chart1',
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Stacked bar chart'
+                },
+                xAxis: {
+                    categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Total fruit consumption'
+                    }
+                },
+                legend: {
+                    reversed: true
+                },
+                plotOptions: {
+                    series: {
+                        stacking: 'normal'
+                    }
+                },
+                series: [{
+                    name: 'John',
+                    data: [5, 3, 4, 7, 2]
+                }, {
+                    name: 'Jane',
+                    data: [2, 2, 3, 2, 1]
+                }, {
+                    name: 'Joe',
+                    data: [3, 4, 4, 2, 5]
+                }]
+            }
+        )
 	});
 });
 
