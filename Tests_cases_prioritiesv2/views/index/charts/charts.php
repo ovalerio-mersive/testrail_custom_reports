@@ -77,7 +77,7 @@ $(function () {
                 //     name: "Priorities",
                 //     data: [5, 3, 4, 7]
                 // }]
-                series [
+                series: [
 <?php $data = array() ?>
 <?php foreach ($priorities as $p): ?>
     <?php $data[] = $p->id ?>
