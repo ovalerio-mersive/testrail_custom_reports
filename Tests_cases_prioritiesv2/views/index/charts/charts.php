@@ -120,9 +120,9 @@ $(function () {
                     <?php
                         $all_rows = array();
                         foreach ($priorities as $p) {
-                            $total_tcs = 0; 
                             $row_per_section = array();
                             foreach ($sections as $section) {
+                                $total_tcs = 0; 
                                 foreach($items as $item) {
                                     if ($p->name == $item->priority_name && $section->id == $item->section_id) {
                                         $total_tcs += $item->priority_count;
@@ -139,22 +139,7 @@ $(function () {
                             data: <?php echo json::encode($all_rows[$key]) ?>,
                         },
                     <?php endforeach ?>
-                        
-                    // {
-                    //     name: <?php echo js::encode_string($p->name) ?>,
-                    //     data: <?php echo json::encode( [1, 2, 3, 4, 5] ) ?>,
-                    // },
                 ]
-                // series: [{
-                //     name: 'John',
-                //     data: [5, 3, 4, 7, 2, 3]
-                // }, {
-                //     name: 'Jane',
-                //     data: [2, 2, 3, 2, 1, 7]
-                // }, {
-                //     name: 'Joe',
-                //     data: [3, 4, 4, 2, 5, 10]
-                // }]
             }
         )
 	});
