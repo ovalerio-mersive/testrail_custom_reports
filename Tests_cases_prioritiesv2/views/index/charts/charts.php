@@ -30,7 +30,7 @@ $(function () {
             {
                 chart: {
                     renderTo: 'chart0',
-                    type: 'pie'
+                    type: 'bar'
                 },
                 title: {
                     text: 'All Cases in Selected Sections'
@@ -56,10 +56,18 @@ $(function () {
                         enabled: false
                     }
                 },
+                // yAxis: {
+                //     title: {
+                //         text: 'Priorities (All selected sections)'
+                //     }
+                // },
                 yAxis: {
-                    min: 0,
                     title: {
-                        text: 'Priorities (All selected sections)'
+                        text: ''
+                    },
+                    allowDecimals: false,
+                    labels: {
+                        overflow: 'justify'
                     }
                 },
                 legend: {
