@@ -4,9 +4,9 @@
 	<table class="mt-3 table table-hover" style="width:60%;">
 		<thead>
 			<tr>
-				<th class="text-center"> <?php echo lang('reports_tmpl_table_total_cases'); ?> </th>
-				<th class="text-center"> <?php echo lang('reports_tmpl_table_automated_p1') ?> </td>
-				<th class="text-center"> <?php echo lang('reports_tmpl_table_automated_total') ?> </td>
+				<th class="text-center" style="font-size:large;"> <?php echo lang('reports_tmpl_table_total_cases'); ?> </th>
+				<th class="text-center" style="font-size:large;"> <?php echo lang('reports_tmpl_table_automated_p1') ?> </td>
+				<th class="text-center" style="font-size:large;"> <?php echo lang('reports_tmpl_table_automated_total') ?> </td>
 			</tr>
 		</thead>
 		<tbody>
