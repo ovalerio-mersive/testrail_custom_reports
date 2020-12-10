@@ -26,75 +26,54 @@ function afterPrint()
 
 $(function () {
 	$(document).ready(function() {
-		chart_bar = new Highcharts.Chart(
-            {
-                chart: {
-                    renderTo: 'chart0',
-                    type: 'bar'
-                },
+		chart_bar = new Highcharts.Chart({
+            chart: {
+                renderTo: 'chart0',
+                type: 'bar'
+            },
+            title: {
+                text: 'Test Cases by Priority'
+            },
+            xAxis: {
+                categories: [
+                                                                                            'Low'                                                                               ,
+                                                            'Medium'                                                                                ,
+                                                            'High'                                                                              ,
+                                                            'Critical'                                                      ],
+                tickmarkPlacement: 'on',
                 title: {
-                    text: 'World\'s largest cities per 2017'
-                },
-                subtitle: {
-                    text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
-                },
-                xAxis: {
-                    // categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-                    categories: [
-<?php $is_first = true ?>
-<?php foreach ($priorities as $p): ?>
-    <?php if (!$is_first): ?>
-    ,
-    <?php endif ?>
-    <?php $category = h($p->name) ?>
-    <?php echo  js::encode_string($category)?>
-    <?php $is_first = false ?>
-<?php endforeach ?>
-                    ],
-                    tickmarkPlacement: 'on',
-                    title: {
-                        enabled: false
-                    }
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Priorities (All selected sections)'
-                    }
-                },
-                legend: {
                     enabled: false
+                }
+            },
+            tooltip: {
+                enabled: true
+            },
+            legend: {
+                enabled: false
+            },
+            yAxis: {
+                title: {
+                    text: ''
                 },
-                tooltip: {
-                    enabled: true
-                    // pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
-                },
-                // plotOptions: {
-                //     series: {
-                //         stacking: 'normal'
-                //     }
-                // },
-                plotOptions: {
-                    bar: {
-                        dataLabels: {
-                            enabled: true
-                        }
+                allowDecimals: false,
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
                     }
-                },
-                // series: [{
-                //     name: "Priorities",
-                //     data: [5, 3, 4, 7]
-                // }]
-                series: [
-<?php $data = array() ?>
-<?php foreach ($priorities as $p): ?>
-    <?php $data[] = $p->id ?>
-<?php endforeach ?>
-{
-    data: <?php echo  json::encode( $data ) ?>
-}]
-            }
-        );
+                }
+            },
+            series: [
+                {
+                    name: 'Test Cases',
+                    data: [34,313,4,7]              
+                }
+            ]
+        });
 	});
 });
 
