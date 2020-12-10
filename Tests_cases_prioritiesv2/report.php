@@ -37,7 +37,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 		'styles/reset.css',
 		'styles/view.css',
 		'styles/bootstrap.css',
-		'js/bootstrap.js',
+		// 'js/bootstrap.js',
 		'js/highcharts.js'
 	);
 
