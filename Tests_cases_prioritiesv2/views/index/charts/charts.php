@@ -1,7 +1,7 @@
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
-<?php $chart_height = max(count($priorities) * 50 + 75, 150) ?>
+<?php $chart_height = max(count($priorities) * 35 + 75, 150) ?>
 
 <div class="chartContainer">
 	<div id="chart0" style="height: <?php echo  $chart_height ?>px;"></div>
