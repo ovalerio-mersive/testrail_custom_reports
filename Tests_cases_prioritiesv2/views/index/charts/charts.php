@@ -125,8 +125,8 @@ $(function () {
                         $all_rows = array();
                         foreach ($priorities as $p) {
                             $total_tcs = 0; 
+                            $row_per_section = array();
                             foreach ($sections as $section) {
-                                $row_per_section = array();
                                 foreach($items as $item) {
                                     if ($p->name == $item->priority_name && $section->id == $item->section_id) {
                                         $total_tcs += $item->priority_count;
