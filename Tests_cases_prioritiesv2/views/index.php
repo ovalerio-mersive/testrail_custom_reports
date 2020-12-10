@@ -52,8 +52,8 @@ foreach($cases as $c) {
 $series_data = [];
 foreach($priorities as $p) {
 	$count_p = 0;
-	foreach($items as $item) {
-		if($p->name == $item->priority_name) {
+	foreach($case as $c) {
+		if($p->id == $c->case_p_id) {
 			$count_p += 1;
 		}
 	}
