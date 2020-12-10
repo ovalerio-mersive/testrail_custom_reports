@@ -1,7 +1,3 @@
-<?php 
-print_r($items);
-?>
-
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
@@ -140,11 +136,11 @@ $(function () {
                         print_r($all_rows);
                         echo "End Printing..";
                     ?>
-                    <?php foreach ($priorities_categories_data as $data_name): ?>
+                    <?php foreach ($priorities_categories_data as $key=>$data_name): ?>
                         {
                             <?php 
-                                echo "Printing..";
-                                print_r(key($data_name));
+                                echo "Printing Key..";
+                                print_r($key);
                                 echo "End Printing..";    
                             ?>
                             name: <?php echo js::encode_string($data_name) ?>,
