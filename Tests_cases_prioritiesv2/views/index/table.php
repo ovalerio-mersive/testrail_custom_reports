@@ -11,9 +11,9 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td class="text-center"><label class="badge border border-info mt-2" style="font-size:xx-large;"> <?php echo $total_cases; ?> </label></td>
-				<td class="text-center"><label class="badge border border-info mt-2" style="font-size:xx-large;"> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </label></td>
-				<td class="text-center"><label class="badge border border-info mt-2" style="font-size:xx-large;"> <?php echo $total_automated_cases[0]->total_automated_tcs ." (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </label></td>
+				<td class="text-center"><label class="badge border border-info mt-2" style="font-size:xx-large;background:lightgoldenrodyellow;"> <?php echo $total_cases; ?> </label></td>
+				<td class="text-center"><label class="badge border border-info mt-2" style="font-size:xx-large;background:lightgoldenrodyellow;"> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </label></td>
+				<td class="text-center"><label class="badge border border-info mt-2" style="font-size:xx-large;background:lightgoldenrodyellow;"> <?php echo $total_automated_cases[0]->total_automated_tcs ." (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </label></td>
 			</tr>
 		</tbody>
 	</table>

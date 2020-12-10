@@ -211,8 +211,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				FROM 
 					cases c
 				WHERE 
-					c.custom_automation_type=0;'	
-			);
+					c.custom_automation_type=0;');
 		}
 		return $query->result();
 	}
