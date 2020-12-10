@@ -131,7 +131,7 @@ class Tests_cases_prioritiesv2_report_plugin extends Report_plugin
 					'sections' => $this->_model->get_sections($section_ids),
 					'cases' => $this->_model->get_cases_from_section($section_ids),
 					'automated_p1_cases' => $this->_model->get_total_automated_p1_testcases($section_ids),
-					// 'total_automated_cases' => $this->_model->get_total_automated_test_cases($section_ids),
+					'total_automated_cases' => $this->_model->get_total_automated_test_cases($section_ids),
 					'priorities' => $this->_model->get_priorities(),
 					'show_links' => !$options['content_hide_links']
                 )
@@ -209,9 +209,10 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				'SELECT 
 					count(*) as total_automated_tcs
 				FROM 
-					cases c
+					cases
 				WHERE 
-					c.custom_automation_type=0;');
+					custom_automation_type=0;'
+			);
 		}
 		return $query->result();
 	}
