@@ -65,7 +65,7 @@ foreach($priorities as $p) {
 }
 ?>
 
-<h2>
+<h2 class="text-center">
 	<!-- <img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_cases_header_info') ?>" /> -->
 	<?= lang('reports_tmpl_cases_header') ?> 
 </h2>
@@ -84,7 +84,7 @@ foreach($priorities as $p) {
 	$temp['priorities'] = $priorities;
 	$report_obj->render_view('index/charts/charts', $temp);
 
-	
+
 	$temp = array();
 	$temp['header'] = lang('reports_tmpl_section_item');
 	$temp['priorities'] = $priorities;
