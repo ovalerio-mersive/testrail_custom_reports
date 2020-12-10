@@ -10,8 +10,8 @@
 			</tr>
 			<tr>
 				<td> <?php echo $total_cases; ?> </td>
-				<td> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." case(s) (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </td>
-				<td> <?php echo $total_automated_cases[0]->total_automated_tcs ." case(s) (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </td>
+				<td> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </td>
+				<td> <?php echo $total_automated_cases[0]->total_automated_tcs ." (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </td>
 			</tr>
 		</tbody>
 	</table>
