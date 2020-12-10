@@ -85,13 +85,9 @@ $(function () {
                     }
                 },
                 series: [
-<?php $data = array() ?>
-<?php foreach ($priorities as $p): ?>
-    <?php $data[] = $p->id ?>
-<?php endforeach ?>
 {
     name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
-    data: <?php echo  json::encode( $data ) ?>
+    data: <?php echo  json::encode( $series_data ) ?>
 }]
             }
         );

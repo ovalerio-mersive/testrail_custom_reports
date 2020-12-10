@@ -48,8 +48,22 @@ foreach($cases as $c) {
 ?>
 
 <?php 
+// series
+$series_data = [];
+foreach($priorities as $p) {
+	$count_p = 0;
+	foreach($items as $item) {
+		if($p->name == $item->priority_name) {
+			$count_p += 1;
+		}
+	}
+	array_push($series_data, $count_p);
+}
+
+// categories
 $temp = array();
 $temp['priorities'] = $priorities;
+$temp['series_data'] = $series_data;
 $report_obj->render_view('index/charts/charts', $temp);
 ?>
 
