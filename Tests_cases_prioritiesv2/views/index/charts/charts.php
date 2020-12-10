@@ -121,7 +121,7 @@ $(function () {
                     }
                 },
                 series: [
-                    <?php foreach ($priority as $p): ?>
+                    <?php foreach ($priorities as $p): ?>
                         <?php 
                         $total_tcs = 0; 
                         foreach($items as $item) {
