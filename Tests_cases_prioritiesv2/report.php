@@ -254,7 +254,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
                 'SELECT 
                     (SELECT count(*) FROM cases c WHERE c.custom_automation_type=0 AND c.priority_id=(select id from priorities order by priority desc limit 1) AND c.section_id in ({0}))
                     + 
-                    (SELECT count(*) FROM cases WHERE cases.custom_automation_type=(SELECT id FROM case_types WHERE name="Automated") AND c.section_id in ({1})) 
+                    (SELECT count(*) FROM cases WHERE cases.custom_automation_type=0 AND c.section_id in ({1})) 
                 AS total_automated_tcs_with_priority',
                 $section_ids, $section_ids
             );
@@ -263,7 +263,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
                 'SELECT 
                     (SELECT count(*) FROM cases c WHERE c.custom_automation_type=0 AND c.priority_id=(select id from priorities order by priority desc limit 1)) 
                     + 
-                    (SELECT count(*) FROM cases WHERE cases.custom_automation_type=(SELECT id FROM case_types WHERE name="Automated")) 
+                    (SELECT count(*) FROM cases WHERE cases.custom_automation_type=0) 
                 AS total_automated_tcs_with_priority' 
             );
         }
