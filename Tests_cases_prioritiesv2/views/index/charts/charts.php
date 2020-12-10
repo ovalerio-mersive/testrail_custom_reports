@@ -74,7 +74,8 @@ $(function () {
                     }
                 },
                 series: {
-                    data: [5, 3, 4, 7, 2]
+                    name: "Priorities"
+                    data: [5, 3, 4, 7]
                 }
             }
         );
