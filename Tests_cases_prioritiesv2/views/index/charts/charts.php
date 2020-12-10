@@ -2,7 +2,7 @@
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
 <?php $chart0_height = max(count($priorities_categories_data) * 35 + 75, 150) ?>
-<?php $chart1_height = max((count($sections_categories_data) + 2) * 30 + 75, 150) ?>
+<?php $chart1_height = max((count($sections_categories_data) + 2) * 33 + 75, 150) ?>
 
 <div class="chartContainer border-top border-bottom border-left border-info rounded-left shadow">
     <div id="chart0" style="height: <?php echo  $chart0_height ?>px;"></div>
