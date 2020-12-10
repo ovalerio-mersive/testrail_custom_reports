@@ -209,7 +209,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				'SELECT 
 					count(*) as total_automated_tcs
 				FROM 
-					cases c, 
+					cases c
 				WHERE 
 					c.custom_automation_type=0;'	
 			);
