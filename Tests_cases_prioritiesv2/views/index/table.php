@@ -1,4 +1,4 @@
-<table class="grid">
+<table class="mt-5 grid">
 <caption style="caption-side:bottom;text-align:right;">
 <div class="card p-2" style="align-items:center;">
 	<table class="mt-3 table table-hover" style="width:60%;">

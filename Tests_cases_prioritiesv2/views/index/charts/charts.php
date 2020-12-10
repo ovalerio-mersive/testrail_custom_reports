@@ -8,7 +8,7 @@
     <div id="chart0" style="height: <?php echo  $chart0_height ?>px;"></div>
 </div>
 
-<div class="chartContainer border-top border-bottom border-right border-info rounded-right shadow">
+<div class="mt-5 chartContainer border-top border-bottom border-right border-info rounded-right shadow">
     <div id="chart1" style="height: <?php echo  $chart1_height ?>px;"></div>
 </div>
 
