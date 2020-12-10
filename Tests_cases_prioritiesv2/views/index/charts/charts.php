@@ -132,9 +132,6 @@ $(function () {
                             }
                             array_push($all_rows, $row_per_section); 
                         }
-                        echo "Printing..";
-                        print_r($all_rows);
-                        echo "End Printing..";
                     ?>
                     <?php foreach ($priorities_categories_data as $key=>$data_name): ?>
                         {
