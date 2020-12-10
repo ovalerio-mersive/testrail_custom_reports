@@ -132,10 +132,7 @@ $(function () {
                                         $total_tcs += $item->priority_count;
                                     }
                                 } 
-                                array_push($row_per_section, $total_tcs); 
-                                echo "Printing..";
-                                print_r($row_per_section);
-                                echo "End Printing..";
+                                array_push($row_per_section, $total_tcs);
                             }
                             array_push($all_rows, $row_per_section); 
                         }
@@ -145,6 +142,11 @@ $(function () {
                     ?>
                     <?php foreach ($priorities_categories_data as $data_name): ?>
                         {
+                            <?php 
+                                echo "Printing..";
+                                print_r(key($data_name));
+                                echo "End Printing..";    
+                            ?>
                             name: <?php echo js::encode_string($data_name) ?>,
                             data: <?php echo json::encode( [1, 2, 3, 4, 5, 6] ) ?>,
                         },
