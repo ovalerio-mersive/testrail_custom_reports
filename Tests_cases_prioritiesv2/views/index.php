@@ -61,7 +61,7 @@ foreach($priorities as $p) {
 		}
 	}
 	array_push($priorities_categories_data, $p->name);
-	array_push($series_data, $count_p);
+	array_push($priorities_series_data, $count_p);
 }
 
 $temp = array();
