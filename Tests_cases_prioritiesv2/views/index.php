@@ -78,10 +78,10 @@ $temp['priorities'] = $priorities;
 $report_obj->render_view('index/charts/charts', $temp);
 ?>
 
-<h1>
+<h2>
 	<!-- <img class="right noPrint" src="%RESOURCE%:images/icons/help.png" width="16" height="16" alt="" title="<?= lang('reports_tmpl_cases_header_info') ?>" /> -->
 	<?= lang('reports_tmpl_cases_header') ?> 
-</h1>
+</h2>
 <?php if ($cases): ?>
 	<?php
 	$temp = array();
