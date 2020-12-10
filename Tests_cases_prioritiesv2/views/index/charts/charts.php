@@ -6,8 +6,8 @@ print_r($sections_categories_data);
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
-<?php $chart0_height = max(count($priorities_categories_data) * 40 + 75, 150) ?>
-<?php $chart1_height = max(count($sections_categories_data) * 40 + 75, 150) ?>
+<?php $chart0_height = max(count($priorities_categories_data) * 30 + 75, 150) ?>
+<?php $chart1_height = max(count($sections_categories_data) * 30 + 75, 150) ?>
 
 <div class="chartContainer">
 	<div id="chart0" style="height: <?php echo  $chart0_height ?>px;"></div>
