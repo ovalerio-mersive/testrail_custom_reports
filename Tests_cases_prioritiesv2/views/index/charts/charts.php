@@ -1,6 +1,3 @@
-<?php 
-print_r($categories_data);
-?>
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
@@ -42,7 +39,7 @@ $(function () {
                     text: 'Priorities'
                 },
                 xAxis: {
-                    categories: <?php echo  json::encode( $series_data ) ?>,
+                    categories: <?php echo  json::encode( $categories_data ) ?>,
                     tickmarkPlacement: 'on',
                     title: {
                         enabled: false
