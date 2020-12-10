@@ -17,9 +17,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<label style="font-size:13;"><?php echo lang('reports_tmpl_table_total_cases') . ": <b>". $total_cases . "</b>"; ?></label>
-	<label style="font-size:13;"><?php echo lang('reports_tmpl_table_automated_p1') . ": <b>". $automated_p1_cases[0]->total_automated_tcs_with_priority ." case(s) (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)</b>"; ?></label>
-	<label style="font-size:13;"><?php echo lang('reports_tmpl_table_automated_total') . ": <b>". $total_automated_cases[0]->total_automated_tcs ." case(s) (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)</b>"; ?></label>
 </div>
 </caption>
 	<tr class="header">
