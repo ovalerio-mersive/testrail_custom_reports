@@ -1,3 +1,8 @@
+<?php 
+print_r($sections_categories_data);
+
+?>
+
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
