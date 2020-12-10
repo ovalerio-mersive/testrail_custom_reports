@@ -73,6 +73,7 @@ $temp['sections_categories_data'] = $sections_categories_data;
 $temp['priorities_series_data'] = $priorities_series_data;
 // render charts
 $temp['items'] = $items;
+$temp['sections'] = $sections;
 $report_obj->render_view('index/charts/charts', $temp);
 ?>
 

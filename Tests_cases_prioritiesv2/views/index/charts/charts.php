@@ -120,19 +120,32 @@ $(function () {
                         stacking: 'normal'
                     }
                 },
-                // series: [
-
-                // ]
-                series: [{
-                    name: 'John',
-                    data: [5, 3, 4, 7, 2, 3]
-                }, {
-                    name: 'Jane',
-                    data: [2, 2, 3, 2, 1, 7]
-                }, {
-                    name: 'Joe',
-                    data: [3, 4, 4, 2, 5, 10]
-                }]
+                series: [
+                    <?php foreach ($priority as $p): ?>
+                        <?php 
+                        $total_tcs = 0; 
+                        foreach($items as $item) {
+                            if ($p->name == $item->priority_name) {
+                                $total_tcs += $item->priority_count;
+                            }
+                        }
+                        ?>
+                        {
+                            name: <?php $p->name ?>,
+                            data: <?php $total_tcs ?>,
+                        }
+                    <?php endforeach ?>
+                ]
+                // series: [{
+                //     name: 'John',
+                //     data: [5, 3, 4, 7, 2, 3]
+                // }, {
+                //     name: 'Jane',
+                //     data: [2, 2, 3, 2, 1, 7]
+                // }, {
+                //     name: 'Joe',
+                //     data: [3, 4, 4, 2, 5, 10]
+                // }]
             }
         )
 	});
