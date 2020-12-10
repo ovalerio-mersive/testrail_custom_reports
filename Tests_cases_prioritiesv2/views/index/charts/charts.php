@@ -66,7 +66,8 @@ $(function () {
                     enabled: false
                 },
                 tooltip: {
-                    pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+                    enabled: true
+                    // pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
                 },
                 // plotOptions: {
                 //     series: {
