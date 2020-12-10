@@ -39,17 +39,7 @@ $(function () {
                     text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
                 },
                 xAxis: {
-                categories: [
-                <?php $is_first = true ?>
-                <?php foreach ($priorities as $group): ?>
-                    <?php if (!$is_first): ?>
-                    ,
-                    <?php endif ?>
-                    <?php $category = h($group->name) ?>
-                    <?php echo  js::encode_string($category)?>
-                    <?php $is_first = false ?>
-                    <?php endforeach ?>
-                ],
+                categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
                 tickmarkPlacement: 'on',
                 title: {
                     enabled: false
@@ -68,14 +58,7 @@ $(function () {
                     pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
                 },
                 series: [
-                    <?php $data = array() ?>
-                    <?php foreach ($priorities as $p): ?>
-                        <?php $data[] = $p->id ?>
-                    <?php endforeach ?>
-                    {
-                        name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
-                        data: <?php echo  json::encode( $data ) ?>
-                    }
+                    data: [5, 3, 4, 7, 2]
                 ]
             }
         );
