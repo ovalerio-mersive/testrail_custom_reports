@@ -94,15 +94,21 @@ $(function () {
                     type: 'bar'
                 },
                 title: {
-                    text: 'Stacked bar chart'
+                    text: 'Stacked Cases'
+                },
+                subtitle: {
+                    text: 'Section vrs Priority'
                 },
                 xAxis: {
                     categories: <?php echo json::encode( $sections_categories_data ) ?>,
                 },
                 yAxis: {
-                    min: 0,
                     title: {
-                        text: 'Total fruit consumption'
+                        text: ''
+                    },
+                    allowDecimals: false,
+                    labels: {
+                        overflow: 'justify'
                     }
                 },
                 legend: {
