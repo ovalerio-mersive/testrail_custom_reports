@@ -10,7 +10,7 @@ $header = array(
 		'styles/reset.css' => 'all',
 		'styles/view.css' => 'all',
 		'styles/print.css' => 'print',
-		'styles/bootstrap.min.css' => 'all',
+		'styles/bootstrap.css' => 'all',
 	),
 	'js' => array(
 		'js/jquery.js',
