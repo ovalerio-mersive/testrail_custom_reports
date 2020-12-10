@@ -1,7 +1,7 @@
 <table class="mt-5 grid">
 <caption style="caption-side:bottom;text-align:right;">
-<div class="card p-2" style="align-items:center;">
-	<table class="mt-5 table table-hover" style="width:60%;">
+<div class="card mt-5 p-2" style="align-items:center;">
+	<table class="table table-hover" style="width:60%;">
 		<thead>
 			<tr>
 				<th class="text-center" style="font-size:large;width:33%;"> <?php echo lang('reports_tmpl_table_total_cases'); ?> </th>
