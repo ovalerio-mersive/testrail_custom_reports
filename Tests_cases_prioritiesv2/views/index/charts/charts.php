@@ -131,7 +131,7 @@ $(function () {
                         }
                         ?>
                         {
-                            name: <?php echo $p->name ?>,
+                            name: <?php echo js::encode_string($p->name) ?>,
                             data: <?php echo "4" ?>,
                         },
                     <?php endforeach ?>
