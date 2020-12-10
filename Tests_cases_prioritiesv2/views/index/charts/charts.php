@@ -78,14 +78,14 @@ $(function () {
                 //     data: [5, 3, 4, 7]
                 // }]
                 series [
-                    <?php $data = array() ?>
-                    <?php foreach ($priorities as $p): ?>
-                        <?php $data[] = $p->id ?>
-                    <?php endforeach ?>
-                    {
-                        name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
-                        data: <?php echo  json::encode( $data ) ?>
-                    }
+<?php $data = array() ?>
+<?php foreach ($priorities as $p): ?>
+    <?php $data[] = $p->id ?>
+<?php endforeach ?>
+{
+    name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
+    data: <?php echo  json::encode( $data ) ?>
+}
                 ]
             }
         );
