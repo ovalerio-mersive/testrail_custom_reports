@@ -1,6 +1,6 @@
 <?php
 
-$lang['reports_tmpl_meta_label'] = 'Priority Cases Summaryv2';
+$lang['reports_tmpl_meta_label'] = 'Priority Cases Summary';
 $lang['reports_tmpl_meta_group'] = 'Custom reports';
 $lang['reports_tmpl_meta_summary'] = 'Custom report created to display a summary of the test cases mainly based on their priorities';
 $lang['reports_tmpl_meta_description'] = 'It displays a table with a summary (total, percentage) of test cases that belongs to each priority.';
