@@ -53,7 +53,7 @@ $series_data = [];
 $categories_data = [];
 foreach($priorities as $p) {
 	$count_p = 0;
-	array_push($series_data, $$p->name);
+	array_push($categories_data, $p->name);
 	foreach($cases as $c) {
 		if($p->id == $c->case_p_id) {
 			$count_p += 1;
