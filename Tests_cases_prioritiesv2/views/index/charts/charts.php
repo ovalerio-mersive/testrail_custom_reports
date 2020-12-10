@@ -39,11 +39,7 @@ $(function () {
                     text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
                 },
                 xAxis: {
-                    categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
-                    tickmarkPlacement: 'on',
-                    title: {
-                        enabled: false
-                    }
+                    categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
                 },
                 yAxis: {
                     min: 0,
