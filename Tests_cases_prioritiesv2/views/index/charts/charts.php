@@ -73,10 +73,10 @@ $(function () {
                         stacking: 'normal'
                     }
                 },
-                series: {
+                series: [{
                     name: "Priorities",
                     data: [5, 3, 4, 7]
-                }
+                }]
             }
         );
 	});
