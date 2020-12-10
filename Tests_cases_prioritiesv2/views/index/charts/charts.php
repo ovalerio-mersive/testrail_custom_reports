@@ -89,44 +89,44 @@ $(function () {
             }
         );
 
-        chart_bar1 = new Highcharts.Chart(
-            {
-                chart: {
-                    renderTo: 'chart1',
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Stacked bar chart'
-                },
-                xAxis: {
-                    categories: <?php echo  json::encode( $sections_categories_data ) ?>,
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Total fruit consumption'
-                    }
-                },
-                legend: {
-                    reversed: true
-                },
-                plotOptions: {
-                    series: {
-                        stacking: 'normal'
-                    }
-                },
-                series: [{
-                    name: 'John',
-                    data: [5, 3, 4, 7, 2]
-                }, {
-                    name: 'Jane',
-                    data: [2, 2, 3, 2, 1]
-                }, {
-                    name: 'Joe',
-                    data: [3, 4, 4, 2, 5]
-                }]
-            }
-        )
+        // chart_bar1 = new Highcharts.Chart(
+        //     {
+        //         chart: {
+        //             renderTo: 'chart1',
+        //             type: 'bar'
+        //         },
+        //         title: {
+        //             text: 'Stacked bar chart'
+        //         },
+        //         xAxis: {
+        //             categories: <?php echo  json::encode( $sections_categories_data ) ?>,
+        //         },
+        //         yAxis: {
+        //             min: 0,
+        //             title: {
+        //                 text: 'Total fruit consumption'
+        //             }
+        //         },
+        //         legend: {
+        //             reversed: true
+        //         },
+        //         plotOptions: {
+        //             series: {
+        //                 stacking: 'normal'
+        //             }
+        //         },
+        //         series: [{
+        //             name: 'John',
+        //             data: [5, 3, 4, 7, 2]
+        //         }, {
+        //             name: 'Jane',
+        //             data: [2, 2, 3, 2, 1]
+        //         }, {
+        //             name: 'Joe',
+        //             data: [3, 4, 4, 2, 5]
+        //         }]
+        //     }
+        // )
 	});
 });
 
