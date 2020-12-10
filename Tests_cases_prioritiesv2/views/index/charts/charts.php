@@ -1,7 +1,3 @@
-<?php 
-print_r($series_data);
-?>
-
 <?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $GI->load->view('report_plugins/charts/defaults') ?>
 
@@ -43,28 +39,12 @@ $(function () {
                     text: 'Priorities'
                 },
                 xAxis: {
-                    // categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-                    categories: [
-<?php $is_first = true ?>
-<?php foreach ($priorities as $p): ?>
-    <?php if (!$is_first): ?>
-    ,
-    <?php endif ?>
-    <?php $category = h($p->name) ?>
-    <?php echo  js::encode_string($category)?>
-    <?php $is_first = false ?>
-<?php endforeach ?>
-                    ],
+                    categories: [ <?php echo  json::encode( $categories_data ) ?> ],
                     tickmarkPlacement: 'on',
                     title: {
                         enabled: false
                     }
                 },
-                // yAxis: {
-                //     title: {
-                //         text: 'Priorities (All selected sections)'
-                //     }
-                // },
                 yAxis: {
                     title: {
                         text: ''
@@ -79,7 +59,6 @@ $(function () {
                 },
                 tooltip: {
                     enabled: true
-                    // pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
                 },
                 plotOptions: {
                     bar: {

@@ -48,10 +48,12 @@ foreach($cases as $c) {
 ?>
 
 <?php 
-// series
+// series and categories data for the chart
 $series_data = [];
+$categories_data = [];
 foreach($priorities as $p) {
 	$count_p = 0;
+	array_push($series_data, $$p->name);
 	foreach($cases as $c) {
 		if($p->id == $c->case_p_id) {
 			$count_p += 1;
@@ -60,9 +62,8 @@ foreach($priorities as $p) {
 	array_push($series_data, $count_p);
 }
 
-// categories
 $temp = array();
-$temp['priorities'] = $priorities;
+$temp['categories_data'] = $categories_data;
 $temp['series_data'] = $series_data;
 $report_obj->render_view('index/charts/charts', $temp);
 ?>
