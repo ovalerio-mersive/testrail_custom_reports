@@ -1,13 +1,15 @@
 <table class="grid">
 <caption style="caption-side:bottom;text-align:right;">
 <div class="card p-2">
-	<table class="table">
-		<tbody>
+	<table class="table table-hover">
+		<thead>
 			<tr>
 				<th> <?php echo lang('reports_tmpl_table_total_cases'); ?> </th>
 				<th> <?php echo lang('reports_tmpl_table_automated_p1') ?> </td>
 				<th> <?php echo lang('reports_tmpl_table_automated_total') ?> </td>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td> <?php echo $total_cases; ?> </td>
 				<td> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </td>
