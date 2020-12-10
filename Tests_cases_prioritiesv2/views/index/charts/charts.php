@@ -4,11 +4,11 @@
 <?php $chart0_height = max(count($priorities_categories_data) * 30 + 75, 150) ?>
 <?php $chart1_height = max(count($sections_categories_data) * 30 + 75, 150) ?>
 
-<div class="chartContainer">
+<div class="chartContainer border-right border-bottom border-left border-info rounded">
     <div id="chart0" style="height: <?php echo  $chart0_height ?>px;"></div>
 </div>
 
-<div class="chartContainer">
+<div class="chartContainer border-right border-bottom border-left border-warning rounded">
     <div id="chart1" style="height: <?php echo  $chart1_height ?>px;"></div>
 </div>
 
