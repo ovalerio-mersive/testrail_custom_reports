@@ -57,7 +57,7 @@ $(function () {
                     text: 'Priorities'
                 },
                 xAxis: {
-                    categories: <?php echo  json::encode( $priorities_categories_data ) ?>,
+                    categories: <?php echo json::encode( $priorities_categories_data ) ?>,
                     tickmarkPlacement: 'on',
                     title: {
                         enabled: false
@@ -136,7 +136,7 @@ $(function () {
                             }
                             array_push($all_rows, $total_tcs); 
                         }
-                        print_r($all_rows);
+                        // print_r($all_rows);
                     ?>
                     <?php foreach ($priorities_categories_data as $data_name): ?>
                         {
