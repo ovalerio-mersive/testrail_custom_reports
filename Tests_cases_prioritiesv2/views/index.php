@@ -63,19 +63,6 @@ foreach($priorities as $p) {
 	array_push($priorities_categories_data, $p->name);
 	array_push($priorities_series_data, $count_p);
 }
-
-$temp = array();
-// Chart 0
-$temp['priorities_categories_data'] = $priorities_categories_data;
-$temp['priorities_series_data'] = $priorities_series_data;
-// Chart 1
-$temp['sections_categories_data'] = $sections_categories_data;
-$temp['priorities_series_data'] = $priorities_series_data;
-// render charts
-$temp['items'] = $items;
-$temp['sections'] = $sections;
-$temp['priorities'] = $priorities;
-$report_obj->render_view('index/charts/charts', $temp);
 ?>
 
 <h2>
@@ -84,6 +71,20 @@ $report_obj->render_view('index/charts/charts', $temp);
 </h2>
 <?php if ($cases): ?>
 	<?php
+	$temp = array();
+	// Chart 0
+	$temp['priorities_categories_data'] = $priorities_categories_data;
+	$temp['priorities_series_data'] = $priorities_series_data;
+	// Chart 1
+	$temp['sections_categories_data'] = $sections_categories_data;
+	$temp['priorities_series_data'] = $priorities_series_data;
+	// render charts
+	$temp['items'] = $items;
+	$temp['sections'] = $sections;
+	$temp['priorities'] = $priorities;
+	$report_obj->render_view('index/charts/charts', $temp);
+
+	
 	$temp = array();
 	$temp['header'] = lang('reports_tmpl_section_item');
 	$temp['priorities'] = $priorities;
