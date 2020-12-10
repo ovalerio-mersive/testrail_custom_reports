@@ -10,11 +10,12 @@ $header = array(
 		'styles/reset.css' => 'all',
 		'styles/view.css' => 'all',
 		'styles/print.css' => 'print',
-		'styles/bootstrap.min.js' => 'all',
+		'styles/bootstrap.min.css' => 'all',
 	),
 	'js' => array(
 		'js/jquery.js',
-		'js/highcharts.js'
+		'js/highcharts.js',
+		'styles/bootstrap.js'
 	)
 );
 
