@@ -133,7 +133,7 @@ $(function () {
                         {
                             name: <?php echo $p->name ?>,
                             data: <?php echo "4" ?>,
-                        }
+                        },
                     <?php endforeach ?>
                 ]
                 // series: [{
