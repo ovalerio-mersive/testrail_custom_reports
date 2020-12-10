@@ -26,54 +26,67 @@ function afterPrint()
 
 $(function () {
 	$(document).ready(function() {
-		chart_bar = new Highcharts.Chart({
-            chart: {
-                renderTo: 'chart0',
-                type: 'bar'
-            },
-            title: {
-                text: 'Test Cases by Priority'
-            },
-            xAxis: {
-                categories: [
-                                                                                            'Low'                                                                               ,
-                                                            'Medium'                                                                                ,
-                                                            'High'                                                                              ,
-                                                            'Critical'                                                      ],
-                tickmarkPlacement: 'on',
-                title: {
-                    enabled: false
-                }
-            },
-            tooltip: {
-                enabled: true
-            },
-            legend: {
-                enabled: false
-            },
-            yAxis: {
-                title: {
-                    text: ''
+		chart_bar = new Highcharts.Chart(
+            {
+                chart: {
+                    renderTo: 'chart0',
+                    type: 'pie'
                 },
-                allowDecimals: false,
-                labels: {
-                    overflow: 'justify'
-                }
-            },
-            plotOptions: {
-                bar: {
-                    dataLabels: {
-                        enabled: true
+                title: {
+                    text: 'All Cases in Selected Sections'
+                },
+                subtitle: {
+                    text: 'Priorities'
+                },
+                xAxis: {
+                    // categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                    categories: [
+<?php $is_first = true ?>
+<?php foreach ($priorities as $p): ?>
+    <?php if (!$is_first): ?>
+    ,
+    <?php endif ?>
+    <?php $category = h($p->name) ?>
+    <?php echo  js::encode_string($category)?>
+    <?php $is_first = false ?>
+<?php endforeach ?>
+                    ],
+                    tickmarkPlacement: 'on',
+                    title: {
+                        enabled: false
                     }
-                }
-            },
-            series: [
-                {
-                    name: 'Test Cases',
-                    data: [34,313,4,7]              
-                }
-            ]
-        });
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Priorities (All selected sections)'
+                    }
+                },
+                legend: {
+                    enabled: false
+                },
+                tooltip: {
+                    enabled: true
+                    // pointFormat: 'Population in 2017: <b>{point.y:.1f} millions</b>'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
+                        }
+                    }
+                },
+                series: [
+<?php $data = array() ?>
+<?php foreach ($priorities as $p): ?>
+    <?php $data[] = $p->id ?>
+<?php endforeach ?>
+{
+    name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
+    data: <?php echo  json::encode( $data ) ?>
+}]
+            }
+        );
 	});
 });
 
