@@ -73,10 +73,20 @@ $(function () {
                         stacking: 'normal'
                     }
                 },
-                series: [{
-                    name: "Priorities",
-                    data: [5, 3, 4, 7]
-                }]
+                // series: [{
+                //     name: "Priorities",
+                //     data: [5, 3, 4, 7]
+                // }]
+                series [
+                    <?php $data = array() ?>
+                    <?php foreach ($case_groups as $group): ?>
+                        <?php $data[] = $group->case_count ?>
+                    <?php endforeach ?>
+                    {
+                        name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
+                        data: <?php echo  json::encode( $data ) ?>
+                    }
+                ]
             }
         );
 	});
