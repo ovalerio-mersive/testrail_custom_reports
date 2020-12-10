@@ -249,7 +249,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 			// 3, Manual
 		// Based on the US the formula to generate this value is:
         // Formula: P1 Manual Test Cases + All Automated Test Cases
-        if ($section_ids == "") {
+        if (!empty($section_ids)) {
             $query = $this->db->query(
                 'SELECT 
                     (SELECT count(*) FROM cases c WHERE c.custom_automation_type=3 AND c.priority_id=(select id from priorities order by priority desc limit 1) AND c.section_id in ({0}))
