@@ -65,7 +65,6 @@ foreach($priorities as $p) {
 $temp = array();
 $temp['categories_data'] = $categories_data;
 $temp['series_data'] = $series_data;
-$temp['priorities'] = $priorities;
 $report_obj->render_view('index/charts/charts', $temp);
 ?>
 
