@@ -133,6 +133,9 @@ $(function () {
                                     }
                                 } 
                                 array_push($row_per_section, $total_tcs); 
+                                echo "Printing..";
+                                print_r($row_per_section);
+                                echo "End Printing..";
                             }
                             array_push($all_rows, $total_tcs); 
                         }
