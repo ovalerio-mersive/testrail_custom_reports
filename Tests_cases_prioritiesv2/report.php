@@ -199,9 +199,9 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				'SELECT 
 					count(*) as total_automated_tcs
 				FROM 
-					cases c
+					cases
 				WHERE 
-					c.custom_automation_type=0 and c.section_id in ({0}));',
+					custom_automation_type=0 and c.section_id in ({0});',
 				$section_ids	
 			);
 		} else {
@@ -211,8 +211,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				FROM 
 					cases
 				WHERE 
-					custom_automation_type=0;'
-			);
+					custom_automation_type=0;');
 		}
 		return $query->result();
 	}
