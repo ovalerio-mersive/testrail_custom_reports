@@ -121,25 +121,25 @@ $(function () {
                     }
                 },
                 series: [
-                    <?php $data_names = array() ?>
-                    <?php $data_values = array() ?>
-                    <?php foreach ($priorities as $p): ?>
-                        <?php 
-                        $total_tcs = 0; 
-                        foreach($items as $item) {
-                            if ($p->name == $item->priority_name) {
-                                $total_tcs += $item->priority_count;
+                    <?php 
+                        $data_names = array();
+                        $data_values = array();
+                        foreach ($sections as $section) {
+                            $total_tcs = 0; 
+                            foreach ($priorities as $p) {
+                                foreach($items as $item) {
+                                    if ($p->name == $item->priority_name && $section->id == $item->section_id) {
+                                        $total_tcs += $item->priority_count;
+                                    }
+                                } 
                             }
+                            array_push($data_values, $total_tcs); 
                         }
-                        array_push($data_names, $p->name);
-                        array_push($data_values, $total_tcs);
-                        ?>
-                    <?php endforeach ?>
-
-                    <?php foreach ($data_names as $data_name): ?>
+                    ?>
+                    <?php foreach ($priorities_categories_data as $data_name): ?>
                         {
                             name: <?php echo js::encode_string($data_name) ?>,
-                            data: <?php echo json::encode( [1, 2, 3, 4, 5] ) ?>,
+                            data: <?php echo json::encode( [1, 2, 3, 4, 5, 6] ) ?>,
                         },
                     <?php endforeach ?>
                         
