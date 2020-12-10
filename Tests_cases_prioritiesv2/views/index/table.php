@@ -11,9 +11,9 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td> <?php echo $total_cases; ?> </td>
-				<td> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </td>
-				<td> <?php echo $total_automated_cases[0]->total_automated_tcs ." (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </td>
+				<td><label> <?php echo $total_cases; ?> </label></td>
+				<td><label> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </label></td>
+				<td><label> <?php echo $total_automated_cases[0]->total_automated_tcs ." (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </label></td>
 			</tr>
 		</tbody>
 	</table>
