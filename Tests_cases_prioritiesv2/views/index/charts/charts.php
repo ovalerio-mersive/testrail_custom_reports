@@ -79,8 +79,8 @@ $(function () {
                 // }]
                 series [
                     <?php $data = array() ?>
-                    <?php foreach ($case_groups as $group): ?>
-                        <?php $data[] = $group->case_count ?>
+                    <?php foreach ($priorities as $p): ?>
+                        <?php $data[] = $p->id ?>
                     <?php endforeach ?>
                     {
                         name: <?php echo  js::encode_string(lang('reports_tmpl_cases_cases')) ?>,
