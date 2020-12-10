@@ -201,7 +201,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 				FROM 
 					cases
 				WHERE 
-					custom_automation_type=0 and c.section_id in ({0});',
+					custom_automation_type=0 and section_id in ({0});',
 				$section_ids	
 			);
 		} else {
