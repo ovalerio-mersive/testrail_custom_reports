@@ -4,16 +4,16 @@
 	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th> <?php echo lang('reports_tmpl_table_total_cases'); ?> </th>
-				<th> <?php echo lang('reports_tmpl_table_automated_p1') ?> </td>
-				<th> <?php echo lang('reports_tmpl_table_automated_total') ?> </td>
+				<th class="text-center"> <?php echo lang('reports_tmpl_table_total_cases'); ?> </th>
+				<th class="text-center"> <?php echo lang('reports_tmpl_table_automated_p1') ?> </td>
+				<th class="text-center"> <?php echo lang('reports_tmpl_table_automated_total') ?> </td>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td><label> <?php echo $total_cases; ?> </label></td>
-				<td><label> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </label></td>
-				<td><label> <?php echo $total_automated_cases[0]->total_automated_tcs ." (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </label></td>
+				<td class="text-center"><label class="badge badge-info" style="font-size:xx-large;"> <?php echo $total_cases; ?> </label></td>
+				<td class="text-center"><label class="badge badge-info" style="font-size:xx-large;"> <?php echo $automated_p1_cases[0]->total_automated_tcs_with_priority ." (" . round(($automated_p1_cases[0]->total_automated_tcs_with_priority*100)/$total_cases) . "%)"; ?> </label></td>
+				<td class="text-center"><label class="badge badge-info" style="font-size:xx-large;"> <?php echo $total_automated_cases[0]->total_automated_tcs ." (" . round(($total_automated_cases[0]->total_automated_tcs*100)/$total_cases) . "%)"; ?> </label></td>
 			</tr>
 		</tbody>
 	</table>
