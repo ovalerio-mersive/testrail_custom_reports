@@ -15,7 +15,7 @@ $header = array(
 	'js' => array(
 		'js/jquery.js',
 		'js/highcharts.js',
-		'styles/bootstrap.js'
+		'js/bootstrap.js'
 	)
 );
 
