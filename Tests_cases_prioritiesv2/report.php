@@ -242,12 +242,17 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
 	}
 
 	public function get_total_automated_p1_testcases($section_ids, $priority_id) {
-		// c.custom_automation_type=3: number 3 is the manual execution type, based on the US the formula to generate this value is:
+		// c.custom_automation_type=3: number 0 is the manual execution type. 
+			// 0, Automated
+			// 1, Automation Candidate
+			// 2, Can't Be Automated
+			// 3, Manual
+		// Based on the US the formula to generate this value is:
         // Formula: P1 Manual Test Cases + All Automated Test Cases
         if (!empty($section_ids)) {
             $query = $this->db->query(
                 'SELECT 
-                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=3 AND c.priority_id=(select id from priorities order by priority desc limit 1) AND c.section_id in ({0}))
+                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=0 AND c.priority_id=(select id from priorities order by priority desc limit 1) AND c.section_id in ({0}))
                     + 
                     (SELECT count(*) FROM cases WHERE cases.type_id=(SELECT id FROM case_types WHERE name="Automated") AND c.section_id in ({1})) 
                 AS total_automated_tcs_with_priority',
@@ -256,7 +261,7 @@ class Tests_cases_prioritiesv2_summary_model extends BaseModel
         } else {
             $query = $this->db->query(
                 'SELECT 
-                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=3 AND c.priority_id=(select id from priorities order by priority desc limit 1)) 
+                    (SELECT count(*) FROM cases c WHERE c.custom_automation_type=0 AND c.priority_id=(select id from priorities order by priority desc limit 1)) 
                     + 
                     (SELECT count(*) FROM cases WHERE cases.type_id=(SELECT id FROM case_types WHERE name="Automated")) 
                 AS total_automated_tcs_with_priority' 
