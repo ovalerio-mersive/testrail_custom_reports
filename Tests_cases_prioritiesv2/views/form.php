@@ -18,7 +18,6 @@
 
     <!-- Body -->
     <div class="tab-body tab-frame">
-        <p>Body here</p>
         <div class="tab tab1">
             <?php $report_obj->render_control(
                 $controls,
