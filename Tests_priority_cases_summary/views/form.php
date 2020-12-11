@@ -1,4 +1,4 @@
-s<?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('ROOTPATH')) exit('No direct script access allowed'); ?>
 <?php $tab = 1 ?>
 
 <input type="hidden" name="tab" id="tab" />
